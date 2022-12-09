@@ -1,9 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1 style={{ textAlign: "center" }}>TeamWyrk Coming Soon.</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" />
+            <Route path="/about" />
+            <Route path="/FAQ" />
+            <Route path="/contact" />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/* Remove h1 tag when landing page is ready */}
+      <h1 style={{ textAlign: "center", marginTop: "2rem" }}>
+        TeamWyrk Coming Soon.
+      </h1>
     </div>
   );
 }
