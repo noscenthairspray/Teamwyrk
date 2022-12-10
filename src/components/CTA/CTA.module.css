@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px;
+  gap: 40px;
+}
+
+.title {
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 65px;
+  letter-spacing: 1px;
+  color: #222f65;
+  text-align: center;
+}
+
+.description {
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.secondaryButton {
+  font-family: PT Sans;
+  border-radius: 9px;
+  border: none;
+  padding: 8px 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffc93c;
+  color: #222f65;
+}
