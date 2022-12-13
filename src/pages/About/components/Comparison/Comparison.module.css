@@ -1,11 +1,12 @@
 .container {
-  padding: 40px 0px;
+  padding: 60px 0px;
+  margin-bottom: 40px;
 }
 
 .containerText {
   font-family: PT Sans;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 .containerText h2 {
   margin-bottom: 40px;
