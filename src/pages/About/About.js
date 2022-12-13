@@ -1,4 +1,5 @@
 import { Showcase, Companies, Experience, Comparison } from "./components";
+import CTA from "../../components/CTA";
 import styles from "./About.module.css";
 
 const About = () => {
@@ -9,7 +10,7 @@ const About = () => {
       <Companies />
       <Experience />
       <Comparison />
-      {/* <CTA /> */}
+      <CTA buttonText="Get Started" />
     </div>
   );
 };
