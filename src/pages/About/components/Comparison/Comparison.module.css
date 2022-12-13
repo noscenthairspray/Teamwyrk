@@ -1,0 +1,43 @@
+.container {
+  padding: 40px 0px;
+}
+
+.containerText {
+  font-family: PT Sans;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.containerText h2 {
+  margin-bottom: 40px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  color: #5f6ea6;
+}
+.containerText p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #091133;
+}
+
+.containerBulletPoints {
+  padding: 0px 46px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 600px) {
+  .containerText h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  .containerText {
+    padding: 0px 10px;
+  }
+  .containerBulletPoints {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+}

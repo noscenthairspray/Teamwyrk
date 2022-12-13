@@ -1,0 +1,62 @@
+.title {
+  margin-bottom: 25px;
+}
+
+.title h3 {
+  text-align: center;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 65px;
+  color: #091133;
+}
+
+.bulletContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bulletPoints {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.bulletPoints li {
+  background-repeat: no-repeat;
+  background-position: 1px;
+  background-size: 40px;
+
+  padding-left: 60px;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 65px;
+  color: #091133;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .containerBulletPoints {
+    grid-template-columns: 1fr;
+  }
+
+  .bulletPoints {
+    list-style-type: none;
+    padding: 5px;
+  }
+
+  .bulletPoints li {
+    background-position: 0px;
+    background-size: 28px;
+    padding-left: 40px;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 15px;
+  }
+}
