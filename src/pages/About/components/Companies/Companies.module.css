@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0px;
+}
+
+.containerText {
+  text-align: center;
+  font-family: PT Sans;
+}
+
+.containerText h2 {
+  margin-bottom: 40px;
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.containerText p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #000000;
+}
+
+.companies {
+  margin-top: 12px;
+}
+
+.companies img {
+  max-width: 1068px;
+}
+
+.companies img:nth-of-type(2) {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .container img:first-of-type {
+    display: none;
+  }
+
+  .container img:nth-of-type(2) {
+    display: block;
+    width: 100vw;
+  }
+}
