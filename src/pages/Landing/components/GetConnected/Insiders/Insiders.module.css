@@ -1,0 +1,63 @@
+.name{
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    width: 195px;
+    height: 25px;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    color: #222F65;  
+}
+
+.description{
+    width: 195px;
+    height: 51px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;  
+    color: #181818;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 349px;
+    height: 136px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(55, 68, 126, 0.5);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 40px;
+}
+
+.wrapperText{
+    flex-wrap: wrap;
+    display: block;
+}
+
+img{
+    width: 120px;
+    height: 136px;
+    border-radius: 20px 0px 0px 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    align-items: flex-start;
+    
+}
+

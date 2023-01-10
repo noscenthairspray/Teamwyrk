@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+    gap: 40px;
+    height: 367px;
+    background: #BAC3E5;
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.title{
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    color: #222F65;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.wrapperText{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 24px;
+    gap: 10px;
+    width: 189px;
+    height: 46px;   
+    background: #37447E;
+    border-radius: 9px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.buttonText{
+    width: 141px;
+    height: 30px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
