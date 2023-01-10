@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import "./App.css";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
@@ -10,17 +11,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" />
+            <Route path="/" element = {<Landing />} />
             <Route path="/about" element={<About />} />
             <Route path="/FAQ" element={<FAQ />} />
             <Route path="/contact" />
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* Remove h1 tag when landing page is ready */}
-      <h1 style={{ textAlign: "center", marginTop: "2rem" }}>
-        TeamWyrk Coming Soon.
-      </h1>
     </div>
   );
 }
