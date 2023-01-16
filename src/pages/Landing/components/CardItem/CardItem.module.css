@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+.container h1 {
+    color: #222f65;
+    font-family: PT Sans;
+    font-style: none;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+.featureCard {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    height: 380px;
+    border-radius: 20px;
+}
+
+.individualCard {
+    width: 350px;
+    height: 380px;
+    border-radius: 20px;
+    border: 0.85px solid #bac3e5;
+}
+
+.individualCard img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.textWrapper {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #181818;
+}
+
+.cardTitle {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 65px;
+    color: #181818;
+}

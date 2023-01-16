@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
 //Layout Component is a wrapper for all pages
@@ -12,7 +13,7 @@ const Layout = () => {
       <main>
         <Outlet /> {/* <-- nested children routes rendered here! */}
       </main>
-      {/* Footer Component Here */}
+      <Footer />
     </>
   );
 };

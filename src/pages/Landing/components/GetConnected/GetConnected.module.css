@@ -6,10 +6,7 @@
     gap: 40px;
     height: 367px;
     background: #BAC3E5;
-    flex: none;
-    order: 3;
-    align-self: stretch;
-    flex-grow: 0;
+
 }
 
 .title{
