@@ -4,7 +4,9 @@ const Footer = () => {
     return (
         <footer className = {styles.container}>
             <div className = {styles.upperContainer}>
-                <img src = {"images/landing_page/linkedin.svg"} alt = "linkedin"></img>
+                <div className = {styles.imageWrapper}>
+                    <img src = {"images/landing_page/linkedin.svg"} alt = "linkedin"></img>
+                </div>
             </div>
 
             <div className = {styles.lowerContainer}>
