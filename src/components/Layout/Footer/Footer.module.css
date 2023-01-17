@@ -1,83 +1,63 @@
-.container{
-    height: 170px;
-    flex: none;
-    order: 5;
-    flex-grow: 0;
+.container {
+  height: 170px;
 }
 
-.upperContainer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 80px;
-    gap: 851px;
-    height: 106px;
-    left: 0px;
-    top: 0px;
-    background: #EFF2FC;
+.upperContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
+  height: 106px;
+  background: #eff2fc;
 }
 
-.imageWrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 0px;
-    gap: 63px;
-    width: 26px;
-    height: 26px;
-    margin-left: 622px;
-    margin-top: 215px;
+.imageWrapper {
+  padding: 0px;
+  width: 26px;
+  height: 26px;
 }
 
-.lowerContainer{
-    height: 64px;
-    left: 0px;
-    top: 106px;
-    background: rgba(186, 195, 229, 0.5);
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
 }
 
-.website{
-    width: 169px;
-    height: 24px;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    color: #222F65;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-left: 80px;
-    margin-top: 20px;
+.lowerContainer {
+  height: 64px;
+  background: rgba(186, 195, 229, 0.5);
 }
 
-.copyright{
-    width: 292px;
-    height: 24px;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: right;
-    color: #222F65;
-    flex: none;
-    flex-grow: 0;
-    margin-right: 80px;
-    margin-top: 20px;
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
-.textWrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 649px;
-    height: 24px;
-    left: 80px;
-    top: 20px;
+.website {
+  width: 169px;
+  height: 24px;
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #222f65;
+  text-decoration: none;
 }
 
+.copyright {
+  width: 292px;
+  height: 24px;
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+  color: #222f65;
+}
