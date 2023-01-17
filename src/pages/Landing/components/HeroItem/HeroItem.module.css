@@ -1,74 +1,74 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 0px;
-    gap: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px;
+  gap: 40px;
 }
 
 /* use flexbox or grid from parent container to position the logos instead of absolute positioning  */
 .heroLeft {
-    width: 241px;
+  width: 241px;
 }
 
 .heroLeftLogo {
-    width: 100%;
+  width: 100%;
 }
 
 .heroRight {
-    width: 222px;
+  width: 222px;
 }
 
 .heroRightLogo {
-    width: 100%;
+  width: 100%;
 }
 
 .heroCenterText {
-    text-align: center;
-    font-family: "PT Sans";
-    font-style: normal;
-    padding-left: 20px;
-    padding-right: 20px;
+  text-align: center;
+  font-family: "PT Sans";
+  font-style: normal;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-h1 {
-    color: #222f65;
-    font-family: PT Sans;
-    font-weight: bolder;
-    font-size: 48px;
-    margin-bottom: 40px;
+.heroCenterText h1 {
+  color: #222f65;
+  font-family: PT Sans;
+  font-weight: bolder;
+  font-size: 48px;
+  margin-bottom: 40px;
 }
 
 .textBodyTop {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 15px;
-    color: #181818;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 15px;
+  color: #181818;
 }
 
 .textBodyBottom {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 40px;
-    color: #181818;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 40px;
+  color: #181818;
 }
 
 .waitListBtn {
-    font-family: PT Sans;
-    border-radius: 9px;
-    border: none;
-    padding: 8px 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 30px;
-    font-size: 18px;
-    background-color: #ffc93c;
-    color: #222f65;
+  margin: 0 auto;
+  font-family: PT Sans;
+  border-radius: 9px;
+  border: none;
+  padding: 8px 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  font-size: 18px;
+  background-color: #ffc93c;
+  color: #222f65;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
