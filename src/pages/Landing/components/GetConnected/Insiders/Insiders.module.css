@@ -1,63 +1,69 @@
-.name{
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 25px;
-    width: 195px;
-    height: 25px;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    color: #222F65;  
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  width: 349px;
+  height: 136px;
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(55, 68, 126, 0.5);
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-left: 40px;
 }
 
-.description{
-    width: 195px;
-    height: 51px;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;  
-    color: #181818;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+.wrapperText {
+  flex-wrap: wrap;
+  display: block;
+  margin-left: 20px;
+  padding: 20px 0px;
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    width: 349px;
-    height: 136px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 8px rgba(55, 68, 126, 0.5);
-    border-radius: 20px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin-left: 40px;
+.name {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  width: 195px;
+  height: 25px;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  color: #222f65;
+  margin-bottom: 20px;
 }
 
-.wrapperText{
-    flex-wrap: wrap;
-    display: block;
+.company {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #181818;
+  margin-bottom: 10px;
 }
-
-img{
-    width: 120px;
-    height: 136px;
-    border-radius: 20px 0px 0px 20px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    align-items: flex-start;
-    
+.role {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #181818;
 }
-
+.imageWrapper img {
+  width: 120px;
+  height: 136px;
+  border-radius: 20px 0px 0px 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  align-items: flex-start;
+}
