@@ -3,15 +3,18 @@ import styles from "./Landing.module.css";
 import CTA from "../../components/CTA";
 
 const Landing = () => {
-    return (
-        <div>
-            < HeroItem />
-            < CardItem />
-            < HowItWorks />
-            < GetConnected />
-            < CTA buttonText="Join the waitlist" />
-        </div>
-    );
+  return (
+    <div>
+      <HeroItem />
+      <CardItem />
+      <HowItWorks />
+      <GetConnected />
+      <CTA
+        description="Join the waitlist to be among the first to know when TeamWyrk launches."
+        buttonText="Join the waitlist"
+      />
+    </div>
+  );
 };
 
 export default Landing;
