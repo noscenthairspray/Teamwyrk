@@ -1,0 +1,79 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  background: #f5f5f5;
+}
+
+.leftHalf {
+  background-image: url("/public/images/access/person_headphone.png");
+  background-size: cover;
+  grid-column: 1;
+}
+
+.rightHalf {
+  grid-column: 2;
+  place-self: center;
+}
+
+.dividerWrapper {
+  width: 234px;
+  height: 40px;
+  margin: 40px auto;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  color: #222f65;
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  height: 100%;
+}
+
+.divider:before,
+.divider:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid #000;
+  margin: auto 9px;
+}
+
+.googleButton {
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  width: 350px;
+  height: 50px;
+  border: 1px solid #222f65;
+  border-radius: 10px;
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 40px;
+}
+.googleButton img {
+  vertical-align: middle;
+  margin-right: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.helperText {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+}
+.helperText a {
+  font-weight: 600;
+  color: #5f6ea6;
+}
