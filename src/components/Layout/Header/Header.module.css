@@ -3,10 +3,10 @@
   height: 78px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 24px 80px;
   box-shadow: 1px 4px 8px rgba(34, 47, 101, 0.15);
+  gap: 40px;
 }
 
 .navContainer ul {
@@ -53,6 +53,14 @@ nav a {
   font-weight: 400;
   font-size: 14px;
   line-height: 30px;
+  width: 117px;
+}
+
+.linkWrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navLinks li:not(:last-child) {
@@ -68,8 +76,31 @@ nav a {
   color: #222f65;
 }
 
-/* @media only screen and (max-width: 586px) {
-  .container {
-    padding: 24px 25px;
-  }
-} */
+.accessButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.accessButtons button {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.signInButton {
+  background-color: transparent;
+  color: #222f65;
+  border: none;
+  border-radius: 10px;
+}
+.signUpButton {
+  background-color: #ffc93c;
+  border-radius: 10px;
+  border: none;
+  color: #222f65;
+  padding: 8px 24px;
+}
