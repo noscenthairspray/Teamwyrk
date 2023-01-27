@@ -2,14 +2,21 @@ import React from "react";
 import Primary from "./Primary";
 import Secondary from "./Secondary";
 
-const Button = ({ variant, type, children }) => {
+const Button = ({ variant, type, onClick, children }) => {
   const getButtonComponent = () => {
-    console.log(variant);
     switch (variant) {
       case "primary":
-        return <Primary type={type}>{children}</Primary>;
+        return (
+          <Primary type={type} onClick={onClick}>
+            {children}
+          </Primary>
+        );
       case "secondary":
-        return <Secondary type={type}>{children}</Secondary>;
+        return (
+          <Secondary type={type} onClick={onClick}>
+            {children}
+          </Secondary>
+        );
       default:
     }
   };
