@@ -1,5 +1,5 @@
 import React from "react";
-import Fields from "./Fields";
+import UserInput from "./UserInput";
 import Header from "./Header";
 import styles from "./RequestForm.module.css";
 
@@ -8,11 +8,13 @@ import styles from "./RequestForm.module.css";
 const RequestForm = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.formWrapper}>
-        {/* Header - Submit a request title and description */}
-        <Header />
-        {/* Fields - UserInput, Resume, Payment */}
-        <Fields />
+      <div className={styles.formContainer}>
+        <div className={styles.formWrapper}>
+          {/* Header - Submit a request title and description */}
+          <Header />
+          {/* Fields - UserInput, Resume, Payment */}
+          <UserInput />
+        </div>
       </div>
     </div>
   );

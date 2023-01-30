@@ -7,6 +7,11 @@
   padding-bottom: 40px;
   padding-left: 77px;
 }
+.formContainer {
+  max-width: 638px;
+  background: #f9fafe;
+  padding: 20px 40px;
+}
 
 .formWrapper {
   max-width: 638px;
