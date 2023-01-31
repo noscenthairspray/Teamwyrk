@@ -1,0 +1,33 @@
+.totalDisplay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 329px;
+}
+
+.totalDisplay h3 {
+    font-family: 'PT Sans';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    color: #37447e;
+}
+p {
+    font-family: 'PT Sans';
+    font-size: 18px;
+        font-style: normal;
+        color:#1A203D;
+}
+
+.paymentInput {
+    color: #37447e;
+    box-sizing: box;
+    border: 1px solid #37447e;
+    border-radius: 2px;
+    width: 145px;
+    height: 50px;
+}
+.red {
+    color: red;
+}

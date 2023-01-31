@@ -1,18 +1,23 @@
 .container {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: flex-start;
+  gap: 12px;
   padding-top: 55px;
   padding-bottom: 40px;
   padding-left: 77px;
 }
-.formContainer {
+.formControl {
+  align-self: stretch;
   max-width: 638px;
   background: #f9fafe;
   padding: 20px 40px;
+  left: 78px;
+  right: 127px;
+  gap: 40px;
 }
 
-.formWrapper {
-  max-width: 638px;
+.formControl input, select {
+  width: 540px;
 }

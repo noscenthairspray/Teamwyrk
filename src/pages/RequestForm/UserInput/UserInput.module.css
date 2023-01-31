@@ -1,5 +1,15 @@
-.container {
-    max-width: 638px;
-    background: #f9fafe;
-    padding: 20px 40px;
+fieldset {
+    border: none;
+}
+
+.red {
+    color: red;
+}
+
+p, ul {
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #181818;
 }
