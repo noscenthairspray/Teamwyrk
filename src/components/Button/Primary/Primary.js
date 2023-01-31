@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Primary.module.css";
 
-const Primary = ({ color, event, type, children, onClick }) => {
+const Primary = ({ event, type, children, onClick }) => {
   return (
     <button
-      className={`${styles.color} ${styles[`primary${event}`]}`}
+      className={`${styles.primary} ${styles[`primary${event}`]}`}
       onClick={onClick}
       type={type}
     >

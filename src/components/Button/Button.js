@@ -7,19 +7,19 @@ const Button = ({ color, event, type, onClick, children }) => {
     switch (color) {
       case "primary":
         return (
-          <Primary color={color} event={event} type={type} onClick={onClick}>
+          <Primary event={event} type={type} onClick={onClick}>
             {children}
           </Primary>
         );
       case "secondary":
         return (
-          <Secondary color={color} event={event} type={type} onClick={onClick}>
+          <Secondary event={event} type={type} onClick={onClick}>
             {children}
           </Secondary>
         );
       case "yellow":
         return (
-          <Yellow color={color} event={event} type={type} onClick={onClick}>
+          <Yellow event={event} type={type} onClick={onClick}>
             {children}
           </Yellow>
         );

@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Yellow.module.css";
 
-const Yellow = ({ color, event, type, onClick, children }) => {
+const Yellow = ({ event, type, onClick, children }) => {
   return (
     <button
-      className={`${styles.color} ${styles[`yellow${event}`]}`}
+      className={`${styles.yellow} ${styles[`yellow${event}`]}`}
       onClick={onClick}
       type={type}
     >
