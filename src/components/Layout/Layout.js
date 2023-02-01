@@ -1,4 +1,5 @@
 import Header from "./Header";
+import ActiveHeader from "./ActiveHeader";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
@@ -9,7 +10,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <Header />
+      {/*<Header /> */}
+      {<ActiveHeader />}
       <main>
         <Outlet /> {/* <-- nested children routes rendered here! */}
       </main>

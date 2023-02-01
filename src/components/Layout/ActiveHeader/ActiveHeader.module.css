@@ -1,0 +1,77 @@
+.navContainer {
+    background: #ffffff;
+    height: 78px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 24px 80px;
+    box-shadow: 1px 4px 8px rgba(34, 47, 101, 0.15);
+    gap: 40px;
+  }
+  
+  .navContainer ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .navContainer li {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+  }
+  
+  .navBrand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    height: 30px;
+    color: #000000;
+  }
+  
+  .brandText {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  
+  .builtByText {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    width: 117px;
+  }
+  
+  .linkWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navLinks li:not(:last-child) {
+    margin-right: 32px;
+  }
+  
+  .navLinks li a {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #222f65;
+  }
