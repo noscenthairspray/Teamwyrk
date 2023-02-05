@@ -75,3 +75,13 @@
     line-height: 24px;
     color: #222f65;
   }
+
+  .navContainer Button{
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #222f65;
+    text-transform: none;
+  }
