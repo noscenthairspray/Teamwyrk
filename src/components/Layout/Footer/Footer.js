@@ -5,8 +5,11 @@ const Footer = () => {
     <footer className={styles.container}>
       <div className={styles.upperContainer}>
         <div className={styles.imageWrapper}>
-          {/* TODO: add teamwyrk linkedIn path */}
-          <a href="#">
+          <a
+            href="https://www.linkedin.com/company/teamwyrk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={"images/landing_page/linkedin.svg"} alt="linkedin"></img>
           </a>
         </div>
