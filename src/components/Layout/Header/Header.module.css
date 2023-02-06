@@ -9,26 +9,6 @@
   gap: 40px;
 }
 
-.navContainer ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin-bottom: 0;
-}
-
-.navContainer li {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  place-items: center;
-}
-
-nav a {
-  text-decoration: none;
-}
-
 .navBrand {
   display: flex;
   flex-direction: row;
@@ -63,6 +43,27 @@ nav a {
   justify-content: space-between;
 }
 
+nav a {
+  /* display: block; */
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.navContainer li {
+  padding: 0;
+  margin: 0;
+  height: 78px;
+  display: flex;
+  align-items: center;
+}
+
 .navLinks li:not(:last-child) {
   margin-right: 32px;
 }
@@ -74,6 +75,10 @@ nav a {
   font-size: 18px;
   line-height: 24px;
   color: #222f65;
+}
+
+.active {
+  border-bottom: 3px solid #222f65;
 }
 
 .accessButtons {
