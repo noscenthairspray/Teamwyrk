@@ -10,8 +10,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      {/*<Header /> */}
-      {<ActiveHeader />}
+      {<Header />}
+      {/* <ActiveHeader /> */}
       <main>
         <Outlet /> {/* <-- nested children routes rendered here! */}
       </main>
