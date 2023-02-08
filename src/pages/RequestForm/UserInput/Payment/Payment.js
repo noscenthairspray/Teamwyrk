@@ -7,7 +7,8 @@ const Payment = () => {
 
   return (
     <>
-      How much will you pay each person?<span className={styles.red}>*</span>
+      <p className={styles.paymentTitle}>How much will you pay each person?<span className={styles.red}>*</span>
+      </p>
       <br />
       <label htmlFor="payment">
         <input

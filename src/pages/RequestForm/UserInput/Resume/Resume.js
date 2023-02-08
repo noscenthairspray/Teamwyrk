@@ -12,12 +12,14 @@ const Resume = () => {
   }
   return (
     <>
-      <p>Upload your resume<span className={styles.red}>*</span></p>
-      <Button type="hover"
-        variant="primary"
+      <p className={styles.resumeTitle}>Upload your resume<span className={styles.red}>*</span></p>
+      <Button event="hover"
+        color="primary"
+        type="submit"
         onClick={clickHandler}>
         Attach a file
-      </Button> <span className={styles.grey}>*Attachment size limitation</span>
+      </Button>
+      <span className={styles.grey}>*Attachment size limitation</span>
     </>
   )
 };

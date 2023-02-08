@@ -30,19 +30,27 @@ const UserInput = ({ userInputs, setUserInputs }) => {
   return (
     <>
       <form onSubmit={submitHandle}>
-        <fieldset>
-          <label html="services">Select a service<span className={styles.red}>*</span>
-            <select
-              required={true}>
-              <option>Select service</option>
-              <option value="referrals">Referrals</option>
-              <option value="resume-review">Resume Review</option>
-              <option value="career-coaching">Career Coaching</option>
-            </select>
+        <fieldset className={styles.topFieldset}>
+          <label
+            className={styles.label} htmlFor="services">Select a service<span className={styles.red}>*</span>
           </label>
+          <select
+            id="services"
+            className={styles.select}
+            required={true}>
+            <option
+              selected={true}
+              disabled={true}
+              value="">Select one</option>
+            <option value="referrals">Referrals</option>
+            <option value="resume-review">Resume Review</option>
+            <option value="career-coaching">Career Coaching</option>
+          </select>
+
 
           <label>Full name<span className={styles.red}>*</span>
             <input
+              className={styles.formInput}
               id="fullName"
               name="fullName"
               type="text"
@@ -53,6 +61,7 @@ const UserInput = ({ userInputs, setUserInputs }) => {
           </label>
           <label htmlFor="email">Email<span className={styles.red}>*</span>
             <input
+              className={styles.formInput}
               id="email"
               name="email"
               type="email"
@@ -63,6 +72,7 @@ const UserInput = ({ userInputs, setUserInputs }) => {
           </label>
           <label htmlFor="desiredCompany">Your desired company<span className={styles.red}>*</span>
             <input
+              className={styles.formInput}
               id="desiredCompany"
               name="desiredCompany"
               type="text"
@@ -73,6 +83,7 @@ const UserInput = ({ userInputs, setUserInputs }) => {
           </label>
           <label htmlFor="desiredRole">Your desired role<span className={styles.red}>*</span>
             <input
+              className={styles.formInput}
               name="desiredRole"
               id="desiredRole"
               type="text"
@@ -83,6 +94,7 @@ const UserInput = ({ userInputs, setUserInputs }) => {
           </label>
           <label htmlFor="jobListingUrl">Job listing url (for referrals)
             <input
+              className={styles.formInput}
               name="jobListingUrl"
               id="jobListingUrl"
               type="url"
@@ -91,14 +103,14 @@ const UserInput = ({ userInputs, setUserInputs }) => {
               value={formData.jobListingUrl} />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset className={styles.resume}>
           <Resume />
         </fieldset>
         <fieldset>
           <Payment />
         </fieldset>
         <hr />
-        <ul>
+        <ul className={styles.fontStyling}>
           <li>
             Insiders who answer will receive the subtotal shown above.
           </li>
@@ -109,13 +121,15 @@ const UserInput = ({ userInputs, setUserInputs }) => {
             Information shared is only  between you and the Insider.
           </li>
         </ul>
-        <Yellow
-          type="submit">
-          Submit request
-        </Yellow>
-        Cancel
+        <fieldset>
+          <Yellow
+            type="submit">
+            Submit request
+          </Yellow>
+          <button className={styles.cancelButton}>Cancel</button>
+        </fieldset>
       </form>
-      <p>*You will not be able to edit your request after submission. Please email teamwyrk@teamwyrk.org for further assitance.</p>
+      <p className={styles.fontStyling}>*You will not be able to edit your request after submission.</p>
     </>
   )
 };

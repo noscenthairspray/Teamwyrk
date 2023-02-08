@@ -13,11 +13,12 @@
     font-weight: 700;
     color: #37447e;
 }
-p {
+.paymentTitle {
     font-family: 'PT Sans';
-    font-size: 18px;
-        font-style: normal;
-        color:#1A203D;
+    font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: #000000;
 }
 
 .paymentInput {
@@ -27,6 +28,7 @@ p {
     border-radius: 2px;
     width: 145px;
     height: 50px;
+    padding: 8px 16px;
 }
 .red {
     color: red;

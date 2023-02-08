@@ -6,10 +6,70 @@ fieldset {
     color: red;
 }
 
-p, ul {
+.fontStyling {
     font-family: 'PT Sans';
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #181818;
+}
+
+.formInput {
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 40px;
+    height: 48px;
+    padding: 8px 16px;
+    border: 1px solid #37447E;
+    border-radius: 2px;
+}
+
+.topFieldset label {
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.select {
+    margin-top: 12px;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 48px;
+    padding: 8px 16px;
+    border: 1px solid #37447E;
+    border-radius: 2px;
+}
+
+/* .selectGrey {
+    font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30px;
+color: rgba(26, 32, 61, 0.3);
+} */
+
+select:invalid{
+    color: gray;
+}
+.topFieldset{
+    display: flex;
+    flex-direction: column;
+    /* gap: 40px; */
+}
+
+.resume {
+margin-bottom: 40px;
+}
+
+.cancelButton {
+    margin-left: 20px;
+    background-color: transparent;
+    font-family: 'PT Sans';
+    border: none;
+    color: #37447E;
+    font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
 }
