@@ -34,14 +34,14 @@ const Header = () => {
               <Link to="/contact">Contact Us</Link>
             </li>
           </ul>
-          <div className={styles.accessButtons}>
+          {/* <div className={styles.accessButtons}>
             <Link to="/signin">
               <button className={styles.signInButton}>Log In</button>
             </Link>
             <Link to="/signup">
               <button className={styles.signUpButton}>Sign Up</button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </nav>
     </header>
