@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  //assigning location variable
-  const location = useLocation();
+  // //assigning location variable
+  // const location = useLocation();
 
-  //destructuring pathname from location
-  const { pathname } = location;
+  // //destructuring pathname from location
+  // const { pathname } = location;
 
-  const activeRequest = pathname === "/request" ? styles.active : "";
+  // const activeRequest = pathname === "/request" ? styles.active : "";
   return (
     <header>
       <nav className={styles.navContainer}>
@@ -21,9 +21,9 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            <li className={activeRequest}>
+            {/* <li className={activeRequest}>
               <Link to="/request">Requests</Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/about">About</Link>
             </li>
