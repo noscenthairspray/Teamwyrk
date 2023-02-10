@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   padding-top: 55px;
@@ -12,7 +12,7 @@
   align-self: stretch;
   max-width: 638px;
   background: #f9fafe;
-  padding: 20px 40px;
+  padding: 40px 40px;
   left: 78px;
   right: 127px;
   gap: 40px;
@@ -21,5 +21,3 @@
 /* .formControl input, select {
   width: 540px;
 } */
-
-
