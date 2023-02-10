@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
 
 import styles from "./SignUp.module.css";
@@ -20,7 +21,10 @@ const SignUp = () => {
           Sign up with Google
         </button>
         <p className={styles.helperText}>
-          Already have an account? <a href="/signin">Sign in</a>
+          Already have an account?{" "}
+          <Link to="/signin" replace>
+            Sign in
+          </Link>
         </p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
-
+import { auth, provider, signInWithPopup } from "../../firebase/auth/";
 import styles from "./SignIn.module.css";
 
 const SignIn = () => {
@@ -14,13 +15,18 @@ const SignIn = () => {
           <p className={styles.divider}>or</p>
         </div>
 
-        <button className={styles.googleButton}>
+        <button
+          className={styles.googleButton}
+          onClick={signInWithPopup(auth, provider)}
+        >
           <img src="images/access/google_icon.svg" alt="Google Logo" />
           Sign in with Google
         </button>
         <p className={styles.helperText}>
           {`Don't have an account yet? `}
-          <a href="/signup">Sign up</a>
+          <Link to="/signup" replace>
+            Sign up
+          </Link>
         </p>
       </div>
     </div>
