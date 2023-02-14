@@ -31,7 +31,13 @@ const Header = () => {
               <Link to="/faq">FAQ</Link>
             </li>
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <a
+                href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contact Us
+              </a>
             </li>
           </ul>
           {/* <div className={styles.accessButtons}>
