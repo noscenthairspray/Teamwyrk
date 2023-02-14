@@ -15,7 +15,13 @@ const CTA = ({ description, buttonText }) => {
         <span className={styles.description}>{description}</span>
       ) : null}
       <div>
-        <button className={styles.secondaryButton}>{buttonText}</button>
+        <a
+          href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className={styles.secondaryButton}>{buttonText}</button>
+        </a>
       </div>
     </div>
   );

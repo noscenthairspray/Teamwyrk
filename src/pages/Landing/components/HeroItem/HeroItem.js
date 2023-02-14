@@ -61,7 +61,13 @@ const HeroItem = () => {
             ease: "backIn",
           }}
         >
-          <button className={styles.waitListBtn}>Join the waitlist</button>
+          <a
+            href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className={styles.waitListBtn}>Join the waitlist</button>
+          </a>
         </motion.div>
       </div>
 
