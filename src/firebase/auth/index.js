@@ -1,1 +1,1 @@
-export {auth, provider, signInWithPopup} from "./google_signin";
+export { auth, provider, signInWithGoogle } from "./google_signin";
