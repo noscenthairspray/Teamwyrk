@@ -1,0 +1,13 @@
+.errorMsg {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: #db2929;
+  margin-top: 12px;
+}
+
+.errorIcon {
+  margin-right: 12px;
+}
