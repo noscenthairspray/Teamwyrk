@@ -1,14 +1,17 @@
 .container {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0px;
-  gap: 40px;
+  gap: 35px;
 }
 
-/* use flexbox or grid from parent container to position the logos instead of absolute positioning  */
 .heroLeft {
-  width: 241px;
+  width: 245px;
+  height: 417px;
 }
 
 .heroLeftLogo {
@@ -17,10 +20,12 @@
 
 .heroRight {
   width: 222px;
+  height: 433px;
 }
 
 .heroRightLogo {
   width: 100%;
+  height: 100%;
 }
 
 .heroCenterText {
@@ -42,7 +47,7 @@
 .textBodyTop {
   font-weight: 400;
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin-bottom: 15px;
   color: #181818;
 }
@@ -50,7 +55,7 @@
 .textBodyBottom {
   font-weight: 400;
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
   margin-bottom: 40px;
   color: #181818;
 }

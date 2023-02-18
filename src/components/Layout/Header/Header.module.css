@@ -5,11 +5,10 @@
 }
 .navContainer {
   height: 78px;
-  width: 1270px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 0px 80px;
 }
 
 .navBrand {
@@ -60,32 +59,29 @@ nav a {
   gap: 8px;
 }
 
-.navContainer li {
+.navLinks a {
   padding: 0;
   margin: 0;
   height: 78px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.about {
-  width: 87px;
-}
-.faq {
-  width: 72px;
-}
-.contact {
-  width: 120px;
-}
-
-.navLinks li a {
   font-family: PT Sans;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 24px;
   color: #222f65;
+}
+.about a {
+  width: 87px;
+}
+
+.faq a {
+  width: 72px;
+}
+.contact a {
+  width: 120px;
 }
 
 .accessButtons {

@@ -1,3 +1,4 @@
+import { SubHeader } from "../../../../../components/Typography";
 import styles from "./BulletPoints.module.css";
 
 const BulletPoints = ({ comparisonData, title }) => {
@@ -7,19 +8,26 @@ const BulletPoints = ({ comparisonData, title }) => {
       : "/images/about_page/cancel.svg";
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.title}>
-        <h3>{title}</h3>
+        <SubHeader color="darkBlue">{title}</SubHeader>
       </div>
-      <div className={styles.bulletContainer}>
-        <ul className={styles.bulletPoints}>
-          {comparisonData.map((text) => (
+      <ul className={styles.bulletPoints}>
+        <div>
+          {comparisonData.slice(0, 3).map((text) => (
             <li key={text} style={{ backgroundImage: `url(${bulletImgUrl})` }}>
               {text}
             </li>
           ))}
-        </ul>
-      </div>
+        </div>
+        <div>
+          {comparisonData.slice(3).map((text) => (
+            <li key={text} style={{ backgroundImage: `url(${bulletImgUrl})` }}>
+              {text}
+            </li>
+          ))}
+        </div>
+      </ul>
     </div>
   );
 };

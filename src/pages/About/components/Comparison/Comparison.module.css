@@ -1,6 +1,8 @@
 .container {
-  padding: 60px 0px;
-  margin-bottom: 40px;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 80px;
 }
 
 .containerText {
@@ -8,24 +10,13 @@
   text-align: center;
   margin-bottom: 60px;
 }
-.containerText h2 {
-  margin-bottom: 40px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  color: #5f6ea6;
-}
-.containerText p {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  color: #091133;
-}
 
+.title {
+  margin-bottom: 20px;
+}
 .containerBulletPoints {
-  padding: 0px 46px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  max-width: 1110px;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 600px) {
