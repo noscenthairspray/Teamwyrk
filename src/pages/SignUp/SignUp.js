@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
-
+import { auth, provider, signInWithGoogle } from "../../firebase/auth/";
 import styles from "./SignUp.module.css";
 
 //TODO: Add sign up submit button for credentials
@@ -16,7 +16,10 @@ const SignUp = () => {
           <p className={styles.divider}>or</p>
         </div>
 
-        <button className={styles.googleButton}>
+        <button 
+          className={styles.googleButton}
+          onClick={signInWithGoogle}
+        >
           <img src="images/access/google_icon.svg" alt="Google Logo" />
           Sign up with Google
         </button>
