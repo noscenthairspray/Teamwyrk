@@ -208,7 +208,7 @@ const UserInput = () => {
             setError={setError}
           />
           {error.resumeFile && !formData.email ? (
-            <InputError text="Please attach a resume." />
+            <InputError text="Error uploading message. Try again." />
           ) : null}
         </fieldset>
 

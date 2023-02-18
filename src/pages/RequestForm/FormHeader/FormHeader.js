@@ -1,7 +1,6 @@
-import React from "react";
-import styles from "./Header.module.css";
+import styles from "./FormHeader.module.css";
 
-const Header = () => {
+const FormHeader = () => {
   return (
     <>
       <h1 className={styles.title}>Submit a Request</h1>
@@ -13,4 +12,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default FormHeader;

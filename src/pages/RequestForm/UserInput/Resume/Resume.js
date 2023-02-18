@@ -2,17 +2,9 @@ import { useState } from "react";
 import { InputError } from "../../../../components/Alerts/Error";
 import styles from "./Resume.module.css";
 
-//Upload your resume text and Attach File Button
-//You can use the primary button from src/components to save time
-
-//button props are variant, type, onClick
+//TODO: Add Loading State when user is uploading file
 const Resume = ({ formData, setFormData, setError }) => {
   const [uploadError, setUploadError] = useState("");
-
-  //switch label button style when resume is uploaded by user
-  const resumeBtnStyle = !formData?.resumeFile
-    ? styles.attachLabelBtn
-    : styles.replaceLabelBtn;
 
   const handleFileUpload = ({ target }) => {
     const file = target.files[0];
@@ -28,7 +20,7 @@ const Resume = ({ formData, setFormData, setError }) => {
     }
     //pdf & doc
     if (file?.type !== "application/pdf" && file?.type !== "application/doc") {
-      setUploadError("File format is incorrect. Please upload .pdf or .doc.");
+      setUploadError("The file was not a pdf or docx file. Try again.");
       return;
     }
     setUploadError("");
