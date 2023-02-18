@@ -1,3 +1,4 @@
+import { SubHeader } from "../../../../../components/Typography";
 import styles from "./Statement.module.css";
 
 const Statement = ({ statement, position }) => {
@@ -10,7 +11,9 @@ const Statement = ({ statement, position }) => {
       className={`${styles.container} ${styles[`container${stylePosition}`]}`}
     >
       <div className={styles.wrapperText}>
-        <h2>{title}</h2>
+        <div className={styles.title}>
+          <SubHeader color="secondary">{title}</SubHeader>
+        </div>
         <p>{text}</p>
       </div>
       <div

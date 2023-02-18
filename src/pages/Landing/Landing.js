@@ -4,7 +4,7 @@ import CTA from "../../components/CTA";
 
 const Landing = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <HeroItem />
       <CardItem />
       <HowItWorks />

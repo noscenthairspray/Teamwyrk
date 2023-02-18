@@ -1,3 +1,4 @@
+import Button from "../Button";
 import styles from "./CTA.module.css";
 
 //Reusable  CTA component for use on 'Join the wait list' section
@@ -20,7 +21,9 @@ const CTA = ({ description, buttonText }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className={styles.secondaryButton}>{buttonText}</button>
+          <Button event="hover" color="yellow">
+            {buttonText}{" "}
+          </Button>
         </a>
       </div>
     </div>

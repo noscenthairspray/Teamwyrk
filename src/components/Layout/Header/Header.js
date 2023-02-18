@@ -1,17 +1,13 @@
-import { Link } from "react-router-dom";
-// import { useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  // //assigning location variable
-  // const location = useLocation();
+  let activeStyle = {
+    borderBottom: "3px solid #222f65",
+  };
 
-  // //destructuring pathname from location
-  // const { pathname } = location;
-
-  // const activeRequest = pathname === "/request" ? styles.active : "";
   return (
-    <header>
+    <header className={styles.navHeader}>
       <nav className={styles.navContainer}>
         <Link to="/">
           <div className={styles.navBrand}>
@@ -24,13 +20,23 @@ const Header = () => {
             {/* <li className={activeRequest}>
               <Link to="/request">Requests</Link>
             </li> */}
-            <li>
-              <Link to="/about">About</Link>
+            <li className={styles.about}>
+              <NavLink
+                to="/about"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                About
+              </NavLink>
             </li>
-            <li>
-              <Link to="/faq">FAQ</Link>
+            <li className={styles.faq}>
+              <NavLink
+                to="/faq"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                FAQ
+              </NavLink>
             </li>
-            <li>
+            <li className={styles.contact}>
               <a
                 href="https://airtable.com/shrDiI6bJ3SaDJE5V"
                 target="_blank"

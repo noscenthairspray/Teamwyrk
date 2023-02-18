@@ -1,0 +1,24 @@
+.subHeader {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 1px;
+}
+
+.primary {
+  color: #37447e;
+}
+
+.secondary {
+  color: #5f6ea6;
+}
+
+.darkBlue {
+  color: #222f65;
+}
+
+.contrast {
+  color: #ffffff;
+}

@@ -6,7 +6,7 @@ import styles from "./FAQ.module.css";
 
 const FAQ = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={styles.title}>Frequently Asked Questions</h1>
       <div className={styles.questionLayout}>
         {questions.map((props) => (

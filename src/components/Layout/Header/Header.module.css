@@ -1,12 +1,15 @@
-.navContainer {
-  background: #ffffff;
-  height: 78px;
+.navHeader {
   width: 100%;
+  background: #ffffff;
+  box-shadow: 1px 4px 8px rgba(34, 47, 101, 0.15);
+}
+.navContainer {
+  height: 78px;
+  width: 1270px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 24px 80px;
-  box-shadow: 1px 4px 8px rgba(34, 47, 101, 0.15);
-  gap: 40px;
+  padding: 0px 80px;
 }
 
 .navBrand {
@@ -16,13 +19,13 @@
   padding: 0px;
   gap: 8px;
   height: 30px;
-  color: #000000;
+  color: #222f65;
 }
 
 .brandText {
   font-family: Roboto;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 20px;
   line-height: 23px;
 }
@@ -54,6 +57,7 @@ nav a {
   justify-content: center;
   padding: 0;
   margin-bottom: 0;
+  gap: 8px;
 }
 
 .navContainer li {
@@ -62,10 +66,17 @@ nav a {
   height: 78px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.navLinks li:not(:last-child) {
-  margin-right: 32px;
+.about {
+  width: 87px;
+}
+.faq {
+  width: 72px;
+}
+.contact {
+  width: 120px;
 }
 
 .navLinks li a {
@@ -75,10 +86,6 @@ nav a {
   font-size: 18px;
   line-height: 24px;
   color: #222f65;
-}
-
-.active {
-  border-bottom: 3px solid #222f65;
 }
 
 .accessButtons {
