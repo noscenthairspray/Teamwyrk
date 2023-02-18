@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Button from "../../../../components/Button/";
 import styles from "./HeroItem.module.css";
 //create components for images to import here
 
@@ -66,7 +67,9 @@ const HeroItem = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className={styles.waitListBtn}>Join the waitlist</button>
+            <Button event="hover" color="yellow">
+              Join the waitlist
+            </Button>
           </a>
         </motion.div>
       </div>

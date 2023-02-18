@@ -1,0 +1,27 @@
+.bodyTwo {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.primary {
+  color: #37447e;
+}
+
+.secondary {
+  color: #5f6ea6;
+}
+
+.darkBlue {
+  color: #222f65;
+}
+
+.contrast {
+  color: #ffffff;
+}
+
+.black {
+  color: #181818;
+}

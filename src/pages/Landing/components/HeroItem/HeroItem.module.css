@@ -55,20 +55,6 @@
   color: #181818;
 }
 
-.waitListBtn {
-  margin: 0 auto;
-  font-family: PT Sans;
-  border-radius: 9px;
-  border: none;
-  padding: 8px 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 30px;
-  font-size: 18px;
-  background-color: #ffc93c;
-  color: #222f65;
-}
-
 button:hover {
   cursor: pointer;
 }

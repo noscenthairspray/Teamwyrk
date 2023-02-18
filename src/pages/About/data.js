@@ -20,12 +20,12 @@ export const comparison = {
 export const statement = [
   {
     title: "We dare to be different",
-    text: "TeamWyrk is changing the way job seekers reach success. We connect aspiring tech professionals with employees at top tech companies to help them land their dream job.",
+    text: "TeamWyrk is changing the way job seekers reach success. We connect aspiring tech professionals with employees at top companies to help them land their next role.",
     image: "/images/about_page/ellipse_1.png",
   },
   {
     title: "A new standard is being set",
-    text: "This isn’t just another program. We aim to raise the bar on how networking gets people where they want to be.",
+    text: "This isn’t just another platform. We aim to raise the bar in networking and upward career mobility.",
     image: "/images/about_page/ellipse_2.png",
   },
   {
