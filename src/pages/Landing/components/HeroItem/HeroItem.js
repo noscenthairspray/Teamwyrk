@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Button from "../../../../components/Button/";
 import styles from "./HeroItem.module.css";
-//create components for images to import here
 
 const HeroItem = () => {
   return (

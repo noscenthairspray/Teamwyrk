@@ -4,6 +4,7 @@ import styles from "./Header.module.css";
 const Header = () => {
   let activeStyle = {
     borderBottom: "3px solid #222f65",
+    paddingTop: "3px",
   };
 
   return (

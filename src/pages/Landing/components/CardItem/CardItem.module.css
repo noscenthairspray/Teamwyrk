@@ -1,4 +1,6 @@
 .container {
+  max-width: 1270px;
+  margin: 0 auto;
   padding: 40px 0px;
 }
 
@@ -12,8 +14,6 @@
 }
 
 .featureCard {
-  width: 1270px;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;

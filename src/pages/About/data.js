@@ -1,19 +1,19 @@
 export const comparison = {
   teamwork: [
     "Resume reviews to help land an interview",
-    "Access to a network of tech professionals",
-    "Peer mock interviews to help you land your next role",
-    "Vetted insiders to make sure you get the best service",
     "Expert coaching from top companies",
-    "Nonprofit helping others for social good",
+    "A Nonprofit helping others for social good",
+    "Access to a credible network of tech professionals",
+    "Peer mock interviews to help you land your next role",
+    "Vetted Insiders to provide you with the best service",
   ],
   competitors: [
-    "Expensive upsells that prevent job opportunities",
-    "Lack of connection with applicants",
+    "Nonessential website features",
+    "Limited content on free tiers",
+    "Poor feedback from tech professionals",
+    "Upsells with no benefit to users",
     "Basic information you can find online",
-    "Limited information on free tiers",
-    "Unnecessary fees",
-    "Mentorship opportunities not included",
+    "Expensive service fees",
   ],
 };
 

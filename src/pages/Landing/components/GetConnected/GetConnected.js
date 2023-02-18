@@ -1,5 +1,6 @@
 import Insiders from "./Insiders";
 import styles from "./GetConnected.module.css";
+import Button from "../../../../components/Button";
 import { insiders } from "../../data";
 
 const GetConnected = () => {
@@ -14,7 +15,10 @@ const GetConnected = () => {
             <Insiders insider={insider} position={index} key={insider.name} />
           ))}
         </div>
-        <button className={styles.secondaryButton}>Become an Insider</button>
+        {/* <button className={styles.secondaryButton}>Become an Insider</button> */}
+        <Button color="primary" event="hover">
+          Become an Insider
+        </Button>
       </div>
     </div>
   );

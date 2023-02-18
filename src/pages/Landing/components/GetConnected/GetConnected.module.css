@@ -4,7 +4,7 @@
 }
 
 .wrapper {
-  width: 1270px;
+  max-width: 1270px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -27,29 +27,4 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
-}
-
-.secondaryButton {
-  padding: 8px 24px;
-  width: 189px;
-  height: 46px;
-  background-color: #37447e;
-  border-radius: 9px;
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 30px;
-  color: #ffffff;
-  white-space: nowrap;
-  border: none;
-}
-
-.buttonText {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 30px;
-  color: #ffffff;
 }
