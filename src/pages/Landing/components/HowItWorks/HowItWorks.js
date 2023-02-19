@@ -81,7 +81,7 @@ const HowItWorks = () => {
                     <div className={styles.ellipse}>
                       <div className={styles.number}> 4 </div>
                     </div>
-                    Receives a confirmation when an insider accepts
+                    Receive a confirmation when an insider accepts.
                   </motion.li>
                 </motion.ol>
               </motion.div>
