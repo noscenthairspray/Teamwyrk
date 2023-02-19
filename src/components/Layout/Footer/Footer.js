@@ -21,7 +21,7 @@ const Footer = () => {
             team@teamwryk.com
           </a>
           <p className={styles.copyright}>
-            © 2022 TeamWyrk. All rights reserved.
+            © 2023 TeamWyrk. All rights reserved.
           </p>
         </div>
       </div>
