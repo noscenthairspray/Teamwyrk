@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InputError } from "../../../../components/Alerts/Error";
-import { CircularProgress } from "@mui/material";
+// import { CircularProgress } from "@mui/material";
 import styles from "./Resume.module.css";
 
 //TODO: Add Loading State when user is uploading file
