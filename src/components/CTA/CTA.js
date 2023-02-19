@@ -22,7 +22,7 @@ const CTA = ({ description, buttonText }) => {
           rel="noopener noreferrer"
         >
           <Button event="hover" color="yellow">
-            {buttonText}{" "}
+            {buttonText}
           </Button>
         </a>
       </div>

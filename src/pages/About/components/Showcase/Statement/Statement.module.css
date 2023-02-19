@@ -12,6 +12,7 @@
 .containerOdd {
   flex-direction: row-reverse;
   padding-bottom: 15px;
+  padding-right: 120px;
 }
 
 .wrapperText {
@@ -31,8 +32,8 @@
 }
 
 .wrapperEllipse {
-  height: 240px;
-  width: 240px;
+  height: 226px;
+  width: 226px;
 }
 
 .wrapperEllipse img {
