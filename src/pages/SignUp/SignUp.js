@@ -16,11 +16,8 @@ const SignUp = () => {
           <p className={styles.divider}>or</p>
         </div>
 
-        <button 
-          className={styles.googleButton}
-          onClick={signInWithGoogle}
-        >
-          <img src="images/access/google_icon.svg" alt="Google Logo" />
+        <button className={styles.googleButton} onClick={signInWithGoogle}>
+          <img src="/icons/google.svg" alt="Google Icon" />
           Sign up with Google
         </button>
         <p className={styles.helperText}>

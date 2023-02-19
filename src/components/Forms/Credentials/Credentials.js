@@ -1,4 +1,5 @@
 import React from "react";
+import { SubHeader } from "../../Typography";
 import styles from "./Credentials.module.css";
 
 //Sign up with credentials not implemented yet
@@ -6,7 +7,9 @@ import styles from "./Credentials.module.css";
 const Credentials = ({ title, submitBtnText }) => {
   return (
     <form className={styles.credentialsForm}>
-      <h1 className={styles.title}>{title}</h1>
+      <div className={styles.title}>
+        <SubHeader color="black">{title}</SubHeader>
+      </div>
       <div className={styles.emailWrapper}>
         <div className={styles.inputText}>Email</div>
         <input type="email" id="email" name="email" disabled />

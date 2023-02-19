@@ -16,11 +16,11 @@ const SignIn = () => {
         </div>
 
         <button className={styles.googleButton} onClick={signInWithGoogle}>
-          <img src="images/access/google_icon.svg" alt="Google Logo" />
+          <img src="/icons/google.svg" alt="Google Icon" />
           Sign in with Google
         </button>
         <p className={styles.helperText}>
-          {`Don't have an account yet? `}
+          Don't have an account yet?{" "}
           <Link to="/signup" replace>
             Sign up
           </Link>
