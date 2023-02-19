@@ -5,14 +5,16 @@ import styles from "./RequestForm.module.css";
 const RequestForm = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.formWrapper}>
-        <FormHeader />
-        <div className={styles.formControl}>
-          <UserInput />
+      <div className={styles.wrapper}>
+        <div className={styles.formWrapper}>
+          <FormHeader />
+          <div className={styles.formControl}>
+            <UserInput />
+          </div>
         </div>
-      </div>
-      <div className={styles.bubble}>
-        <img src="/images/request_form/bubble.svg" alt="pay bubble" />
+        <div className={styles.bubble}>
+          <img src="/images/request_form/bubble.svg" alt="pay bubble" />
+        </div>
       </div>
     </div>
   );

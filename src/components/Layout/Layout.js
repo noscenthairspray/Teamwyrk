@@ -10,7 +10,6 @@ const Layout = () => {
   return (
     <>
       {<Header />}
-      {/* <ActiveHeader /> */}
       <main>
         <Outlet /> {/* <-- nested children routes rendered here! */}
       </main>

@@ -1,10 +1,14 @@
 .container {
   max-width: 1270px;
   margin: 0 auto;
-  display: flex;
-  gap: 40px;
   padding-top: 55px;
   padding-bottom: 40px;
+}
+.wrapper {
+  max-width: 1110px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
 }
 .formControl {
   align-self: stretch;
@@ -27,5 +31,9 @@
 }
 .bubble {
   position: relative;
+  width: 430px;
   top: 1120px;
+}
+
+.bubble img {
 }

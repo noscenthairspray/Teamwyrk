@@ -18,10 +18,15 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            {/* <li className={activeRequest}>
-              <Link to="/request">Requests</Link>
-            </li> */}
-            <li className={styles.about}>
+            <li>
+              <NavLink
+                to="/request"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Requests
+              </NavLink>
+            </li>
+            <li>
               <NavLink
                 to="/about"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -29,7 +34,7 @@ const Header = () => {
                 About
               </NavLink>
             </li>
-            <li className={styles.faq}>
+            <li>
               <NavLink
                 to="/faq"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -37,7 +42,7 @@ const Header = () => {
                 FAQ
               </NavLink>
             </li>
-            <li className={styles.contact}>
+            <li>
               <a
                 href="https://airtable.com/shrDiI6bJ3SaDJE5V"
                 target="_blank"
@@ -47,14 +52,14 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          {/* <div className={styles.accessButtons}>
+          <div className={styles.accessButtons}>
             <Link to="/signin">
               <button className={styles.signInButton}>Log In</button>
             </Link>
             <Link to="/signup">
               <button className={styles.signUpButton}>Sign Up</button>
             </Link>
-          </div> */}
+          </div>
         </div>
       </nav>
     </header>

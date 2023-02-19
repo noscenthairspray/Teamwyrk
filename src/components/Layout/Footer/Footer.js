@@ -10,7 +10,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={"images/landing_page/linkedin.svg"} alt="linkedin"></img>
+            <img src={"/images/landing_page/linkedin.svg"} alt="linkedin"></img>
           </a>
         </div>
       </div>
