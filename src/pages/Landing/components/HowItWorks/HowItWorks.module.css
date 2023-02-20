@@ -10,10 +10,9 @@
   justify-content: center;
   gap: 30px;
   padding: 40px 0px;
-  min-height: 409px;
 }
 
-.wrapper img {
+.imageWrapper img {
   background: #d9d9d9;
   border-radius: 20px;
 }
@@ -22,23 +21,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px 0px;
+  justify-content: center;
   width: 632px;
   height: 406px;
 }
 
 .title {
-  width: 384px;
-  height: 26px;
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 50px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 1px;
-  color: #222f65;
+  margin-bottom: 40px;
 }
 
 .ellipse {
@@ -52,7 +41,7 @@
 }
 
 .number {
-  position: absolute;
+  position: relative;
   width: 15.79px;
   height: 28.72px;
   left: 20.1px;
@@ -74,7 +63,6 @@
   text-align: center;
   color: #000000;
   height: 56px;
-  display: flex;
   gap: 12px;
 }
 .frames {
@@ -83,6 +71,61 @@
   align-items: flex-start;
   padding: 0px;
   gap: 12px;
-  height: 206px;
-  margin-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0px 0px;
+  }
+
+  .imgWrapper {
+    padding: 0px 30px;
+  }
+  .imgWrapper img {
+    width: 100%;
+  }
+  .rightContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .rightContainer li {
+    font-size: 18px;
+    line-height: 20px;
+    text-align: start;
+    padding: 0px 30px;
+    gap: 12px;
+    height: 45px;
+  }
+  .frames {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 18px;
+  }
+  .ellipse {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #37447e;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  .number {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 15px;
+    top: 9px;
+    font-family: "PT Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+  }
 }

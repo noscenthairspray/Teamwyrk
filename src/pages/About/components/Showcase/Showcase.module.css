@@ -1,5 +1,5 @@
 .container {
-  width: 1270px;
+  max-width: 1270px;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
@@ -10,5 +10,6 @@
 @media only screen and (max-width: 600px) {
   .container {
     padding: 0px;
+    flex-direction: column;
   }
 }

@@ -24,7 +24,6 @@
 }
 
 .lowerContainer {
-  height: 64px;
   background: rgba(186, 195, 229, 0.5);
 }
 
@@ -33,14 +32,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 20px 80px;
 }
 
 .website {
   width: 169px;
-  height: 24px;
   font-family: "PT Sans";
   font-style: normal;
   font-weight: 400;
@@ -51,8 +47,6 @@
 }
 
 .copyright {
-  width: 292px;
-  height: 24px;
   font-family: "PT Sans";
   font-style: normal;
   font-weight: 400;
@@ -60,4 +54,19 @@
   line-height: 24px;
   text-align: right;
   color: #222f65;
+}
+
+@media only screen and (max-width: 600px) {
+  .textWrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 20px;
+  }
+  .lowerContainer {
+    display: flex;
+  }
+  .copyright {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

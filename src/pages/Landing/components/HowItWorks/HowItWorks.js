@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./HowItWorks.module.css";
+import { SubHeader } from "../../../../components/Typography";
 
 const textContainer = {
   hidden: { opacity: 0 },
@@ -51,7 +52,9 @@ const HowItWorks = () => {
                 }}
                 viewport={{ once: true }}
               >
-                <h2 className={styles.title}> How it works</h2>
+                <div className={styles.title}>
+                  <SubHeader color="darkBlue">How it works</SubHeader>
+                </div>
                 <motion.ol
                   variants={textContainer}
                   initial="hidden"

@@ -31,13 +31,10 @@
     margin-bottom: 20px;
   }
 
-  .containerBulletPoints {
-    grid-template-columns: 1fr;
-  }
-
   .bulletPoints {
+    grid-template-columns: none;
     list-style-type: none;
-    padding: 5px;
+    padding: 10px;
   }
 
   .bulletPoints li {
@@ -46,6 +43,6 @@
     padding-left: 40px;
     font-size: 18px;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 }
