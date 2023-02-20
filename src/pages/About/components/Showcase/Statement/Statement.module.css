@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     padding: 0px 30px;
+    /* padding: 0px 30px; */
     margin-bottom: 40px;
   }
 
@@ -63,7 +64,6 @@
 
   .containerOdd {
     flex-direction: column;
-    padding-right: 0px;
   }
 
   .wrapperEllipseEven {
