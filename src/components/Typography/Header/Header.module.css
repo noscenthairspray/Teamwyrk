@@ -22,3 +22,9 @@
 .contrast {
   color: #ffffff;
 }
+
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 42px;
+  }
+}
