@@ -98,3 +98,24 @@
   color: #222f65;
   padding: 8px 24px;
 }
+
+@media only screen and (max-width: 600px) {
+  .navContainer {
+    padding: 0px 30px;
+  }
+  .navLinks {
+    gap: 22px;
+  }
+  .navLinks a {
+    font-size: 17px;
+  }
+  .navBrand {
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+  }
+  .builtByText {
+    line-height: 20px;
+  }
+}

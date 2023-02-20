@@ -11,20 +11,21 @@
   align-items: center;
   gap: 40px;
 }
-.title {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 50px;
-  display: flex;
-  align-items: center;
-  letter-spacing: 1px;
-  color: #222f65;
-}
 
 .cardWrapper {
   display: flex;
   flex-direction: row;
   gap: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 40px 20px;
+  }
+  .cardWrapper {
+    flex-direction: column;
+  }
+  .title {
+    text-align: center;
+  }
 }

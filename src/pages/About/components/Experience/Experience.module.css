@@ -35,19 +35,20 @@
 
 @media only screen and (max-width: 600px) {
   .containerText {
-    padding: 0px 25px;
-  }
-
-  .title h2 {
-    font-size: 32px;
+    text-align: center;
+    padding: 0px 20px;
   }
 
   .description {
     font-size: 18px;
     line-height: 30px;
   }
-
   .containerImage img {
+    width: 320px;
+    height: auto;
+  }
+  .containerImage {
+    flex-direction: column;
     margin-left: 0px;
     margin-bottom: 40px;
   }

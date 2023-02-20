@@ -1,5 +1,5 @@
 import CTA from "../../components/CTA";
-import { Header, SubHeader } from "../../components/Typography";
+import { Header } from "../../components/Typography";
 import FAQQuestion from "./components/FAQQuestion/FAQQuestion";
 import { questions } from "./data";
 

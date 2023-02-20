@@ -23,5 +23,15 @@
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 36px;
+  line-height: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 60px 30px;
+  }
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
 }

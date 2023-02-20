@@ -20,16 +20,19 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .container {
+    padding-bottom: 20px;
+  }
   .containerText h2 {
     font-size: 38px;
     margin-bottom: 20px;
   }
 
   .containerText {
-    padding: 0px 10px;
+    padding: 0px 20px;
   }
   .containerBulletPoints {
     grid-template-columns: 1fr;
-    padding: 10px;
+    padding: 0px 20px;
   }
 }

@@ -4,11 +4,7 @@
   padding: 40px 0px;
 }
 
-.container h1 {
-  color: #222f65;
-  font-family: PT Sans;
-  font-style: none;
-  font-weight: bolder;
+.title {
   margin-bottom: 40px;
   text-align: center;
 }
@@ -19,7 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  height: 380px;
 }
 
 .individualCard {
@@ -52,4 +47,17 @@
   font-size: 24px;
   line-height: 65px;
   color: #181818;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 40px 30px;
+  }
+  .featureCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
 }
