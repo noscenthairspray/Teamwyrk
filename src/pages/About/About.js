@@ -13,7 +13,7 @@ const About = () => {
       <Companies />
       <Experience />
       <Comparison />
-      <CTA buttonText="Get Started" />
+      <CTA buttonText="Join the waitlist" />
     </div>
   );
 };
