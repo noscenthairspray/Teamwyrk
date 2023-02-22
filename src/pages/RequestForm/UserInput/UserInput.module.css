@@ -1,0 +1,150 @@
+.requestForm fieldset {
+  border: none;
+  padding: 0px;
+}
+
+.requestForm label {
+  font-family: "PT Sans";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.redAsterisk {
+  color: red;
+}
+
+.requiredText {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.select {
+  width: 100%;
+  height: 48px;
+  padding: 8px 16px;
+  border: 1px solid #37447e;
+  border-radius: 2px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../../../public/images/request_form/select_arrow.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: calc(100% - 12px) center;
+}
+
+.select::placeholder {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(24, 24, 24, 0.6);
+}
+.formInput {
+  width: 100%;
+  height: 48px;
+  padding: 8px 16px;
+  border: 1px solid #37447e;
+  border-radius: 2px;
+}
+
+.topFieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+.resumeFieldset {
+  margin-top: 40px;
+}
+
+/* *************payment section************ */
+.totalDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 329px;
+  margin: 40px 0px;
+}
+
+.totalDisplay h3 {
+  font-family: "PT Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  color: #37447e;
+}
+.paymentTitle {
+  font-family: "PT Sans";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.paymentInput {
+  color: #37447e;
+  border: 1px solid #37447e;
+  border-radius: 2px;
+  width: 145px;
+  height: 50px;
+  padding: 0px 16px;
+  padding-top: 11px;
+  padding-bottom: 8px;
+}
+.paymentInput::placeholder {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #37447e;
+  opacity: 1; /* Firefox */
+}
+
+.paymentCaption {
+  font-family: "PT Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(24, 24, 24, 0.6);
+  margin-left: 12px;
+}
+
+.cancelButton {
+  margin-left: 20px;
+  background-color: transparent;
+  font-family: "PT Sans";
+  border: none;
+  color: #37447e;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.totalDisplay p {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  color: #1a203d;
+}
+
+.submitCaption {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #181818;
+  margin-top: 20px;
+}
