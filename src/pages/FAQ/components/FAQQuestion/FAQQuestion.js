@@ -1,12 +1,13 @@
+import { BodyTwo, SubHeader } from "../../../../components/Typography";
 import styles from "./FAQQuestion.module.css";
 
 const FAQQuestion = ({ title, body }) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <span className={styles.questionTitle}>{title}</span>
+        <SubHeader color="primary">{title}</SubHeader>
       </div>
-      <p className={styles.questionBody}>{body}</p>
+      <BodyTwo color="darkBlue">{body}</BodyTwo>
     </div>
   );
 };

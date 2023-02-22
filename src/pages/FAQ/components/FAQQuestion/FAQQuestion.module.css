@@ -5,22 +5,3 @@
 .title {
   margin-bottom: 20px;
 }
-
-.questionTitle {
-  font-family: PT Sans;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 50px;
-  color: #5f6ea6;
-}
-
-.questionBody {
-  font-family: PT Sans;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 30px;
-  letter-spacing: 1.25px;
-  color: #222f65;
-}

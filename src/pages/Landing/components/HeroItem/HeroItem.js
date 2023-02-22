@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
+import Button from "../../../../components/Button/";
 import styles from "./HeroItem.module.css";
-//create components for images to import here
 
 const HeroItem = () => {
   return (
@@ -61,7 +61,15 @@ const HeroItem = () => {
             ease: "backIn",
           }}
         >
-          <button className={styles.waitListBtn}>Join the waitlist</button>
+          <a
+            href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button event="hover" color="yellow">
+              Join the waitlist
+            </Button>
+          </a>
         </motion.div>
       </div>
 

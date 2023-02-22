@@ -1,3 +1,4 @@
+import Button from "../Button";
 import styles from "./CTA.module.css";
 
 //Reusable  CTA component for use on 'Join the wait list' section
@@ -15,7 +16,15 @@ const CTA = ({ description, buttonText }) => {
         <span className={styles.description}>{description}</span>
       ) : null}
       <div>
-        <button className={styles.secondaryButton}>{buttonText}</button>
+        <a
+          href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button event="hover" color="yellow">
+            {buttonText}
+          </Button>
+        </a>
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 1270px;
+  margin: 0 auto;
   padding: 40px 0px;
 }
 
@@ -12,15 +10,16 @@
   font-style: none;
   font-weight: bolder;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .featureCard {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
   height: 380px;
-  border-radius: 20px;
 }
 
 .individualCard {

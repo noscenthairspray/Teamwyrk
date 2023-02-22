@@ -1,7 +1,7 @@
 .container {
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 0px 25px;
   margin-bottom: 40px;
 }
 
@@ -12,34 +12,28 @@
 .containerOdd {
   flex-direction: row-reverse;
   padding-bottom: 15px;
+  padding-right: 120px;
 }
 
 .wrapperText {
-  max-width: 725px;
+  flex: 1;
 }
 
-.wrapperText h2 {
-  margin-bottom: 20px;
-  font-family: PT Sans;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 50px;
-  color: #5f6ea6;
+.title {
+  margin-bottom: 27px;
 }
-
 .wrapperText p {
   font-family: PT Sans;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 40px;
+  line-height: 32px;
   color: #091133;
 }
 
 .wrapperEllipse {
-  height: 240px;
-  width: 240px;
+  height: 226px;
+  width: 226px;
 }
 
 .wrapperEllipse img {
@@ -48,11 +42,11 @@
 }
 
 .wrapperEllipseEven {
-  margin-left: 80px;
+  margin-left: 65px;
 }
 
 .wrapperEllipseOdd {
-  margin-right: 80px;
+  margin-right: 62px;
 }
 
 @media only screen and (max-width: 600px) {

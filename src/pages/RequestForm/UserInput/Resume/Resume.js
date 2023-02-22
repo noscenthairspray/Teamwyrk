@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { InputError } from "../../../../components/Alerts/Error";
+// import { CircularProgress } from "@mui/material";
 import styles from "./Resume.module.css";
 
 //TODO: Add Loading State when user is uploading file
@@ -48,14 +49,21 @@ const Resume = ({ formData, setFormData, setError }) => {
       )}
 
       {!formData?.resumeFile ? (
-        <label for="outlined-button-file" className={styles.attachLabelBtn}>
-          <img
-            src="/images/request_form/resume_icon.svg"
-            alt="resume icon"
-            className={styles.resumeIcon}
-          />
-          Attach a file
-        </label>
+        <>
+          {/* <div className={styles.loadingWrapper}>
+            <CircularProgress size={25} sx={{ color: "#37447e" }} />
+            <span>Uploading resume...</span>
+          </div> */}
+
+          <label for="outlined-button-file" className={styles.attachLabelBtn}>
+            <img
+              src="/images/request_form/resume_icon.svg"
+              alt="resume icon"
+              className={styles.resumeIcon}
+            />
+            Attach a file
+          </label>
+        </>
       ) : (
         <label for="outlined-button-file" className={styles.replaceLabelBtn}>
           Replace

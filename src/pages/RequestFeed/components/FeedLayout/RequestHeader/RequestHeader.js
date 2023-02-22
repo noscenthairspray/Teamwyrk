@@ -1,14 +1,17 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../../../../../components/Button";
+import { Header } from "../../../../../components/Typography";
 import styles from "./RequestHeader.module.css";
 
 const RequestHeader = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Requests</h1>
-      <Button variant="yellow" type="default">
-        Submit a request
-      </Button>
+      <div className={styles.title}>
+        <Header color="darkBlue">Requests</Header>
+      </div>
+      <Link to="/request/form">
+        <Button color="yellow">Submit a request</Button>
+      </Link>
     </div>
   );
 };

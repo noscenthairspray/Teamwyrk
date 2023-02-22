@@ -15,6 +15,19 @@
   margin-right: 11px;
 }
 
+.loadingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.loadingWrapper span {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 17px;
+}
+
 .attachLabelBtn {
   display: inline-block;
   background-color: #37447e;

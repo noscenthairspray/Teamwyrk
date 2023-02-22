@@ -5,24 +5,13 @@
   padding: 60px 0px;
 }
 
-.containerText {
+.textWrapper {
   text-align: center;
   font-family: PT Sans;
 }
 
-.containerText h2 {
-  margin-bottom: 40px;
-  font-style: normal;
-  font-size: 36px;
-  font-weight: 700;
-  color: #222f65;
-}
-
-.containerText p {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  color: #000000;
+.title {
+  margin-bottom: 20px;
 }
 
 .companies {
@@ -30,7 +19,7 @@
 }
 
 .companies img {
-  max-width: 1068px;
+  max-width: 1120px;
 }
 
 .companies img:nth-of-type(2) {

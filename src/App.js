@@ -8,6 +8,7 @@ import RequestFeed from "./pages/RequestFeed";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import RequestForm from "./pages/RequestForm";
+import "./style/global.css";
 
 function App() {
   return (

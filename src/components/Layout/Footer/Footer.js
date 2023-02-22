@@ -10,7 +10,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={"images/landing_page/linkedin.svg"} alt="linkedin"></img>
+            <img src={"/icons/linkedin.svg"} alt="linkedin"></img>
           </a>
         </div>
       </div>
@@ -21,7 +21,7 @@ const Footer = () => {
             team@teamwryk.com
           </a>
           <p className={styles.copyright}>
-            © 2022 TeamWyrk. All rights reserved.
+            © 2023 TeamWyrk. All rights reserved.
           </p>
         </div>
       </div>
