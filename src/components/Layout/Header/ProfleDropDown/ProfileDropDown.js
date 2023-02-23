@@ -1,16 +1,15 @@
 import { useState } from "react";
+import { Avatar, Box, Link, Menu, MenuItem, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
+import { signOut } from "../../../../firebase";
 
-const settings = ["Account Settings", "Log Out"];
+const settings = [
+  { title: "Account Settings", href: "/" },
+  { title: "Sign out", href: null },
+];
 
-const ProfileDropDown = () => {
+const ProfileDropDown = ({ user }) => {
   const [anchorElUser, setAnchorElUser] = useState(null);
-
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -19,20 +18,26 @@ const ProfileDropDown = () => {
     setAnchorElUser(null);
   };
 
+  const handleLogout = async (title) => {
+    if (!title === "Sign out") {
+      return null;
+    }
+    await signOut();
+  };
+
   return (
     <>
       <Box>
         <Box sx={{ flexGrow: 0 }}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Avatar alt="Remy Sharp" src={user?.photoURL} />
           </IconButton>
           <Menu
             id="menu-appbar"
             anchorEl={anchorElUser}
-            keepMounted
             transformOrigin={{
+              horizontal: "center",
               vertical: "top",
-              horizontal: "left",
             }}
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
@@ -40,7 +45,7 @@ const ProfileDropDown = () => {
             PaperProps={{
               elevation: 0,
               sx: {
-                overflow: "visible",
+                top: "50px",
                 width: "227px",
                 border: "1px solid rgba(26, 26, 26, 0.1)",
                 boxShadow: "0px 0px 1px rgba(0, 0, 0, 0.16)",
@@ -49,31 +54,37 @@ const ProfileDropDown = () => {
                 pb: "50px",
               },
             }}
-            sx={{ pt: 0, pb: 0 }}
+            sx={{ pt: 0, pb: 0, top: "28px" }}
           >
             {settings.map((setting) => (
               <MenuItem
-                key={setting}
+                key={setting.title}
                 onClick={handleCloseUserMenu}
                 sx={{
                   pt: "10px",
                   pb: "10px",
-                  justifyContent: "center",
                   "&:hover": {
                     backgroundColor: "#FFE8AC",
                   },
                 }}
               >
                 <Typography
+                  component={Link}
+                  href={setting.href}
+                  onClick={() => handleLogout(setting.title)}
                   sx={{
+                    textAlign: "center",
+                    textDecoration: "none",
                     color: "#222F65",
                     fontSize: "18px",
                     lineHeight: "24px",
                     fontFamily: "PT Sans",
                     fontWeight: 400,
+                    width: "100%",
+                    height: "100%",
                   }}
                 >
-                  {setting}
+                  {setting.title}
                 </Typography>
               </MenuItem>
             ))}
