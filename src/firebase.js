@@ -19,3 +19,12 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+export const signOut = async () => {
+  try {
+    await auth.signOut();
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
