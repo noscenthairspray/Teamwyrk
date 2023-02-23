@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
-import { auth, provider, signInWithGoogle } from "../../firebase/auth/";
+import { signInWithGoogle } from "../../firebase/auth/";
 import styles from "./SignUp.module.css";
+import { useNavigate, Navigate } from "react-router-dom";
+import { useAuthState } from "../../hooks/useAuthState";
 
-//TODO: Add sign up submit button for credentials
 const SignUp = () => {
+  const { isAuthenticated } = useAuthState();
+  const navigate = useNavigate();
+
+  //if the user is authenticated, redirect to the home page
+  if (isAuthenticated) {
+    return <Navigate replace to="/" />;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.leftHalf} />
@@ -16,7 +24,10 @@ const SignUp = () => {
           <p className={styles.divider}>or</p>
         </div>
 
-        <button className={styles.googleButton} onClick={signInWithGoogle}>
+        <button
+          className={styles.googleButton}
+          onClick={() => signInWithGoogle(navigate)}
+        >
           <img src="/icons/google.svg" alt="Google Icon" />
           Sign up with Google
         </button>
