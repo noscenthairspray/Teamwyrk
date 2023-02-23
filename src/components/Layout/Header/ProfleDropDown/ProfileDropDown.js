@@ -19,7 +19,7 @@ const ProfileDropDown = ({ user }) => {
   };
 
   const handleLogout = async (title) => {
-    if (!title === "Sign out") {
+    if (title !== "Sign out") {
       return null;
     }
     await signOut();
