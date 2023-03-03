@@ -9,10 +9,7 @@ const Landing = () => {
       <CardItem />
       <HowItWorks />
       <GetConnected />
-      <CTA
-        description="Join the waitlist to be among the first to know when TeamWyrk launches."
-        buttonText="Join the waitlist"
-      />
+      <CTA description="" buttonText="Get started" />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Button from "../../../../components/Button/";
 import { Header } from "../../../../components/Typography";
 import styles from "./HeroItem.module.css";
@@ -37,7 +38,9 @@ const HeroItem = () => {
             ease: "backIn",
           }}
         >
-          <Header color="primary">Get ready for TeamWyrk.</Header>
+          <Header color="primary">
+            It takes a team to <br /> find work.
+          </Header>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -50,26 +53,16 @@ const HeroItem = () => {
           {isMd ? (
             <>
               <p className={styles.textBodyTop}>
-                It takes a team to find work. We'll be your team, connecting you
-                with insiders at top companies to land your next role at no
-                extra cost. <br />
-              </p>
-              <p className={styles.textBodyBottom}>
-                Join the waitlist to be among the first to know when TeamWyrk
-                launches.
+                We’ll be your team, connecting you with insiders at top <br />
+                companies to land your next role at no extra cost.
               </p>
             </>
           ) : (
             <>
               <p className={styles.textBodyTop}>
-                It takes a team to find work. We'll be your team, <br />{" "}
-                connecting you with insiders at top companies to land <br />
-                your next role at no extra cost. <br />
+                We’ll be your team, connecting you with insiders at top <br />
+                companies to land your next role at no extra cost.
               </p>
-              <p className={styles.textBodyBottom}>
-                Join the waitlist to be among the first to know when <br />
-                TeamWyrk launches.
-              </p>{" "}
             </>
           )}
         </motion.div>
@@ -81,15 +74,11 @@ const HeroItem = () => {
             ease: "backIn",
           }}
         >
-          <a
-            href="https://airtable.com/shrDiI6bJ3SaDJE5V"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link to="/signup">
             <Button event="hover" color="yellow">
-              Join the waitlist
+              Get started
             </Button>
-          </a>
+          </Link>
         </motion.div>
       </div>
 

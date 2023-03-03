@@ -1,11 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import { useAuthState } from "../../../hooks/useAuthState";
 import styles from "./Header.module.css";
+import ProfileDropDown from "./ProfleDropDown";
+
+const activeStyle = {
+  borderBottom: "3px solid #222f65",
+  paddingTop: "3px",
+};
 
 const Header = () => {
-  let activeStyle = {
-    borderBottom: "3px solid #222f65",
-    paddingTop: "3px",
-  };
+  const { user, isAuthenticated } = useAuthState();
 
   return (
     <header className={styles.navHeader}>
@@ -18,14 +22,17 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            <li>
-              <NavLink
-                to="/request"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Requests
-              </NavLink>
-            </li>
+            {isAuthenticated && (
+              <li>
+                <NavLink
+                  to="/request"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Requests
+                </NavLink>
+              </li>
+            )}
+
             <li>
               <NavLink
                 to="/about"
@@ -53,12 +60,18 @@ const Header = () => {
             </li>
           </ul>
           <div className={styles.accessButtons}>
-            <Link to="/signin">
-              <button className={styles.signInButton}>Log In</button>
-            </Link>
-            <Link to="/signup">
-              <button className={styles.signUpButton}>Sign Up</button>
-            </Link>
+            {isAuthenticated ? (
+              <ProfileDropDown user={user} />
+            ) : (
+              <>
+                <Link to="/signin">
+                  <button className={styles.signInButton}>Log In</button>
+                </Link>
+                <Link to="/signup">
+                  <button className={styles.signUpButton}>Sign Up</button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

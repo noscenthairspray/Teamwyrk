@@ -16,7 +16,7 @@ const FAQ = () => {
           <FAQQuestion {...props} key={props.title} />
         ))}
       </div>
-      <CTA buttonText="Join the waitlist" />
+      <CTA buttonText="Get Started" />
     </div>
   );
 };
