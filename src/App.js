@@ -4,10 +4,10 @@ import "./App.css";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import Landing from "./pages/Landing";
-import RequestFeed from "./pages/RequestFeed";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import RequestForm from "./pages/RequestForm";
+import Form from "./pages/RequestPage/Form";
+import Feed from "./pages/RequestPage/Feed";
 import "./style/global.css";
 import { AuthProvider } from "./stores/context/AuthContext";
 
@@ -23,8 +23,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/FAQ" element={<FAQ />} />
               <Route path="/contact" />
-              <Route path="/request" element={<RequestFeed />} />
-              <Route path="/request/form" element={<RequestForm />} />
+              <Route path="/request" element={<Feed />} />
+              <Route path="/request/form" element={<Form />} />
             </Route>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />

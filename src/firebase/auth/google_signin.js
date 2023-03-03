@@ -14,7 +14,7 @@ const signInWithGoogle = (navigate) => {
       // IdP data available using getAdditionalUserInfo(result)
 
       // Redirect to home page after successful sign in
-      navigate("/"); //navigate param from react-router
+      navigate("/request"); //navigate param from react-router
     })
     .catch((error) => {
       // Handle Errors here.

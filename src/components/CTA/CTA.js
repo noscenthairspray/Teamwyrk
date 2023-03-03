@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import styles from "./CTA.module.css";
 
@@ -16,15 +17,11 @@ const CTA = ({ description, buttonText }) => {
         <span className={styles.description}>{description}</span>
       ) : null}
       <div>
-        <a
-          href="https://airtable.com/shrDiI6bJ3SaDJE5V"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link to="/signup">
           <Button event="hover" color="yellow">
             {buttonText}
           </Button>
-        </a>
+        </Link>
       </div>
     </div>
   );

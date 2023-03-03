@@ -1,0 +1,160 @@
+.container {
+  max-width: 1270px;
+  width: 1110px;
+  margin: 0 auto;
+  padding-top: 55px;
+  padding-bottom: 40px;
+}
+.formWrapper {
+  display: flex;
+  gap: 40px;
+  position: relative;
+  display: flex;
+}
+
+.requiredText {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+.redAsterisk {
+  color: red;
+}
+
+.form {
+  width: 638px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafe;
+  padding: 40px 40px;
+  gap: 40px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #37447e;
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.form label {
+  display: block;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+
+.form fieldset {
+  border: none;
+  padding: 0px;
+}
+
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../../../../public/images/request_form/select_arrow.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: calc(100% - 12px) center;
+}
+
+.select:invalid {
+  color: grey;
+}
+
+.select option {
+  color: black;
+}
+
+.select option:first-child {
+  color: grey;
+}
+/* *************payment block************ */
+.bubble {
+  position: absolute;
+  width: 430px;
+  left: 605px;
+}
+
+.paymentInputBlock {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.paymentInput {
+  color: #37447e;
+  height: 50px;
+  padding: 0px 16px;
+  padding-top: 11px;
+  padding-bottom: 8px;
+}
+
+.paymentInput::placeholder {
+  font-weight: 400;
+  font-size: 18px;
+  color: #37447e;
+  opacity: 1; /* Firefox */
+}
+
+.paymentCaption {
+  min-width: 400px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(24, 24, 24, 0.6);
+}
+
+.totalDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 329px;
+}
+
+.totalAmount {
+  font-size: 30px;
+  font-weight: 700;
+  color: #37447e;
+}
+
+.totalText {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  color: #1a203d;
+}
+
+/* *************submit block************ */
+.cancelButton {
+  margin-left: 20px;
+  background-color: transparent;
+  border: none;
+  color: #37447e;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.submitCaption {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #181818;
+  margin-top: -20px;
+}
+
+.submitButton {
+  width: 142px !important;
+  height: 40px;
+}

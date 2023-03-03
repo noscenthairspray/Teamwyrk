@@ -22,14 +22,17 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            <li>
-              <NavLink
-                to="/request"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Requests
-              </NavLink>
-            </li>
+            {isAuthenticated && (
+              <li>
+                <NavLink
+                  to="/request"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Requests
+                </NavLink>
+              </li>
+            )}
+
             <li>
               <NavLink
                 to="/about"
