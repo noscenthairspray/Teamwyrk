@@ -1,5 +1,5 @@
 import { Dialog, DialogActions, DialogContent } from "@mui/material";
-import Button from "../../../../../components/Button";
+import StyledButton from "../../../../../components/StyledButton";
 import styles from "./RequestModal.module.css";
 
 const RequestModal = ({ open, setOpenModal, contacts }) => {
@@ -33,23 +33,18 @@ const RequestModal = ({ open, setOpenModal, contacts }) => {
             width: 705,
           }}
         >
-          <Button
-            color="secondary"
-            type="default"
-            onClick={() => setOpenModal(false)}
-          >
+          <StyledButton color="secondary" onClick={() => setOpenModal(false)}>
             Cancel
-          </Button>
-          <Button
+          </StyledButton>
+          <StyledButton
             color="primary"
-            type="default"
             onClick={() => {
               window.location.href = `mailto:${email}`;
               setOpenModal(false);
             }}
           >
             Continue
-          </Button>
+          </StyledButton>
         </DialogActions>
       </Dialog>
     </>

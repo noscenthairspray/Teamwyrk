@@ -18,8 +18,6 @@
 }
 
 .name {
-  font-family: "PT Sans";
-  font-style: normal;
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
@@ -34,8 +32,6 @@
 }
 
 .company {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
@@ -45,8 +41,6 @@
   margin-bottom: 10px;
 }
 .role {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;

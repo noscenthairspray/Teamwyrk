@@ -30,15 +30,12 @@
 
 .heroCenterText {
   text-align: center;
-  font-family: "PT Sans";
-  font-style: normal;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .heroCenterText h1 {
   color: #222f65;
-  font-family: PT Sans;
   font-weight: bolder;
   font-size: 48px;
   margin-bottom: 40px;

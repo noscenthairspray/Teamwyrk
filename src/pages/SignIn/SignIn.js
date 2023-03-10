@@ -33,7 +33,7 @@ const SignIn = () => {
         </button>
         <p className={styles.helperText}>
           Don't have an account yet?{" "}
-          <Link to="/signup" replace>
+          <Link to="/signup" replace style={{ textDecoration: "underline" }}>
             Sign up
           </Link>
         </p>

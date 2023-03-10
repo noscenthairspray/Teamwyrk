@@ -1,5 +1,4 @@
-import React from "react";
-import Button from "../../../../../components/Button";
+import StyledButton from "../../../../../components/StyledButton";
 import styles from "./RequestItem.module.css";
 
 const RequestItem = ({ handleClickRequest, requestData }) => {
@@ -19,7 +18,7 @@ const RequestItem = ({ handleClickRequest, requestData }) => {
   const handleButtonClick = () => {
     handleClickRequest({ name, email });
   };
-  console.log(profile_image);
+
   // For new button above avatar
   const isOneDayOld = (createdAt) => {
     const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
@@ -82,9 +81,9 @@ const RequestItem = ({ handleClickRequest, requestData }) => {
           </div>
           <div className={styles.buttonWrapper}>
             <p className={styles.price}>{`${payment}/person`}</p>
-            <Button color="primary" event="default" onClick={handleButtonClick}>
+            <StyledButton color="primary" onClick={handleButtonClick}>
               Email
-            </Button>
+            </StyledButton>
           </div>
         </div>
       </div>

@@ -30,8 +30,6 @@
 }
 
 .textWrapper {
-  font-family: PT Sans;
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -41,8 +39,6 @@
 }
 
 .cardTitle {
-  font-family: PT Sans;
-  font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 65px;

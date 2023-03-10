@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "../../../../../../components/Button";
+import StyledButton from "../../../../../../components/StyledButton";
 import { Header } from "../../../../../../components/Typography";
 import styles from "./RequestHeader.module.css";
 
@@ -10,7 +10,7 @@ const RequestHeader = () => {
         <Header color="darkBlue">Requests</Header>
       </div>
       <Link to="/request/form">
-        <Button color="yellow">Submit a request</Button>
+        <StyledButton color="yellow">Submit a request</StyledButton>
       </Link>
     </div>
   );

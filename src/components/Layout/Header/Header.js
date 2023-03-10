@@ -10,7 +10,6 @@ const activeStyle = {
 
 const Header = () => {
   const { user, isAuthenticated } = useAuthState();
-
   return (
     <header className={styles.navHeader}>
       <nav className={styles.navContainer}>

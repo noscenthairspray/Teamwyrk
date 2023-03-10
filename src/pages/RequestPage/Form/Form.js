@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Yellow from "../../../components/Button/Yellow";
 import styles from "./Form.module.css";
 import FormHeader from "./FormHeader";
 import Terms from "./Terms";
@@ -10,8 +9,12 @@ import { InputError } from "../../../components/Alerts/Error";
 import { uploadFileToStorage } from "../../../utils/firebase-api";
 import { addRequestToDB } from "../../../firebase";
 import { CircularProgress } from "@mui/material";
+import { useAuthState } from "../../../hooks/useAuthState";
+import StyledButton from "../../../components/StyledButton";
 
 const Form = () => {
+  const { isAuthenticated } = useAuthState();
+
   const [paymentValue, setPaymentValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
@@ -56,8 +59,7 @@ const Form = () => {
     updateData.resume = resumeUrl; // add resume url to updateData object
 
     try {
-      const result = await addRequestToDB(updateData);
-      console.log("result", result);
+      await addRequestToDB(updateData);
       setIsSubmitting(false);
       navigate("/request");
     } catch (error) {
@@ -65,6 +67,10 @@ const Form = () => {
       // handle error
     }
   };
+
+  if (!isAuthenticated) {
+    return <Navigate replace to="/" />;
+  }
 
   return (
     <div className={styles.container}>
@@ -83,7 +89,7 @@ const Form = () => {
               className={styles.select}
               id="services"
               required
-              {...register("services", { required: false })}
+              {...register("services", { required: true })}
             >
               <option value="" hidden>
                 Select one
@@ -106,7 +112,7 @@ const Form = () => {
               id="name"
               placeholder="E.g. Jane Doe"
               {...register("name", {
-                required: false,
+                required: true,
               })}
             />
             {errors.name && <InputError text="Please enter your full name." />}
@@ -121,7 +127,7 @@ const Form = () => {
               id="email"
               placeholder="E.g. janedoe@gmail.com"
               {...register("email", {
-                required: false,
+                required: true,
                 pattern: /^\S+@\S+$/i,
               })}
             />
@@ -140,7 +146,7 @@ const Form = () => {
               id="desired_company"
               placeholder="E.g. Microsoft"
               {...register("desired_company", {
-                required: false,
+                required: true,
               })}
             />
             {errors["desired_company"] && (
@@ -157,7 +163,7 @@ const Form = () => {
               id="desired_role"
               placeholder="E.g. Product Manager"
               {...register("desired_role", {
-                required: false,
+                required: true,
               })}
             />
             {errors["desired_role"] && (
@@ -206,7 +212,7 @@ const Form = () => {
                 id="payment"
                 placeholder="$ 0   / person"
                 {...register("payment", {
-                  required: false,
+                  required: true,
                   pattern: /^[0-9]{1,3}$/,
                   max: 100,
                 })}
@@ -243,7 +249,11 @@ const Form = () => {
           <Terms />
 
           <fieldset>
-            <Yellow type="submit">
+            <StyledButton
+              color="yellow"
+              type="submit"
+              disabled={isSubmitting ? true : false}
+            >
               {isSubmitting ? (
                 <div style={{ width: "110px" }}>
                   <CircularProgress
@@ -257,7 +267,7 @@ const Form = () => {
               ) : (
                 "Submit request"
               )}
-            </Yellow>
+            </StyledButton>
             <Link to="/request">
               <button className={styles.cancelButton}>Cancel</button>
             </Link>

@@ -44,8 +44,6 @@
 }
 .date,
 .apply {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -53,8 +51,6 @@
 }
 
 .name {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -68,12 +64,9 @@
 
 .resume a {
   display: flex;
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  text-decoration: none;
   color: #37447e;
 }
 .buttonWrapper {
@@ -86,8 +79,6 @@
   width: 91px;
 }
 .price {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
