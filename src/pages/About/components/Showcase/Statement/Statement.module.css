@@ -61,7 +61,6 @@
 
   .containerOdd {
     flex-direction: column;
-    padding-right: 0px;
   }
 
   .wrapperEllipseEven {

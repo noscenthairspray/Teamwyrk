@@ -71,3 +71,13 @@
   font-weight: 600;
   color: #5f6ea6;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
