@@ -28,17 +28,17 @@
 }
 
 .textWrapper {
+  width: 1100px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 20px 0px;
 }
 
 .website {
   width: 169px;
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -47,8 +47,6 @@
 }
 
 .copyright {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;

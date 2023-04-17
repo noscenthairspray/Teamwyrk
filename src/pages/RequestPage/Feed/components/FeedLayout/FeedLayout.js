@@ -1,6 +1,5 @@
 import React from "react";
 import RequestHeader from "./RequestHeader";
-
 import styles from "./FeedLayout.module.css";
 
 const FeedLayout = ({ newRequestCount, children }) => {

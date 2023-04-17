@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import Button from "../Button";
+import StyledButton from "../StyledButton";
 import styles from "./CTA.module.css";
 
-//Reusable  CTA component for use on 'Join the wait list' section
+//Reusable  CTA component for use on 'GetStarted' sections
 //Used in FAQ and About page
-//Hashies - you can use this component on the landing page if you'd like since it's the same
 
 const CTA = ({ description, buttonText }) => {
   return (
@@ -18,9 +17,9 @@ const CTA = ({ description, buttonText }) => {
       ) : null}
       <div>
         <Link to="/signup">
-          <Button event="hover" color="yellow">
+          <StyledButton color="yellow" hover>
             {buttonText}
-          </Button>
+          </StyledButton>
         </Link>
       </div>
     </div>

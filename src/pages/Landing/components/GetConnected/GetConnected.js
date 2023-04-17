@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Insiders from "./Insiders";
 import styles from "./GetConnected.module.css";
-import Button from "../../../../components/Button";
 import { insiders } from "../../data";
 import { SubHeader } from "../../../../components/Typography";
+import StyledButton from "../../../../components/StyledButton";
 
 const GetConnected = () => {
   return (
@@ -18,10 +19,11 @@ const GetConnected = () => {
             <Insiders insider={insider} position={index} key={insider.name} />
           ))}
         </div>
-        {/* <button className={styles.secondaryButton}>Become an Insider</button> */}
-        <Button color="primary" event="hover">
-          Become an Insider
-        </Button>
+        <Link to="/signup">
+          <StyledButton color="primary" hover>
+            Become an Insider
+          </StyledButton>
+        </Link>
       </div>
     </div>
   );

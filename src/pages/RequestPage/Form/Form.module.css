@@ -138,15 +138,13 @@
 .cancelButton {
   margin-left: 20px;
   background-color: transparent;
-  border: none;
   color: #37447e;
   font-size: 20px;
   line-height: 30px;
+  font-weight: 700;
 }
 
 .submitCaption {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;

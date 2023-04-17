@@ -12,8 +12,7 @@ export const uploadFileToStorage = (file) => {
   return new Promise((resolve, reject) => {
     uploadTask.on("state_changed", {
       next: (snapshot) => {
-        // Handle progress updates here
-        console.log(snapshot);
+        // Handle progress updates here (loading bar, etc.)
       },
       error: (error) => {
         reject(error);

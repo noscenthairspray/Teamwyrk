@@ -30,7 +30,11 @@ const ProfileDropDown = ({ user }) => {
       <Box>
         <Box sx={{ flexGrow: 0 }}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <Avatar alt="Remy Sharp" src={user?.photoURL} />
+            <Avatar
+              alt="Remy Sharp"
+              src={user?.photoURL}
+              imgProps={{ referrerPolicy: "no-referrer" }}
+            />
           </IconButton>
           <Menu
             id="menu-appbar"

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { useTheme, useMediaQuery } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import styles from "./Header.module.css";
 import ProfileDropDown from "./ProfleDropDown";
@@ -10,6 +11,8 @@ const activeStyle = {
 
 const Header = () => {
   const { user, isAuthenticated } = useAuthState();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <header className={styles.navHeader}>
@@ -55,24 +58,26 @@ const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Contact Us
+                {isMobile ? "Contact" : "Contact Us"}
               </a>
             </li>
           </ul>
-          <div className={styles.accessButtons}>
-            {isAuthenticated ? (
-              <ProfileDropDown user={user} />
-            ) : (
-              <>
-                <Link to="/signin">
-                  <button className={styles.signInButton}>Log In</button>
-                </Link>
-                <Link to="/signup">
-                  <button className={styles.signUpButton}>Sign Up</button>
-                </Link>
-              </>
-            )}
-          </div>
+          {!isMobile && (
+            <div className={styles.accessButtons}>
+              {isAuthenticated ? (
+                <ProfileDropDown user={user} />
+              ) : (
+                <>
+                  <Link to="/signin">
+                    <button className={styles.signInButton}>Log In</button>
+                  </Link>
+                  <Link to="/signup">
+                    <button className={styles.signUpButton}>Sign Up</button>
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </nav>
     </header>

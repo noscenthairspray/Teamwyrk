@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
 import { signInWithGoogle } from "../../firebase/auth/";
@@ -10,13 +11,15 @@ const SignUp = () => {
   const { isAuthenticated } = useAuthState();
   const navigate = useNavigate();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   //if the user is authenticated, redirect to the home page
   if (isAuthenticated) {
     return <Navigate replace to="/" />;
   }
   return (
     <div className={styles.container}>
-      <div className={styles.leftHalf} />
+      {!isMobile && <div className={styles.leftHalf} />}
       <div className={styles.rightHalf}>
         <Credentials title="Sign up for WyrkTeam" submitBtnText="Sign up" />
 
@@ -33,7 +36,7 @@ const SignUp = () => {
         </button>
         <p className={styles.helperText}>
           Already have an account?{" "}
-          <Link to="/signin" replace>
+          <Link to="/signin" replace style={{ textDecoration: "underline" }}>
             Sign in
           </Link>
         </p>

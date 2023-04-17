@@ -25,8 +25,6 @@
   display: flex;
   align-items: center;
   color: #222f65;
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 30px;
@@ -49,24 +47,20 @@
   height: 50px;
   border: 1px solid #222f65;
   border-radius: 10px;
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 30px;
-  color: #000000;
+  color: #37447e;
   margin-bottom: 40px;
 }
 .googleButton img {
   vertical-align: middle;
-  margin-right: 20px;
+  margin-right: 10px;
   width: 24px;
   height: 24px;
 }
 
 .helperText {
-  font-family: "PT Sans";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 30px;
@@ -76,4 +70,14 @@
 .helperText a {
   font-weight: 600;
   color: #5f6ea6;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }

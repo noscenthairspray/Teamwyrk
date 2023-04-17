@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Button from "../../../../components/Button/";
+import StyledButton from "../../../../components/StyledButton";
 import { Header } from "../../../../components/Typography";
 import styles from "./HeroItem.module.css";
 
@@ -75,9 +75,9 @@ const HeroItem = () => {
           }}
         >
           <Link to="/signup">
-            <Button event="hover" color="yellow">
+            <StyledButton color="yellow" hover>
               Get started
-            </Button>
+            </StyledButton>
           </Link>
         </motion.div>
       </div>

@@ -1,12 +1,18 @@
 body {
   margin: 0;
   padding: 0 !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "PT Sans", "Roboto", Arial, sans-serif;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+button {
+  font-family: "PT Sans";
+  font-style: normal;
+  border: none;
+}
+
 a {
   text-decoration: none;
 }
