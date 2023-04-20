@@ -10,7 +10,9 @@ const RequestHeader = () => {
         <Header color="darkBlue">Requests</Header>
       </div>
       <Link to="/request/form">
-        <StyledButton color="yellow">Submit a request</StyledButton>
+        <StyledButton color="yellow" hover>
+          Submit a request
+        </StyledButton>
       </Link>
     </div>
   );
