@@ -48,10 +48,15 @@ const Onboarding = () => {
                 </div>
               </div>
             </button>
-
+            &nbsp;
+            &nbsp;
+            &nbsp;
             {
               show?<Link to="/request"><button className={styles.continue}>Continue</button></Link>: null
             }
+            &nbsp;
+            &nbsp;
+            &nbsp;
       </div>
     </div>
   );
