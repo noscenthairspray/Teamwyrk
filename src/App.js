@@ -10,6 +10,7 @@ import Form from "./pages/RequestPage/Form";
 import Feed from "./pages/RequestPage/Feed";
 import "./style/global.css";
 import { AuthProvider } from "./stores/context/AuthContext";
+import Account from "./pages/Account/Account";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/FAQ" element={<FAQ />} />
               <Route path="/contact" />
+              <Route path="/account" element={<Account />} />
               <Route path="/request" element={<Feed />} />
               <Route path="/request/form" element={<Form />} />
             </Route>
