@@ -1,0 +1,47 @@
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  color: #222f65;
+  margin-bottom: 20px;
+}
+
+.comingSoonWrapper {
+  margin-bottom: 80px;
+}
+
+.notificationText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #363637;
+  margin-bottom: 20px;
+}
+
+.emailChangeText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #222f65;
+}
+
+.deactivateWrapper {
+  margin-bottom: 80px;
+}
+
+.deactivateSubtitle {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ff0505;
+  margin-bottom: 20px;
+}
+
+.deactivateText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #222f65;
+}
