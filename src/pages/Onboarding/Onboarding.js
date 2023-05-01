@@ -12,7 +12,7 @@ const Onboarding = () => {
   return (
     <div className={styles.container}>
       <div>
-          <Link to="/"><button className={styles.back}>&lt; <u>Back</u></button></Link>
+          <Link to="/signup"><button className={styles.back}>&lt; <u>Back</u></button></Link>
       </div>
 
       <div className={styles.role}>
