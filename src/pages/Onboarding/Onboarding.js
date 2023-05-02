@@ -11,9 +11,9 @@ const Onboarding = () => {
 
   return (
     <div className={styles.container}>
-      <div>
+      {/* <div>
           <Link to="/signup"><button className={styles.back}>&lt; <u>Back</u></button></Link>
-      </div>
+      </div> */}
 
       <div className={styles.role}>
           <div className={styles.title}>
