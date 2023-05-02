@@ -1,0 +1,25 @@
+.container {
+  margin-bottom: 80px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ff0505;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.deactivateWrapper {
+  margin-bottom: 40px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #222f65;
+}

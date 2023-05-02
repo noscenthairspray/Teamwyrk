@@ -2,10 +2,11 @@ import styles from "./Account.module.css";
 import { Header } from "../../components/Typography";
 import CredentialsInput from "./CredentialsInput";
 import { Divider } from "@mui/material";
-import ComingSoon from "./ComingSoon";
 import Profile from "./Profile";
 import { useAuthState } from "../../hooks/useAuthState";
 import { Navigate } from "react-router-dom";
+import NotificationCheckBox from "./NotificationCheckBox";
+import Deactivate from "./Deactivate";
 
 const Account = () => {
   //custom firebase react-hook returns user object (logged in user's info) +
@@ -26,7 +27,8 @@ const Account = () => {
         <CredentialsInput />
         {/* Divider is from material-ui library */}
         <Divider sx={{ my: "40px" }} />
-        <ComingSoon />
+        <NotificationCheckBox />
+        <Deactivate />
       </div>
     </div>
   );

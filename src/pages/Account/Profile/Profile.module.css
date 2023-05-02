@@ -32,11 +32,22 @@
   padding: 10px;
 }
 
+.profileTextWrapper {
+  margin-left: 47px;
+}
+
 .name {
   color: #222f65;
   font-weight: 700;
   font-size: 36px;
   line-height: 47px;
-  margin-left: 47px;
   padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.memberText {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #000000;
 }
