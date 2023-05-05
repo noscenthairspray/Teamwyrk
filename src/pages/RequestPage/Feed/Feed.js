@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { FeedLayout, RequestItem, RequestModal,EmptyFeed } from "./components";
+import { FeedLayout, RequestItem, RequestModal, EmptyFeed } from "./components";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
 
-//TODO - add pagination / infinite scroll
+//@Team, we can probaby use this as the Requester's Feed since it's very similar
+//We can update the names to Feed -> RequesterFeed and Form -> RequesterForm
 const Feed = () => {
   const { isAuthenticated } = useAuthState();
 
