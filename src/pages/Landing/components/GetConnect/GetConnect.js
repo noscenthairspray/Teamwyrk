@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Insiders from "./Insiders";
-import styles from "./GetConnected.module.css";
+import styles from "./GetConnect.module.css";
 import { insiders } from "../../data";
 import { SubHeader } from "../../../../components/Typography";
 import StyledButton from "../../../../components/StyledButton";
 
-const GetConnected = () => {
+const GetConnect = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
@@ -29,4 +29,4 @@ const GetConnected = () => {
   );
 };
 
-export default GetConnected;
+export default GetConnect;
