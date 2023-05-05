@@ -9,7 +9,6 @@ import {
   GetMatchedModal,
 } from "./components";
 import Snackbar from "../../../components/Alerts/Snackbar";
-import PillState from "../../../components/PillState";
 
 const InsiderFeed = () => {
   const { isAuthenticated } = useAuthState();
@@ -76,11 +75,7 @@ const InsiderFeed = () => {
               marginTop: "50px",
               marginBottom: "50px",
             }}
-          >
-            <PillState state="matched" text="Matched" />
-            <PillState state="matching" text="matching" />
-            <PillState state="accepted" text="Accepted" />
-          </div>
+          ></div>
         )}
         {selectedRequest && (
           <GetMatchedModal
