@@ -2,14 +2,14 @@ import React from "react";
 import RequestHeader from "./RequestHeader";
 import styles from "./FeedLayout.module.css";
 
-const FeedLayout = ({ newRequestCount, children }) => {
+const FeedLayout = ({ newRequestCount = 0, children }) => {
   return (
     <div className={styles.container}>
       <RequestHeader />
       <div className={styles.listContainer}>
         <div className={styles.tabWrapper}>
           <button className={styles.allTab}>
-            All  
+            All
             {newRequestCount > 0 && (
               <span className={styles.newCountIcon}>{newRequestCount}</span>
             )}
