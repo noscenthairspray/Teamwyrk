@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Profile.module.css";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
@@ -11,13 +11,9 @@ const Profile = ({ userData }) => {
   const [loading, setLoading] = useState(false);
   const [photoURL, setPhotoURL] = useState("https://picsum.photos/200/300");
   const createdAtDate = new Date(parseInt(metadata.createdAt, 10));
-
+  const fileInputRef = useRef(this);
   const monthIdx = createdAtDate.getMonth() + 1; // Months are 0-indexed in JavaScript, so add 1 to get the correct month
   const year = createdAtDate.getFullYear();
-  
-  function handleChange() {
-
-  }
 
   const monthNames = [
     "January",
@@ -41,18 +37,14 @@ const Profile = ({ userData }) => {
   }, [userData])
   
 
-  const handleEditProfile = () => {
-    //@Rowan - Implement profile upload to firebase logic here or at Account.js
-    //choose and upload a file
-    //update userData's photoURl to use the photo's location.
-    const photoUrl = uploadImageToStorage(photo, userData, setLoading);
-    
-  };
-
   function handleChange(e) {
     if (e.target.files[0]) {
-      setPhoto(e.target.files[0])
+      setPhoto(e.target.files[0]);
+      uploadImageToStorage(e.target.files[0], userData, setLoading);
     }
+  }
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
   }
 
 
@@ -65,13 +57,15 @@ const Profile = ({ userData }) => {
           className={styles.profileImage}
         />
         <div>
-          <input type = "file" onChange={handleChange}/>
-          <button disabled = {loading || !photo} onClick={handleEditProfile}>
-            !!!Upload!!!
-          </button>  
+          <input type = "file"
+          style={{display:'none'}}
+          ref={fileInputRef} 
+          onChange={handleChange}/> 
         </div>
-        <button className={styles.editIconButton}
-          onClick={handleEditProfile}>
+        <button
+          disabled = {loading} 
+          className={styles.editIconButton}
+          onClick={handleButtonClick}>
           <img
             src={"/icons/profile-edit.svg"}
             alt="Edit"
@@ -94,11 +88,12 @@ export default Profile;
 export async function uploadImageToStorage(file, userData, setLoading) {
   const env = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
   const { displayName } = userData;
-  const filePath = `gs://${env}/profile-image/${displayName}-${file.name}`;
+  const filePath = `gs://${env}/profile-image/${displayName}`;
   const storageRef = ref(storage, filePath);
   setLoading(true);
-
+  //UploadTask stores the file in the cloud
   const uploadTask = await uploadBytes(storageRef, file);
+  //
   const photoURL = await getDownloadURL(storageRef);
 
   updateProfile(userData, {photoURL});
