@@ -87,8 +87,8 @@ export default Profile;
 
 export async function uploadImageToStorage(file, userData, setLoading) {
   const env = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
-  const { displayName } = userData;
-  const filePath = `gs://${env}/profile-image/${displayName}`;
+  const { uid } = userData;
+  const filePath = `gs://${env}/profile-image/${uid}`;
   const storageRef = ref(storage, filePath);
   setLoading(true);
   //UploadTask stores the file in the cloud
