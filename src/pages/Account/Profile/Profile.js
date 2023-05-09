@@ -38,11 +38,18 @@ const Profile = ({ userData }) => {
   
 
   function handleChange(e) {
-    if (e.target.files[0]) {
-      setPhoto(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+    const maxSize = 5 * 1024 * 1024 //5MB
+    if (selectedFile && allowedTypes.includes(selectedFile.type) && selectedFile.size <= maxSize) {
+      setPhoto(selectedFile);
       uploadImageToStorage(e.target.files[0], userData, setLoading);
+    } else {
+      setPhoto(null);
+      alert("Please select a valid image file (JPEG, PNG, GIF) that is less than 5MB in size.");
     }
   }
+
   const handleButtonClick = () => {
     fileInputRef.current.click();
   }
