@@ -12,6 +12,7 @@ import "./style/global.css";
 import { AuthProvider } from "./stores/context/AuthContext";
 import Account from "./pages/Account";
 import InsiderFeed from "./pages/RequestPage/InsiderFeed";
+import Onboarding from "./pages/Onboarding/Onboarding";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             </Route>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/onboarding" element={<Onboarding />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

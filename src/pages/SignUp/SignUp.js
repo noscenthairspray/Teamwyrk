@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
-import { signInWithGoogle } from "../../firebase/auth/";
+import { signUpWithGoogle } from "../../firebase/auth/google_signin";
 import styles from "./SignUp.module.css";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuthState } from "../../hooks/useAuthState";
@@ -29,7 +29,7 @@ const SignUp = () => {
 
         <button
           className={styles.googleButton}
-          onClick={() => signInWithGoogle(navigate)}
+          onClick={() => signUpWithGoogle(navigate)}
         >
           <img src="/icons/google.svg" alt="Google Icon" />
           Sign up with Google

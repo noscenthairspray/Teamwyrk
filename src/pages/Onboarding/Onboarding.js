@@ -1,5 +1,4 @@
-
-import styles from "./FAQ.module.css";
+import styles from "./Onboarding.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
