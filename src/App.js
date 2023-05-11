@@ -30,10 +30,10 @@ function App() {
               <Route path="/request" element={<Feed />} />
               <Route path="/request/form" element={<Form />} />
               <Route path="/request-insider" element={<InsiderFeed />} />
+              <Route path="/onboarding" element={<Onboarding />} />
             </Route>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/onboarding" element={<Onboarding />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
