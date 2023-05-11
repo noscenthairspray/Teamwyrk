@@ -3,8 +3,6 @@ import styles from "./FAQ.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
 const Onboarding = () => {
   const [show, setShow] = useState(false)
 
