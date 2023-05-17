@@ -18,11 +18,11 @@ const SignUp = () => {
     return <Navigate replace to="/" />;
   }
   return (
-    <div className={styles.container}>
+    <div className={styles.container}> 
       {!isMobile && <div className={styles.leftHalf} />}
       <div className={styles.rightHalf}>
         <Credentials title="Sign up for TeamWyrk" submitBtnText="Sign up" />
-
+        
         <div className={styles.dividerWrapper}>
           <p className={styles.divider}>or</p>
         </div>
