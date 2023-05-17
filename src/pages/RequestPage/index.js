@@ -1,3 +1,3 @@
-export { default as Form } from "./Form";
-export { default as Feed } from "./Feed";
+export { default as RequesterFeed } from "./RequesterFeed";
+export { default as RequesterForm } from "./RequesterForm";
 export { default as InsiderFeed } from "./InsiderFeed";

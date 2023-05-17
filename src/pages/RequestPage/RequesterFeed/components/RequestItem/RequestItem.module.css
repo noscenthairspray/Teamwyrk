@@ -57,30 +57,30 @@
   color: #181818;
 }
 
-.resumeIcon {
+.deleteIcon {
   vertical-align: middle;
-  margin-right: 7px;
+  margin-right: 10px;
 }
 
-.resume a {
+.deleteButton {
   display: flex;
+  align-items: center;
+  width: 67px;
+  padding-left: 0px;
+}
+.deleteText {
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #37447e;
+  color: #747474;
 }
-.buttonWrapper {
+.pillState {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
 }
 
 .buttonWrapper button {
   width: 91px;
-}
-.price {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: #181818;
 }

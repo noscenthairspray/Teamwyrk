@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import styles from "./Form.module.css";
+import styles from "./RequesterForm.module.css";
 import FormHeader from "./FormHeader";
 import Terms from "./Terms";
 import Resume from "./Resume";
@@ -12,7 +12,7 @@ import { CircularProgress } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import StyledButton from "../../../components/StyledButton";
 
-const Form = () => {
+const RequesterForm = () => {
   const { isAuthenticated } = useAuthState();
 
   const [paymentValue, setPaymentValue] = useState("");
@@ -283,4 +283,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default RequesterForm;
