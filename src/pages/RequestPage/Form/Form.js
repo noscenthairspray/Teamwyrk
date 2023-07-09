@@ -13,7 +13,7 @@ import { useAuthState } from "../../../hooks/useAuthState";
 import StyledButton from "../../../components/StyledButton";
 
 const Form = () => {
-  const { isAuthenticated } = useAuthState();
+  const {user, isAuthenticated } = useAuthState();
 
   const [paymentValue, setPaymentValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,7 +55,7 @@ const Form = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     let updateData = { ...data };
-    const resumeUrl = await uploadFileToStorage(data.resume[0]); //returns url of uploaded resume
+    const resumeUrl = await uploadFileToStorage(data.resume[0], user); //returns url of uploaded resume
     updateData.resume = resumeUrl; // add resume url to updateData object
 
     try {
