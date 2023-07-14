@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
-import { SubHeader } from "../../../../components/Typography";
-import styles from "./CardItem.module.css";
+import styles from "./UpsellCardItem.module.css";
 
-const CardItem = () => {
+
+
+const UpsellCardItem = () => {
+  
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <SubHeader color="darkBlue">
-          A platform to jump start your next role
-        </SubHeader>
+      In the meantime, feel free to explore our range of quality services.
       </div>
       <div className={styles.featureCard}>
         <div className={styles.individualCard}>
@@ -44,7 +44,7 @@ const CardItem = () => {
             <p>
               Practice for your interview with insiders from your target
               companies so that when you get in front of the hiring manager,
-              YOU'RE ready.
+              you're ready.
             </p>
             <h4 className={styles.cardLink}> 
               <Link to="/request/form"> <span>Get Started</span></Link>
@@ -56,4 +56,4 @@ const CardItem = () => {
   );
 };
 
-export default CardItem;
+export default UpsellCardItem;

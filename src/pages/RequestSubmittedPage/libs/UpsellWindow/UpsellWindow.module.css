@@ -1,0 +1,8 @@
+.container {
+  max-width: 1150px;
+  margin: 0px auto;
+  /* margin-bottom: 42px; */
+  /* border: 3px green solid; */
+  gap: 80px;
+}
+

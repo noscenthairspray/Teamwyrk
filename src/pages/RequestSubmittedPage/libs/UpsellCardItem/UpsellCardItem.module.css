@@ -1,12 +1,19 @@
 .container {
-  max-width: 1270px;
-  margin: 0 auto;
-  padding: 40px 0px;
+  max-width: 1140px;
+  margin: 0px auto;
+  margin-bottom: 42px;
+  gap: 80px;
 }
 
 .title {
-  margin-bottom: 40px;
-  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  color: var(--primary, #37447e);
+  font-size: 24px;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 .featureCard {
@@ -46,10 +53,10 @@
 }
 
 .cardLink {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
-.cardLink span{
+.cardLink span {
   color: #37447e;
   text-decoration: underline;
   font-size: 18px;

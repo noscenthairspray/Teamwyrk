@@ -11,6 +11,7 @@ import { AuthProvider } from "./stores/context/AuthContext";
 import Account from "./pages/Account";
 import InsiderFeed from "./pages/RequestPage/InsiderFeed";
 import Onboarding from "./pages/Onboarding/Onboarding";
+import RequestSubmittedPage from "./pages/RequestSubmittedPage/RequestSubmittedPage"
 import { RequesterFeed, RequesterForm } from "./pages/RequestPage";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route path="/request/form" element={<RequesterForm />} />
               <Route path="/request-insider" element={<InsiderFeed />} />
               <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/upsell" element={<RequestSubmittedPage />} />
             </Route>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />
