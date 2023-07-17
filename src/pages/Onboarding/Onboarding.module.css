@@ -1,0 +1,151 @@
+/* .container {
+  max-width: 1270px;
+  margin: 0px auto;
+}
+
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.questionLayout {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+button{
+  color: #37447E;
+  height: 30px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  background-color: white;
+  margin-top: 39px;
+  margin-left: 76px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .title {
+    padding: 0px 30px;
+  }
+  .questionLayout {
+    padding: 0px 30px;
+  }
+  .featureCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+} */
+
+.container {
+  max-width: 1270px;
+  margin: 0px auto;
+}
+
+.title {
+  text-align: center;
+  width: 560px;
+  height: 34px;
+  margin-top: 69px;
+  margin-bottom: 20px;
+}
+
+.questionLayout {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+h2{
+  color: #222F65;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 1px;
+}
+
+.role{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; 
+}
+
+.roleButton{
+  border-color: #EFF2FC;
+  border-width: 3px;
+  border-style: solid;
+
+  padding: 40px;
+  border-radius: 20px;
+  width: 840px;
+
+  font-size: 24px;
+  line-height: 24px;
+
+  background-color: white;
+}
+
+.roleButtonInner{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 20px;
+}
+
+.roleButtonOuter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.back{
+  color: #37447E;
+  height: 30px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  background-color: white;
+  margin-top: 39px;
+  margin-left: 76px;
+}
+
+button:focus{
+  background-color: #EFF2FC;
+  border-color: #37447E;
+}
+
+.continue{
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+
+  background: #37447E;
+  border-radius: 10px;
+  padding: 8px 24px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .title {
+    padding: 0px 30px;
+  }
+  .questionLayout {
+    padding: 0px 30px;
+  }
+  .featureCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}

@@ -81,7 +81,7 @@ const RequestItem = ({ handleClickRequest, requestData }) => {
           </div>
           <div className={styles.buttonWrapper}>
             <p className={styles.price}>{`${payment}/person`}</p>
-            <StyledButton color="primary" onClick={handleButtonClick}>
+            <StyledButton color="primary" onClick={handleButtonClick} hover>
               Email
             </StyledButton>
           </div>

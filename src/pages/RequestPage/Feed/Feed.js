@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
-import { FeedLayout, RequestItem, RequestModal } from "./components";
+import { FeedLayout, RequestItem, RequestModal,EmptyFeed } from "./components";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
 
@@ -45,23 +45,30 @@ const Feed = () => {
   if (!isAuthenticated) {
     return <Navigate replace to="/" />;
   }
+
   return (
     <>
-      <FeedLayout newRequestCount={oneDayOldRequests.length}>
-        {requests.map((request) => (
-          <RequestItem
-            key={request.id}
-            requestData={request}
-            handleClickRequest={handleClickRequest}
-          />
-        ))}
-      </FeedLayout>
-      {selectedRequest && (
-        <RequestModal
-          open={open}
-          setOpenModal={setOpenModal}
-          contacts={selectedRequest}
-        />
+      {requests.length > 0 ? (
+        <>
+          <FeedLayout newRequestCount={oneDayOldRequests.length}>
+            {requests.map((request) => (
+              <RequestItem
+                key={request.id}
+                requestData={request}
+                handleClickRequest={handleClickRequest}
+              />
+            ))}
+          </FeedLayout>
+          {selectedRequest && (
+            <RequestModal
+              open={open}
+              setOpenModal={setOpenModal}
+              contacts={selectedRequest}
+            />
+          )}
+        </>
+      ) : (
+        <EmptyFeed />
       )}
     </>
   );

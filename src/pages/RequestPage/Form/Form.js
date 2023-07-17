@@ -253,6 +253,7 @@ const Form = () => {
               color="yellow"
               type="submit"
               disabled={isSubmitting ? true : false}
+              hover
             >
               {isSubmitting ? (
                 <div style={{ width: "110px" }}>

@@ -9,7 +9,7 @@ const FeedLayout = ({ newRequestCount, children }) => {
       <div className={styles.listContainer}>
         <div className={styles.tabWrapper}>
           <button className={styles.allTab}>
-            All
+            All  
             {newRequestCount > 0 && (
               <span className={styles.newCountIcon}>{newRequestCount}</span>
             )}
