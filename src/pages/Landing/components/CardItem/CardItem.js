@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { SubHeader } from "../../../../components/Typography";
 import styles from "./CardItem.module.css";
 
@@ -19,9 +18,6 @@ const CardItem = () => {
               Having trouble getting a contact at your target company? Connect
               with a insider who can make the referral for you.
             </p>
-            <h4 className={styles.cardLink}> 
-              <Link to="/request/form"> <span>Get Started</span></Link>
-            </h4>
           </div>
         </div>
         <div className={styles.individualCard}>
@@ -32,9 +28,6 @@ const CardItem = () => {
               Our community of insiders will review your resume, maximizing your
               chances of getting an interview with the company you want.
             </p>
-            <h4 className={styles.cardLink}> 
-              <Link to="/request/form"> <span>Get Started</span></Link>
-            </h4>
           </div>
         </div>
         <div className={styles.individualCard}>
@@ -46,9 +39,6 @@ const CardItem = () => {
               companies so that when you get in front of the hiring manager,
               YOU'RE ready.
             </p>
-            <h4 className={styles.cardLink}> 
-              <Link to="/request/form"> <span>Get Started</span></Link>
-            </h4>
           </div>
         </div>
       </div>

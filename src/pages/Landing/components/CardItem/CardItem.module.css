@@ -45,18 +45,6 @@
   color: #181818;
 }
 
-.cardLink {
-    margin-top: 20px;
-}
-
-.cardLink span{
-  color: #37447e;
-  text-decoration: underline;
-  font-size: 18px;
-  margin-top: 20px;
-  font-weight: 700;
-  line-height: 30px;
-}
 
 @media only screen and (max-width: 600px) {
   .container {
