@@ -3,8 +3,6 @@ import React from "react";
 import styles from "./DeleteModal.module.css";
 
 const Modal = ({ closeModal }) => {
-  console.log("Entering Modal");
-  console.log(closeModal);
   return (
     <div className={styles.modalBackground}>
       <div className={styles.modalContainer}>
