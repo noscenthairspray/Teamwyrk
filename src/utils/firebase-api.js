@@ -1,6 +1,8 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
 
+
+
 export const uploadFileToStorage = (file, userData) => {
   const env = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
   const now = new Date();
