@@ -6,14 +6,27 @@ import styles from "./InsiderAcceptModal.module.css";
 //TODO: ADD IN FUNCTIONALITY TO SHOW ALERT TOAST WHEN DECLINE BUTTON IS CLICKED
 //TODO: NAVIGATE TO STRIPE PAYMENT PAGE WHEN APPROVE AND PAY IS CLICKED
 
-const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
-  return (
+
+const InsiderAcceptModal = ({ notify, setOpenAcceptModal }) => {
+  const handleDecline = () => {
+    notify(<>
+     <div className={styles.notify_message}>
+      Please wait for another insider to accept your request!
+     </div></>);
+    setOpenAcceptModal(false);
+  }
+  const handleApprove = () => {
+    notify("Approve Message");
+    setOpenAcceptModal(false)
+} 
+
+return (
     <>
       <div className={styles.modal__container}>
         <div className={styles.modal}>
           <div className={styles.modal_header}>
             <div className={styles.modal_container_button}>
-              <button onClick={() => setOpenAcceptModal(false)}>
+            <button onClick={() => setOpenAcceptModal(false)}>
                 <strong>X</strong>
               </button>
             </div>
@@ -23,10 +36,10 @@ const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
           </div>
           <div className={styles.modal_body} />
           <div className={styles.actions}>
-            <button className={styles.approve_button}>Approve and Pay ↗</button>
+            <button className={styles.approve_button} onClick={handleApprove}>Approve and Pay ↗</button>
             <button
               className={styles.decline_button}
-              onClick={() => setOpenAcceptModal(false)}
+              onClick={handleDecline}
             >
               Decline
             </button>
