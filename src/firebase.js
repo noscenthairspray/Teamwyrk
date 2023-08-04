@@ -26,6 +26,8 @@ export const messaging = getMessaging(app);
 
 export const addRequestToDB = httpsCallable(functions, "addRequestToDB");
 
+
+
 export const signOut = async () => {
   try {
     await auth.signOut();
@@ -33,4 +35,19 @@ export const signOut = async () => {
   } catch (error) {
     return false;
   }
+};
+
+// Function to delete user data and account
+export const deleteUserAndData = () => {
+  const deleteUserData = httpsCallable(functions, "deleteUserData");
+
+  return deleteUserData({ uid: auth.currentUser.uid })
+    .then((result) => {
+      console.log(result.data); // handle the result here
+      return auth.currentUser.delete();
+    })
+    .catch((error) => {
+      console.error("Error deleting user data:", error);
+      throw error;
+    });
 };

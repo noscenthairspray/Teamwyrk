@@ -65,3 +65,26 @@ exports.addRequestToDB = functions.https.onCall(async (data, context) => {
   // Return a success message
   return { message: "Request submitted successfully." };
 });
+
+exports.deleteUserAndData = functions.https.onCall(async (data, context) => {
+  // Verify that the user is authenticated and data contains the uid
+  if (!context.auth || !data.uid) {
+    throw new functions.https.HttpsError(
+      "failed-precondition",
+      "The function must be called while authenticated and with a user id."
+    );
+  }
+
+  // Get a reference to the user's document
+  const userRef = admin.firestore().collection("user").doc(data.uid);
+
+  // Delete the user's document from Firestore
+  await userRef.delete();
+
+  // Delete the user from Firebase Authentication
+  await admin.auth().deleteUser(data.uid);
+
+  // You may add more cleanup operations here as required by your application
+
+  return { message: "User deleted successfully." };
+});
