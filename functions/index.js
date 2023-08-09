@@ -3,7 +3,10 @@ const functions = require("firebase-functions");
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 const admin = require("firebase-admin");
+
+
 admin.initializeApp();
+
 
 // Triggers when a user is created with firebase auth - google
 exports.addUserToDB = functions.auth.user().onCreate((user) => {
@@ -17,6 +20,7 @@ exports.addUserToDB = functions.auth.user().onCreate((user) => {
   // with the same document ID as the user's UID.
   admin.firestore().collection("user").doc(user.uid).set(userDoc);
 });
+
 
 //*****request form submittal*****//
 exports.addRequestToDB = functions.https.onCall(async (data, context) => {
@@ -66,25 +70,26 @@ exports.addRequestToDB = functions.https.onCall(async (data, context) => {
   return { message: "Request submitted successfully." };
 });
 
-exports.deleteUserAndData = functions.https.onCall(async (data, context) => {
-  // Verify that the user is authenticated and data contains the uid
-  if (!context.auth || !data.uid) {
+// Function to add an email to the "mail" collection
+exports.addEmailToMailCollection = functions.https.onCall(async (data, context) => {
+  // Check if the user is an admin
+  if (!context.auth || !context.auth.token.admin) {
     throw new functions.https.HttpsError(
-      "failed-precondition",
-      "The function must be called while authenticated and with a user id."
+      "permission-denied",
+      "You must be an admin to perform this operation."
     );
   }
 
-  // Get a reference to the user's document
-  const userRef = admin.firestore().collection("user").doc(data.uid);
+  try {
+    // Add the email to the "mail" collection
+    await admin.firestore().collection("mail").add(data);
 
-  // Delete the user's document from Firestore
-  await userRef.delete();
-
-  // Delete the user from Firebase Authentication
-  await admin.auth().deleteUser(data.uid);
-
-  // You may add more cleanup operations here as required by your application
-
-  return { message: "User deleted successfully." };
+    return { message: "Email added successfully." };
+  } catch (error) {
+    console.error("Error adding email:", error);
+    throw new functions.https.HttpsError(
+      "internal",
+      "An internal error occurred while adding the email."
+    );
+  }
 });

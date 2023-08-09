@@ -1,31 +1,34 @@
 import styles from "./Deactivate.module.css";
-import { auth, deleteUserAndData } from "../../../firebase";
+import { auth, addEmailToMailCollection } from "../../../firebase";
 
 
 //Deactivate + Delete Account text
 const Deactivate = () => {
+  // Function that handles account deactivation
+  const handleDelete = async () => {
+    const confirmed = window.confirm(
+      'Are you sure you want to delete your account? This action cannot be undone.'
+    );
+    if (confirmed) {
+      try {
+        /*// Send email to the user being deleted
+        await addEmailToMailCollection({
+          to: auth.currentUser.email,
+          message: {
+            subject: 'Goodbye from TeamWyrk',
+            html: 'Sorry to see you go!',
+          },
+        });
+        */
+        // Delete user account from Firebase Authentication
+        await auth.currentUser.delete();
 
-     // Function that handles account deactivation
-  const handleDelete = () => {
-    deleteUserAndData ()
-      .then((result) => {
-        console.log(result.data); // handle the result here, such as displaying a success message
-        // After successfully deleting user data, delete the user's account
-        auth.currentUser
-          .delete()
-          .then(() => {
-            console.log("User account deleted");
-            // Here, you might want to do more, like navigate the user to the homepage
-          })
-          .catch((error) => {
-            console.log("Error deleting user:", error.message);
-            // Handle any errors here
-          });
-      })
-      .catch((error) => {
-        console.log("Error deleting user data:", error);
-        // Handle any errors here
-      });
+        console.log('User account and data deleted successfully');
+      } catch (error) {
+        console.error('Error deleting user account and data:', error.message);
+        // Handle error (display an error message or take appropriate action)
+      }
+    }
   };
   return (
     <>
@@ -37,8 +40,8 @@ const Deactivate = () => {
             your account, you may do so by selecting the link above.
           </p>
         </div>
-        <div className={styles.title}>Delete Account</div>
-        <button onClick={handleDelete}>Delete Account</button>
+        <div className={styles.title}></div>
+        <button className={styles.title} onClick={handleDelete}>Delete Account</button>
         <p className={styles.text}>
           We're sorry to see you go. If there's anything we can do to improve
           your experience, please let us know.

@@ -26,6 +26,18 @@ export const messaging = getMessaging(app);
 
 export const addRequestToDB = httpsCallable(functions, "addRequestToDB");
 
+// Function to add an email to the "mail" collection
+export const addEmailToMailCollection = (emailData) => {
+  const addEmail = functions.httpsCallable('addEmailToMailCollection');
+  return addEmail(emailData)
+    .then((result) => {
+      console.log(result.data); // handle the result here
+    })
+    .catch((error) => {
+      console.error('Error adding email:', error);
+      throw error;
+    });
+};
 
 
 export const signOut = async () => {
@@ -37,17 +49,3 @@ export const signOut = async () => {
   }
 };
 
-// Function to delete user data and account
-export const deleteUserAndData = () => {
-  const deleteUserData = httpsCallable(functions, "deleteUserData");
-
-  return deleteUserData({ uid: auth.currentUser.uid })
-    .then((result) => {
-      console.log(result.data); // handle the result here
-      return auth.currentUser.delete();
-    })
-    .catch((error) => {
-      console.error("Error deleting user data:", error);
-      throw error;
-    });
-};
