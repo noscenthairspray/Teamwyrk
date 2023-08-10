@@ -6,10 +6,12 @@ import About from "./pages/About";
 import Landing from "./pages/Landing";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Form from "./pages/RequestPage/Form";
-import Feed from "./pages/RequestPage/Feed";
 import "./style/global.css";
 import { AuthProvider } from "./stores/context/AuthContext";
+import Account from "./pages/Account";
+import InsiderFeed from "./pages/RequestPage/InsiderFeed";
+import Onboarding from "./pages/Onboarding/Onboarding";
+import { RequesterFeed, RequesterForm } from "./pages/RequestPage";
 
 function App() {
   return (
@@ -23,8 +25,11 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/FAQ" element={<FAQ />} />
               <Route path="/contact" />
-              <Route path="/request" element={<Feed />} />
-              <Route path="/request/form" element={<Form />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/request" element={<RequesterFeed />} />
+              <Route path="/request/form" element={<RequesterForm />} />
+              <Route path="/request-insider" element={<InsiderFeed />} />
+              <Route path="/onboarding" element={<Onboarding />} />
             </Route>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/signin" element={<SignIn />} />

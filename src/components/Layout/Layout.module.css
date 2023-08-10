@@ -1,0 +1,10 @@
+/* Layout.module.css */
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layoutMain {
+  flex-grow: 1;
+}
