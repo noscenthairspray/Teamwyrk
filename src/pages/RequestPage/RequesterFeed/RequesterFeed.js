@@ -73,23 +73,10 @@ const RequesterFeed = () => {
   if (!loading && !requests.length) {
     return <EmptyFeed />;
   }
-    {/* ADD TOAST COMPONENT HERE FOR DECLINE BUTTON  */}
-      
-    const notify = (message) => {
-      msgs.current.show([
-        { sticky: true, summary: message, },
-      ]);
-    };
-
 
   return (
     <>
-
-        <div p-messages-close>
-            <Messages ref={msgs} />
-    </div>
-
-
+      {/* ADD TOAST COMPONENT HERE FOR DECLINE BUTTON  */}
       {/* ADD TOAST COMPONENT HERE FOR DECLINE BUTTON  */}
 
       <FeedLayout>
@@ -103,14 +90,10 @@ const RequesterFeed = () => {
         ))}
       </FeedLayout>
       {openAcceptModal && (
-        <InsiderAcceptModal setOpenAcceptModal={setOpenAcceptModal} 
-          notify={notify}/>
+        <InsiderAcceptModal setOpenAcceptModal={setOpenAcceptModal} />
       )}
     </>
   );
 };
-
-
-
 
 export default RequesterFeed;
