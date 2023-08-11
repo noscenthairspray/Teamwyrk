@@ -177,21 +177,3 @@
 .modal__wrapper.active .modal__container {
   transform: translateY(0px);
 }
-
-.notify_message {
-  background-color: #37447E;
-  color: white;
-  width: 90vw;
-  height: 40px;
-  left: 40px;
-  right: 40px;
-  top: 108px;
-  border-radius: 9px;
-  text-align: center;
-  padding-top: 10px;
-  margin: auto;
-  
-}
-.p-message .p-message-close {
-  padding-left: 150px;
-}
