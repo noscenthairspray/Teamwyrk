@@ -11,6 +11,7 @@ button {
   font-family: "PT Sans";
   font-style: normal;
   border: none;
+  background-color: transparent;
 }
 
 a {

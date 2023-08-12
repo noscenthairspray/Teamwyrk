@@ -9,6 +9,11 @@ const Credentials = ({ title, submitBtnText }) => {
     <form className={styles.credentialsForm}>
       <div className={styles.title}>
         <SubHeader color="black">{title}</SubHeader>
+       <div className={styles.subtitle}>
+        <strong>Note:</strong> Signing in using your email address is currently inactive. 
+        However, we've made it possible for you to sign in using your Gmail account. 
+        Select the "Sign up with Google" button below and you'll be all set!
+        </div>
       </div>
       <div className={styles.emailWrapper}>
         <div className={styles.inputText}>Email</div>
