@@ -46,6 +46,9 @@ exports.addRequestToDB = functions.https.onCall(async (data, context) => {
     resume: data.resume,
     profile_image: userDoc.data().profile_image,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    status: "matching", //3 states - matching, matched, accept
+    insider: null,
+    uid: userId,
   };
 
   const requestRef = await admin

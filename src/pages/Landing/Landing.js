@@ -1,4 +1,4 @@
-import { HowItWorks, GetConnected, CardItem, HeroItem } from "./components";
+import { HowItWorks, CardItem, HeroItem, GetConnect } from "./components";
 import styles from "./Landing.module.css";
 import CTA from "../../components/CTA";
 
@@ -8,7 +8,7 @@ const Landing = () => {
       <HeroItem />
       <CardItem />
       <HowItWorks />
-      <GetConnected />
+      <GetConnect />
       <CTA description="" buttonText="Get started" />
     </div>
   );
