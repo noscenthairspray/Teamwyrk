@@ -1,0 +1,128 @@
+.modelWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  justify-content: center;
+  display: flex;
+}
+
+.modalBackground {
+  display: flex;
+  width: 52%;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 20px;
+  background: var(--blue-fill, #eff2fc);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.modalContainer {
+  display: flex;
+  /* width: 739px; */
+  width: 100%;
+  padding: 40px 40px 80px 40px;
+  border-radius: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+  background-color: white;
+}
+
+.modalContainer .title {
+  /* display: inline-block; */
+  display: flex;
+  text-align: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: left;
+  font-size: 1.7rem;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-self: last baseline;
+  justify-content: right;
+}
+
+.modalContainer .footer button {
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+}
+
+.modalContainer ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px; /* 166.667% */
+}
+
+.continueBtn {
+  background-color: cornflowerblue;
+}
+
+.cancelBtn {
+  background-color: crimson;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px; /* 122.222% */
+  letter-spacing: 1px;
+}
