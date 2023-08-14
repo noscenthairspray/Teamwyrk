@@ -45,7 +45,7 @@ const Profile = ({ userData }) => {
       </div>
       <div className={styles.profileTextWrapper}>
         <div className={styles.name}>{displayName}</div>
-        <p clasName={styles.memberText}>{`Member Since ${
+        <p className={styles.memberText}>{`Member Since ${
           monthNames[monthIdx]
         }${" "}${year}`}</p>
       </div>
