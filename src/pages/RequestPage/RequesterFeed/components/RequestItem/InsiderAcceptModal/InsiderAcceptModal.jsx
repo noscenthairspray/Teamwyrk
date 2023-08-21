@@ -1,4 +1,6 @@
 import styles from "./InsiderAcceptModal.module.css";
+import { ReactComponent as Avatar } from './Avatar.svg';
+// import { Block } from "@mui/icons-material";
 
 //TODO: PASS INSIDER INFO AS PROP TO SHOW ON MODAL
 //TODO: FINISH UP STYLING FOR MODAL
@@ -21,7 +23,14 @@ const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
               <strong>An Insider has decided to take on your request!</strong>
             </h3>
           </div>
-          <div className={styles.modal_body} />
+          <div className={styles.modal_body}>
+            <div>
+              <Avatar />
+            </div>  
+            <div>
+             Hello 
+            </div>
+          </div> 
           <div className={styles.actions}>
             <button className={styles.approve_button}>Approve and Pay ↗</button>
             <button
