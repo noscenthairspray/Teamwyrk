@@ -68,3 +68,37 @@ exports.addRequestToDB = functions.https.onCall(async (data, context) => {
   // Return a success message
   return { message: "Request submitted successfully." };
 });
+
+//*****Update the status of a request*****//
+exports.updateRequestStatus = functions.https.onCall(async (data, context) => {
+  // Verify that the user is authenticated
+  if (!context.auth) {
+    throw new functions.https.HttpsError(
+        "unauthenticated",
+        "You must be authenticated to update a request."
+    );
+  }
+
+  // Check if request id and status are provided
+  if (!data.requestId || !data.status) {
+    throw new functions.https.HttpsError(
+        "invalid-argument",
+        "Request id and status are required to update a request."
+    );
+  }
+
+  const requestId = data.requestId;
+  const status = data.status;
+
+  // Get a reference to the request document in the Firestore database
+  const requestRef = admin.firestore().collection("request").doc(requestId);
+
+  // Update the status field of the request document
+  await requestRef.update({
+    status: status
+  });
+
+  // Return a success message
+  return { message: "Request status updated successfully." };
+});
+
