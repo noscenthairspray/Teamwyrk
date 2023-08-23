@@ -24,13 +24,24 @@ const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
             </h3>
           </div>
           <div className={styles.modal_body}>
-            <div>
+            <div className={styles.image_container}>
               <Avatar />
-            </div>  
-            <div>
-             Hello 
             </div>
-          </div> 
+            <div className={styles.details_container}>
+              <div className={styles.name}>
+                Abc Xyz
+              </div>
+              <div className={styles.company_name}>
+                Google
+              </div>
+              <div className= {styles.designation}>
+                Product Manager
+              </div>
+              <div className= {styles.social}>
+                <span>Image</span><span><a href="www.linkedin.com" target="_blank">View Linkedin</a></span>
+              </div>
+            </div>
+        </div>
           <div className={styles.actions}>
             <button className={styles.approve_button}>Approve and Pay ↗</button>
             <button

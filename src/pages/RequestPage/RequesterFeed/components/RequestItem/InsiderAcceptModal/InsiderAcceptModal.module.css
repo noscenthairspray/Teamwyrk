@@ -74,14 +74,94 @@
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(34, 47, 101, 0.25);
   border-radius: 20px;
-
-  /* margin-top: 25px;
-  margin-left: 25px; */
+  
+  margin : auto;
 
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+
 }
+
+/* .body {
+  background-color: grey;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+}  */
+
+.image_container {
+  width: 300px;
+  height: 125px;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.details_container {
+  width: 320px;
+  height: 200px;
+  margin: auto 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.name {
+  background-color: white;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  /* width: 300px;
+  height: 45px; */
+  width: 251.97px;
+  height: 35.08px;
+  line-height: 44px;
+
+  margin: 10px auto 0px;
+  color: #222F65;
+}
+.company_name {
+
+  background-color: white;
+  width: 251.97px;
+  height: 71.56px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  /* width: 300px;
+  height: 30px; */
+  margin: 0px auto;
+}
+
+.designation {
+  background-color: white;
+  width: 251.97px;
+  height: 71.56px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0px auto;
+}
+
+.social {
+  background-color: white;
+  width: 300px;
+  height: 45px;
+  margin: 0px auto;
+  border-radius: 10px;
+  display: flex;
+  column-gap: 20px;
+}
+
+
+
 
 .approve_button {
   /* Auto layout */
