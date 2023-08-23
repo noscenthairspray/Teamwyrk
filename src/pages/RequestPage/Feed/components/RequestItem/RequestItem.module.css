@@ -1,0 +1,86 @@
+.rowContainer {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid #bac3e5;
+}
+
+.newIcon {
+  position: relative;
+  bottom: 30px;
+  width: 47px;
+  height: 24px;
+  background: #ffc93c;
+  border-radius: 9px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+.avatar {
+  width: 50px;
+  height: 47px;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.requestContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.date,
+.apply {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #545454;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #181818;
+}
+
+.resumeIcon {
+  vertical-align: middle;
+  margin-right: 7px;
+}
+
+.resume a {
+  display: flex;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #37447e;
+}
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttonWrapper button {
+  width: 91px;
+}
+.price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #181818;
+}

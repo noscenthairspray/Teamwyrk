@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Credentials } from "../../components/Forms";
-import { signUpWithGoogle } from "../../firebase/auth/google_signin";
+import { signInWithGoogle } from "../../firebase/auth/";
 import styles from "./SignUp.module.css";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuthState } from "../../hooks/useAuthState";
@@ -18,18 +18,18 @@ const SignUp = () => {
     return <Navigate replace to="/" />;
   }
   return (
-    <div className={styles.container}> 
+    <div className={styles.container}>
       {!isMobile && <div className={styles.leftHalf} />}
       <div className={styles.rightHalf}>
-        <Credentials title="Sign up for TeamWyrk" submitBtnText="Sign up" />
-        
+        <Credentials title="Sign up for WyrkTeam" submitBtnText="Sign up" />
+
         <div className={styles.dividerWrapper}>
           <p className={styles.divider}>or</p>
         </div>
 
         <button
           className={styles.googleButton}
-          onClick={() => signUpWithGoogle(navigate)}
+          onClick={() => signInWithGoogle(navigate)}
         >
           <img src="/icons/google.svg" alt="Google Icon" />
           Sign up with Google

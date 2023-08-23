@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import { signOut } from "../../../../firebase";
 
 const settings = [
-  { title: "Account Settings", href: "/account" },
+  { title: "Account Settings", href: "/" },
   { title: "Sign out", href: null },
 ];
 

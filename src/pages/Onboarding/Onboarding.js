@@ -1,6 +1,9 @@
-import styles from "./Onboarding.module.css";
+
+import styles from "./FAQ.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Onboarding = () => {
   const [show, setShow] = useState(false)
@@ -8,9 +11,9 @@ const Onboarding = () => {
 
   return (
     <div className={styles.container}>
-      {/* <div>
-          <Link to="/signup"><button className={styles.back}>&lt; <u>Back</u></button></Link>
-      </div> */}
+      <div>
+          <Link to="/"><button className={styles.back}>&lt; <u>Back</u></button></Link>
+      </div>
 
       <div className={styles.role}>
           <div className={styles.title}>
@@ -45,10 +48,15 @@ const Onboarding = () => {
                 </div>
               </div>
             </button>
-
+            &nbsp;
+            &nbsp;
+            &nbsp;
             {
               show?<Link to="/request"><button className={styles.continue}>Continue</button></Link>: null
             }
+            &nbsp;
+            &nbsp;
+            &nbsp;
       </div>
     </div>
   );

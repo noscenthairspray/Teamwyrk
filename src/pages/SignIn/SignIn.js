@@ -18,7 +18,7 @@ const SignIn = () => {
     <div className={styles.container}>
       <div className={styles.leftHalf} />
       <div className={styles.rightHalf}>
-        <Credentials title="Sign in to TeamWyrk" submitBtnText="Sign in" />
+        <Credentials title="Sign in to WyrkTeam" submitBtnText="Sign in" />
 
         <div className={styles.dividerWrapper}>
           <p className={styles.divider}>or</p>
