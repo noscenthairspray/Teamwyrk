@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { collection, query, orderBy, getDocs, addDoc } from "firebase/firestore";
-import { db, auth } from "../../../firebase";
+import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { db } from "../../../firebase";
+import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
 import {
   InsiderFeedLayout,
@@ -18,28 +19,10 @@ const InsiderFeed = () => {
   const [selectedRequest, setSelectedRequest] = useState(null);
   const [showSnackbar, setShowSnackbar] = useState(false);
 
-  const addEmailToMailCollection = async (to, subject, text) => {
-    try {
-      const mailCollection = collection(db, "mail");
-      await addDoc(mailCollection, {
-        to: to,
-        message: {
-          subject: subject,
-          text: text,
-        }
-      });
-      console.log("Email successfully added to the collection!");
-    } catch (error) {
-      console.error("Error adding email to the collection:", error);
-    }
-  };
-
-
-  const handleClickGetMatched = async (contacts) => {
+  const handleClickGetMatched = (contacts) => {
     setSelectedRequest(contacts);
     setOpenModal(true);
   };
-
 
   const handleSnackbarToggle = () => {
     setShowSnackbar(true);
@@ -95,14 +78,12 @@ const InsiderFeed = () => {
           ></div>
         )}
         {selectedRequest && (
-            <GetMatchedModal
-                open={open}
-                setOpenModal={setOpenModal}
-                userContacts={selectedRequest}
-                handleSnackbarToggle={handleSnackbarToggle}
-                addEmailToMailCollection={addEmailToMailCollection}
-            />
-
+          <GetMatchedModal
+            open={open}
+            setOpenModal={setOpenModal}
+            userContacts={selectedRequest}
+            handleSnackbarToggle={handleSnackbarToggle}
+          />
         )}
       </InsiderFeedLayout>
     </>
