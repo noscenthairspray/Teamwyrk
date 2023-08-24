@@ -55,7 +55,7 @@ const RequesterForm = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     let updateData = { ...data };
-    const resumeUrl = await uploadFileToStorage(data.resume[0]); //returns url of uploaded resume
+    const resumeUrl = await uploadFileToStorage(data.resume[0], data); //returns url of uploaded resume
     updateData.resume = resumeUrl; // add resume url to updateData object
 
     try {
