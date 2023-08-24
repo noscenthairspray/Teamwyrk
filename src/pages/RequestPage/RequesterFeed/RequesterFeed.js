@@ -25,9 +25,8 @@ import InsiderAcceptModal from "./components/RequestItem/InsiderAcceptModal";
 const RequesterFeed = () => {
   const { isAuthenticated, user } = useAuthState();
   const [requests, setRequests] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  const [openAcceptModal, setOpenAcceptModal] = useState(true);
-  // setOpenAcceptModal(true) ;
+  const [loading, setLoading] = useState(true);
+  const [openAcceptModal, setOpenAcceptModal] = useState(false);
 
   useEffect(() => {
     const fetchRequests = async () => {
@@ -43,7 +42,7 @@ const RequesterFeed = () => {
       }));
       setRequests(requestsData);
       if (requestsData) {
-        // setLoading(false);
+        setLoading(false);
       }
     };
 
@@ -71,9 +70,9 @@ const RequesterFeed = () => {
     return <Navigate replace to="/" />;
   }
 
-  // if (!loading && !requests.length) {
-  //   return <EmptyFeed />;
-  // }
+  if (!loading && !requests.length) {
+    return <EmptyFeed />;
+  }
 
   return (
     <>
