@@ -4,9 +4,7 @@ const functions = require("firebase-functions");
 // https://firebase.google.com/docs/functions/get-started
 const admin = require("firebase-admin");
 
-
 admin.initializeApp();
-
 
 // Triggers when a user is created with firebase auth - google
 exports.addUserToDB = functions.auth.user().onCreate((user) => {
@@ -76,7 +74,7 @@ exports.addRequestToDB = functions.https.onCall(async (data, context) => {
 // Function to add an email to the "mail" collection
 exports.addEmailToMailCollection = functions.https.onCall(async (data, context) => {
   // Check if the user is an admin
-  if (!context.auth || !context.auth.token.admin) {
+  if (!context.auth) {
     throw new functions.https.HttpsError(
       "permission-denied",
       "You must be an admin to perform this operation."

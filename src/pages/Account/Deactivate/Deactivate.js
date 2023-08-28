@@ -11,7 +11,7 @@ const Deactivate = () => {
     );
     if (confirmed) {
       try {
-        /*// Send email to the user being deleted
+        // Send email to the user being deleted
         await addEmailToMailCollection({
           to: auth.currentUser.email,
           message: {
@@ -19,7 +19,7 @@ const Deactivate = () => {
             html: 'Sorry to see you go!',
           },
         });
-        */
+        
         // Delete user account from Firebase Authentication
         await auth.currentUser.delete();
 

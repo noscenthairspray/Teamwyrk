@@ -27,17 +27,7 @@ export const messaging = getMessaging(app);
 export const addRequestToDB = httpsCallable(functions, "addRequestToDB");
 
 // Function to add an email to the "mail" collection
-export const addEmailToMailCollection = (emailData) => {
-  const addEmail = functions.httpsCallable('addEmailToMailCollection');
-  return addEmail(emailData)
-    .then((result) => {
-      console.log(result.data); // handle the result here
-    })
-    .catch((error) => {
-      console.error('Error adding email:', error);
-      throw error;
-    });
-};
+export const addEmailToMailCollection = httpsCallable(functions, "addEmailToMailCollection")
 
 
 export const signOut = async () => {
@@ -48,4 +38,3 @@ export const signOut = async () => {
     return false;
   }
 };
-
