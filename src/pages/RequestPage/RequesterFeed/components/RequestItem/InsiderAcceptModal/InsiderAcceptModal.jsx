@@ -1,5 +1,7 @@
 import styles from "./InsiderAcceptModal.module.css";
 import { ReactComponent as Avatar } from './Avatar.svg';
+import { ReactComponent as LinkedInLogo } from './LinkedInLogo.svg';
+
 // import { Block } from "@mui/icons-material";
 
 //TODO: PASS INSIDER INFO AS PROP TO SHOW ON MODAL
@@ -38,7 +40,7 @@ const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
                 Product Manager
               </div>
               <div className= {styles.social}>
-                <span>Image</span><span><a href="www.linkedin.com" target="_blank">View Linkedin</a></span>
+                <span><LinkedInLogo /></span><span style={{ padding: '10px' }}><a href="www.linkedin.com" target="_blank">View Linkedin</a></span>
               </div>
             </div>
         </div>
