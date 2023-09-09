@@ -40,7 +40,7 @@ const InsiderAcceptModal = ({ setOpenAcceptModal }) => {
                 Product Manager
               </div>
               <div className= {styles.social}>
-                <span><LinkedInLogo /></span><span style={{ padding: '10px' }}><a href="www.linkedin.com" target="_blank">View Linkedin</a></span>
+                <span><LinkedInLogo /></span><span style={{ padding: '10px' , marginTop: "auto" , textDecoration : 'underline'}}><a href="www.linkedin.com" target="_blank">View Linkedin</a></span>
               </div>
             </div>
         </div>

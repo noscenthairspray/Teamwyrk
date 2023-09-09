@@ -91,11 +91,10 @@
 }  */
 
 .image_container {
-  width: 300px;
-  height: 125px;
+  /* width: 300px;
+  height: 125px; */
   border-radius: 50%;
-  margin-top: 15px;
-  margin-left: 15px;
+  margin: auto 30px;
 }
 
 .details_container {
@@ -157,7 +156,7 @@
   margin: 0px auto;
   border-radius: 10px;
   display: flex;
-  column-gap: 20px;
+  /* column-gap: 20px; */
   margin-left: 30px;
 }
 
