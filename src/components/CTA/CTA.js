@@ -16,11 +16,11 @@ const CTA = ({ description, buttonText }) => {
         <span className={styles.description}>{description}</span>
       ) : null}
       <div>
-        <Link to="/signup">
+        <a href="https://teamwyrk.framer.website">
           <StyledButton color="yellow" hover>
             {buttonText}
           </StyledButton>
-        </Link>
+        </a>
       </div>
     </div>
   );
