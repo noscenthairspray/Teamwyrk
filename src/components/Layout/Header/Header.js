@@ -19,8 +19,7 @@ const Header = () => {
       <nav className={styles.navContainer}>
         <Link to="/">
           <div className={styles.navBrand}>
-            <span className={styles.brandText}>TeamWyrk</span>
-            <span className={styles.builtByText}>built by Bootcamp2</span>
+            <span className={styles.brandText}>Teamwyrk</span>
           </div>
         </Link>
         <div className={styles.linkWrapper}>
