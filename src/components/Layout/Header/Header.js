@@ -54,11 +54,11 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="https://airtable.com/shrDiI6bJ3SaDJE5V"
+                href="https://teamwyrk.framer.website/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {isMobile ? "Contact" : "Contact Us"}
+                {isMobile ? "Volunteer" : "Volunteer"}
               </a>
             </li>
           </ul>
