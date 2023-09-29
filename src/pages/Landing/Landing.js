@@ -9,7 +9,7 @@ const Landing = () => {
       <CardItem />
       <HowItWorks />
       <GetConnected />
-      <CTA description="" buttonText="Get started" />
+      <CTA description="" buttonText="Volunteer" />
     </div>
   );
 };
