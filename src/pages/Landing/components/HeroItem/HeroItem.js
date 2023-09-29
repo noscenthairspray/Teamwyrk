@@ -73,7 +73,7 @@ const HeroItem = () => {
           }}
         >
           <a href="https://teamwyrk.framer.website/">
-            <StyledButton color="#37447e" hover>
+            <StyledButton color="primary" hover>
               Volunteer
             </StyledButton>
           </a>
