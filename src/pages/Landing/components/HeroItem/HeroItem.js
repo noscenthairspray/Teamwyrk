@@ -53,8 +53,7 @@ const HeroItem = () => {
           {isMd ? (
             <>
               <p className={styles.textBodyTop}>
-                We’ll be your team, connecting you with insiders at top <br />
-                companies to land your next role at no extra cost.
+                Our app connects users with insiders at tech companies.
               </p>
             </>
           ) : (
