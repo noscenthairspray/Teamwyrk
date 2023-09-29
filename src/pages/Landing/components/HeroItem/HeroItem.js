@@ -74,11 +74,11 @@ const HeroItem = () => {
             ease: "backIn",
           }}
         >
-          <Link to="/signup">
-            <StyledButton color="yellow" hover>
-              Get started
+          <a href="https://teamwyrk.framer.website/">
+            <StyledButton color="#37447e" hover>
+              Volunteer
             </StyledButton>
-          </Link>
+          </a>
         </motion.div>
       </div>
 
