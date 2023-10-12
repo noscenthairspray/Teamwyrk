@@ -1,0 +1,83 @@
+/* CSS for styling the elements */
+.mainDiv {
+    /*  For 1440 x 900 resolution  the div width should be */
+    width: 77.08%;  
+    margin: auto;
+    margin-top: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #333;
+    position: relative;
+    row-gap: 80px;
+}
+
+.topRow {
+
+    padding-left: 15px;
+    padding-top: 15px;
+    background-color:#EFF2FC;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+
+.greenCheck{
+    height: 40px;
+    width: 40px;
+    align-items: last baseline;
+    margin-right: 10px;
+}
+
+
+.requestSubmittedText{
+    color: #5943E4;
+    text-align: left;
+    font-size: 48px;
+    letter-spacing: 1px;
+    line-height: 48px;
+    padding-bottom: 10px;
+
+}
+
+.otherText{
+    color: #5943E4;
+    text-align: left;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: 0px;
+    font-weight: normal;
+    padding-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bottomRow {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.h3{
+    color: #5943E4;
+    line-height: 32px;
+    font-weight: normal;
+    font-size: 24px;
+    letter-spacing: 0px;
+    padding-bottom: 15px;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+    background-color: #c0c0c0;
+    text-align: center;
+}
