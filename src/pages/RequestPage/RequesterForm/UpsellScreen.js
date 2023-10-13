@@ -1,6 +1,6 @@
 // Upsell Screen for Request Confirmation
 import styles from "./UpsellScreen.module.css";
-// import { ReactComponent as greenCheck } from '';
+import { CardItem } from "../../Landing/components";
 
 export const UpsellScreen = () => {
   return (
@@ -26,9 +26,7 @@ export const UpsellScreen = () => {
           In the meantime, feel free to explore our range of quality services.
         </h3>
         <div className={styles.bottomRow}>
-          <div className={styles.column}>Column 1</div>
-          <div className={styles.column}>Column 2</div>
-          <div className={styles.column}>Column 3</div>
+           <CardItem /> 
         </div>
       </div>
     </div>

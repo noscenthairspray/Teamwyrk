@@ -60,9 +60,7 @@ img {
 }
 
 .bottomRow {
-    height: 150px;
-    display: flex;
-    flex-direction: row;
+    height: auto;
 }
 
 
@@ -75,9 +73,3 @@ img {
     padding-bottom: 15px;
 }
 
-.column {
-    flex: 1;
-    padding: 10px;
-    background-color: #c0c0c0;
-    text-align: center;
-}
