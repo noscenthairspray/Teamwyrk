@@ -1,10 +1,18 @@
 // Upsell Screen for Request Confirmation
 import styles from "./UpsellScreen.module.css";
 import { CardItem } from "../../Landing/components";
+import { useNavigate } from "react-router-dom";
+
+
 
 export const UpsellScreen = () => {
+  
+  const navigate = useNavigate();
+
+  
   return (
-    <div className={styles.mainDiv}>
+  <div className={styles.mainDiv}>
+    <div className={styles.subDiv}>
       <div className={styles.topRow}>
         <h1 className={styles.requestSubmittedText}>
           <img
@@ -26,16 +34,15 @@ export const UpsellScreen = () => {
           In the meantime, feel free to explore our range of quality services.
         </h3>
         <div className={styles.bottomRow}>
-           <CardItem /> 
+           <CardItem hasSubHeading = {false}/> 
         </div>
       </div>
     </div>
+
+    <button className= {styles.goBackButton} onClick= {() => navigate("/request") }>
+      Go back to request feed
+    </button>
+  </div>
   );
 };
 
-// return
-// (
-//     // Request Submitted Modal
-//     // CardItems
-//     //Button for going back
-// )

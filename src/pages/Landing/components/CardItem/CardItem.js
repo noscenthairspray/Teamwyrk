@@ -1,14 +1,16 @@
 import { SubHeader } from "../../../../components/Typography";
 import styles from "./CardItem.module.css";
 
-const CardItem = () => {
+
+const CardItem = ({hasSubHeading = true}) => {
   return (
     <div className={styles.container}>
+      {hasSubHeading ? 
       <div className={styles.title}>
         <SubHeader color="darkBlue">
           A platform to jump start your next role
         </SubHeader>
-      </div>
+      </div> : null}
       <div className={styles.featureCard}>
         <div className={styles.individualCard}>
           <img src="/images/landing_page/woman_laptop.png" alt="woman laptop" />

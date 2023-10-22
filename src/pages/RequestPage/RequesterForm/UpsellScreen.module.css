@@ -1,5 +1,13 @@
 /* CSS for styling the elements */
+
 .mainDiv {
+    flex-direction: column;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.subDiv {
     /*  For 1440 x 900 resolution  the div width should be */
     width: 77.08%;  
     margin: auto;
@@ -7,7 +15,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    border: 2px solid #333;
+    /* border: 2px solid #333; */
     position: relative;
     row-gap: 80px;
 }
@@ -63,13 +71,24 @@ img {
     height: auto;
 }
 
-
 .h3{
     color: #5943E4;
     line-height: 32px;
     font-weight: normal;
     font-size: 24px;
     letter-spacing: 0px;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
+}
+
+.goBackButton
+{
+    background-color: #5943E4 !important;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 60px;
 }
 
