@@ -11,12 +11,14 @@ import { addRequestToDB } from "../../../firebase";
 import { CircularProgress } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import StyledButton from "../../../components/StyledButton";
+import { UpsellScreen } from "./UpsellScreen";
 
 const RequesterForm = () => {
   const { user, isAuthenticated } = useAuthState();
 
   const [paymentValue, setPaymentValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false); // This state is for the confirmation(upsell) screen after the request is submitted successfully
   const navigate = useNavigate();
 
   const {
@@ -55,15 +57,17 @@ const RequesterForm = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     let updateData = { ...data };
-    const resumeUrl = await uploadFileToStorage(data.resume[0], user );
+    const resumeUrl = await uploadFileToStorage(data.resume[0], user);
     updateData.resume = resumeUrl; // add resume url to updateData object
 
     try {
       await addRequestToDB(updateData);
       setIsSubmitting(false);
-      navigate("/request");
+      setIsSubmitted(true);
+      //navigate("/request");
     } catch (error) {
       console.error("Error submitting request:", error);
+      setIsSubmitted(false);
       // handle error
     }
   };
@@ -72,7 +76,7 @@ const RequesterForm = () => {
     return <Navigate replace to="/" />;
   }
 
-  return (
+  return !isSubmitted ? (
     <div className={styles.container}>
       <FormHeader />
       <div className={styles.formWrapper}>
@@ -280,6 +284,8 @@ const RequesterForm = () => {
         </form>
       </div>
     </div>
+  ) : (
+    <UpsellScreen />
   );
 };
 
