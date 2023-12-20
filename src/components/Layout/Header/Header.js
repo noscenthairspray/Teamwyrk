@@ -3,6 +3,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import styles from "./Header.module.css";
 import ProfileDropDown from "./ProfleDropDown";
+import useSnapshot from "../../../hooks/useSnapshot";
 
 const activeStyle = {
   borderBottom: "3px solid #222f65",
@@ -13,6 +14,9 @@ const Header = () => {
   const { user, isAuthenticated } = useAuthState();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // grab doc from user collection in firebase and return object as user1
+  const { val: user1 } = useSnapshot("user", user.uid);
 
   return (
     <header className={styles.navHeader}>
@@ -25,13 +29,23 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            {isAuthenticated && (
+            {isAuthenticated && user1?.role === "requester" && (
               <li>
                 <NavLink
                   to="/request"
                   style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 >
                   Requests
+                </NavLink>
+              </li>
+            )}
+            {isAuthenticated && user1?.role === "insider" && (
+              <li>
+                <NavLink
+                  to="/request-insider"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Insides
                 </NavLink>
               </li>
             )}
