@@ -1,10 +1,27 @@
 import styles from "./Onboarding.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { doc, updateDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase";
 
 const Onboarding = () => {
-  const [show, setShow] = useState(false)
+  // const [show, setShow] = useState(false)
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
+  // get the authenticated user object from firestore.
+  const user1 = auth.currentUser.uid;
+
+  const selectRole = async () => {
+    await updateDoc(doc(db, "user", user1), {
+      role: role === "requester" ? "requester" : "insider",
+    });
+    // console.log(`updated successfully to ${role}`);
+    role === "requester" ? navigate("/request") : navigate("/request-insider");
+    setRole("");
+  };
+
+  // console.log(auth.currentUser?.role);
 
   return (
     <div className={styles.container}>
@@ -13,46 +30,58 @@ const Onboarding = () => {
       </div> */}
 
       <div className={styles.role}>
-          <div className={styles.title}>
-            <h2>Please select your role of interest:</h2>
+        <div className={styles.title}>
+          <h2>Please select your role of interest:</h2>
+        </div>
+
+        <button
+          className={styles.roleButton}
+          onClick={() => setRole("requester")}
+        >
+          <div className={styles.roleButtonOuter}>
+            <div className={styles.roleButtonInner}>
+              <div>
+                <strong>Requester</strong>
+              </div>
+              <div>
+                Currently seeking employment in the technology industry.
+              </div>
+            </div>
+
+            <div>
+              <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+            </div>
           </div>
+        </button>
 
-            <button className={styles.roleButton} onClick={()=>setShow(true)} >
-
-              <div className={styles.roleButtonOuter}>
-                <div className={styles.roleButtonInner}>
-                  <div><strong>Requester</strong></div>
-                  <div>Currently seeking employment in the technology industry.</div>
-                </div>
-
-
-                <div>
-                  <img src="/images/onboarding/checkmark_onboarding.svg"></img>
-                </div>
+        <button
+          className={styles.roleButton}
+          onClick={() => setRole("insider")}
+        >
+          <div className={styles.roleButtonOuter}>
+            <div className={styles.roleButtonInner}>
+              <div>
+                <strong>Insider</strong>
               </div>
-            </button>
-            
-            <button className={styles.roleButton} onClick={()=>setShow(true)}>
-
-              <div className={styles.roleButtonOuter}>
-                <div className={styles.roleButtonInner}>
-                  <div><strong>Insider</strong></div>
-                  <div>Currently a working professional in the technology industry.</div>
-                </div>
-
-                <div>
-                  <img src="/images/onboarding/checkmark_onboarding.svg"></img>
-                </div>
+              <div>
+                Currently a working professional in the technology industry.
               </div>
-            </button>
+            </div>
 
-            {
-              show?<Link to="/request"><button className={styles.continue}>Continue</button></Link>: null
-            }
+            <div>
+              <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+            </div>
+          </div>
+        </button>
+
+        {role ? (
+          <button className={styles.continue} onClick={selectRole}>
+            Continue
+          </button>
+        ) : null}
       </div>
     </div>
   );
 };
 
 export default Onboarding;
-
