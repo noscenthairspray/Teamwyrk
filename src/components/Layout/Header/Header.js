@@ -16,7 +16,11 @@ const Header = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // grab doc from user collection in firebase and return object as user1
-  const { val: user1 } = useSnapshot("user", user.uid);
+  const { val: user1 } = useSnapshot("user", user?.uid);
+  if(!user1){
+    const user1={};
+    user1.role='requester';
+  }
 
   return (
     <header className={styles.navHeader}>
