@@ -16,12 +16,10 @@ const Onboarding = () => {
     await updateDoc(doc(db, "user", user1), {
       role: role === "requester" ? "requester" : "insider",
     });
-    // console.log(`updated successfully to ${role}`);
+
     role === "requester" ? navigate("/request") : navigate("/request-insider");
     setRole("");
   };
-
-  // console.log(auth.currentUser?.role);
 
   return (
     <div className={styles.container}>
