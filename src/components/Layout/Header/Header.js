@@ -3,7 +3,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import styles from "./Header.module.css";
 import ProfileDropDown from "./ProfleDropDown";
-import useSnapshot from "../../../hooks/useSnapshot";
+// import useSnapshot from "../../../hooks/useSnapshot";
 
 const activeStyle = {
   borderBottom: "3px solid #222f65",
@@ -15,12 +15,9 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // grab doc from user collection in firebase and return object as user1
-  const { val: user1 } = useSnapshot("user", user?.uid);
-  if(!user1){
-    const user1={};
-    user1.role='requester';
-  }
+  //grab doc from user collection in firebase and return object as user1
+    // const { val: user1 } = useSnapshot("user", user?.uid);
+
 
   return (
     <header className={styles.navHeader}>
@@ -33,7 +30,7 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            {isAuthenticated && user1?.role === "requester" && (
+            {isAuthenticated &&  (
               <li>
                 <NavLink
                   to="/request"
@@ -43,7 +40,7 @@ const Header = () => {
                 </NavLink>
               </li>
             )}
-            {isAuthenticated && user1?.role === "insider" && (
+            {isAuthenticated && (
               <li>
                 <NavLink
                   to="/request-insider"
