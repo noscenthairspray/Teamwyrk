@@ -10,10 +10,10 @@ const Onboarding = () => {
   const navigate = useNavigate();
 
   // get the authenticated user object from firestore.
-  const user1 = auth.currentUser.uid;
+  const userId = auth.currentUser.uid;
 
   const selectRole = async () => {
-    await updateDoc(doc(db, "user", user1), {
+    await updateDoc(doc(db, "user", userId), {
       role: role === "requester" ? "requester" : "insider",
     });
 
