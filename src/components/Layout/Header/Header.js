@@ -3,7 +3,9 @@ import { useTheme, useMediaQuery } from "@mui/material";
 import { useAuthState } from "../../../hooks/useAuthState";
 import styles from "./Header.module.css";
 import ProfileDropDown from "./ProfleDropDown";
-// import useSnapshot from "../../../hooks/useSnapshot";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../firebase";
+import { useEffect, useState } from "react";
 
 const activeStyle = {
   borderBottom: "3px solid #222f65",
@@ -14,10 +16,16 @@ const Header = () => {
   const { user, isAuthenticated } = useAuthState();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [userObj, setUserObj] = useState({});
 
   //grab doc from user collection in firebase and return object as user1
-    // const { val: user1 } = useSnapshot("user", user?.uid);
-
+  useEffect(() => {
+    if (user) {
+      const docRef = doc(db, "user", user?.uid);
+      const unsub = onSnapshot(docRef, (doc) => setUserObj(doc.data()));
+      return () => unsub();
+    }
+  }, []);
 
   return (
     <header className={styles.navHeader}>
@@ -30,25 +38,32 @@ const Header = () => {
         </Link>
         <div className={styles.linkWrapper}>
           <ul className={styles.navLinks}>
-            {isAuthenticated &&  (
-              <li>
-                <NavLink
-                  to="/request"
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Requests
-                </NavLink>
-              </li>
-            )}
             {isAuthenticated && (
-              <li>
-                <NavLink
-                  to="/request-insider"
-                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
-                >
-                  Insides
-                </NavLink>
-              </li>
+              <>
+                {userObj.role==="requester"?(
+                <li>
+                  <NavLink
+                    to="/request"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Requests
+                  </NavLink>
+                </li>
+                ): (
+                <li>
+                  <NavLink
+                    to="/request-insider"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Insides
+                  </NavLink>
+                </li>
+                )}
+              </>
             )}
 
             <li>
