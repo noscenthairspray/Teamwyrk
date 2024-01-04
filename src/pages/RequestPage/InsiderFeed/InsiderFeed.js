@@ -21,6 +21,7 @@ const InsiderFeed = () => {
 
   const handleClickGetMatched = (contacts) => {
     setSelectedRequest(contacts);
+    console.log("selectedRequest", selectedRequest);
     setOpenModal(true);
   };
 
@@ -46,6 +47,8 @@ const InsiderFeed = () => {
 
     fetchRequests();
   }, []);
+
+  // console.log("requests:", requests);
 
   return (
     <>
@@ -83,6 +86,7 @@ const InsiderFeed = () => {
             setOpenModal={setOpenModal}
             userContacts={selectedRequest}
             handleSnackbarToggle={handleSnackbarToggle}
+            handleClickGetMatched={handleClickGetMatched}
           />
         )}
       </InsiderFeedLayout>

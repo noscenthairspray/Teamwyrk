@@ -1,6 +1,9 @@
 import { Dialog, DialogActions, DialogContent } from "@mui/material";
 import StyledButton from "../../../../../components/StyledButton";
 import styles from "./GetMatchedModal.module.css";
+import { useEffect, useState } from "react";
+import { auth, db } from "../../../../../firebase";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 
 const GetMatchedModal = ({
   open,
@@ -9,7 +12,57 @@ const GetMatchedModal = ({
   handleSnackbarToggle,
 }) => {
   const { name } = userContacts;
-  console.log(userContacts);
+  const id = userContacts["id"];
+
+  const [userID, setUserID] = useState("");
+
+  // Gets current Insider ID
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+      const emailVerified = user.emailVerified;
+
+      // The user's ID, unique to the Firebase project. Do NOT use
+      // this value to authenticate with your backend server, if
+      // you have one. Use User.getToken() instead.
+      const uid = user.uid;
+      setUserID(uid);
+    }
+  }, []);
+
+  // This gets the request data using the request ID
+  // when the 'Get Matched' button is clicked
+  const handleContinue = async () => {
+    console.log("request id:", id);
+    const docRef = doc(db, "request", id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+      updateRequest(docRef);
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+
+  // Updates the request data by including the user data
+  // attaches the insider to this specific request
+  // also changed the status to "matched"
+  const updateRequest = async (docRef) => {
+    await updateDoc(docRef, {
+      insider: userID,
+      status: "matched",
+    });
+  };
+
+  // Need to create a function that changes the button from 'Get Matched' to something else
+  //
+
   return (
     <>
       <Dialog
@@ -43,6 +96,7 @@ const GetMatchedModal = ({
             onClick={() => {
               handleSnackbarToggle();
               setOpenModal(false);
+              handleContinue();
             }}
           >
             Continue
