@@ -37,16 +37,11 @@ const GetMatchedModal = ({
   // This gets the request data using the request ID
   // when the 'Get Matched' button is clicked
   const handleContinue = async () => {
-    console.log("request id:", id);
     const docRef = doc(db, "request", id);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
       updateRequest(docRef);
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
     }
   };
 
