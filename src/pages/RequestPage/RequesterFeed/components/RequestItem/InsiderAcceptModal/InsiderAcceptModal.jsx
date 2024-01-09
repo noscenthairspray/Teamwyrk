@@ -5,6 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../../../../firebase";
 import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
+import getDeclineHTMLEmail from "./declineHTML";
 
 // import { Block } from "@mui/icons-material";
 
@@ -21,31 +22,45 @@ import { doc, getDoc } from "firebase/firestore";
 // TODO: Change the pill state after declined/accept
 
 const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
-  const [insiderInfo, setInsiderInfo] = useState([]);
+  const [insiderInfo, setInsiderInfo] = useState({});
+
   useEffect(() => {
     const fetchInsiderInfo = async () => {
       const docRef = doc(db, "user", insiderID);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setInsiderInfo(docSnap.data());
-        console.log("Document data:", docSnap.data());
-      } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
       }
     };
     fetchInsiderInfo();
-  }, []);
+  }, [insiderID]);
 
-  /* Sends an email everytime the decline button is clicked */
+  const handleAccept = async () => {
+    const userName = insiderInfo.name || 'User';
+    //const personalizedHtmlContent = getDeclineHTMLEmail.replace('${userName}', userName);
+    try {
+      const docRef = await addDoc(collection(db, "mail"), {
+        to: insiderInfo.email,
+        message: {
+          subject: "Your Assistance Request Accepted",
+          html: "Testing",
+        },
+      });
+    } catch (error) {
+      console.log("Error sending email", error);
+    }
+    // Additional actions can be added here
+  };
+
   const handleDecline = async () => {
-    /** add a new mail document */
-
+    const userName = insiderInfo.name || 'User';
+    // Currently the email doesn't show the appropriate name
+    // const personalizedHtmlContent = getDeclineHTMLEmail('${userName}', userName);
     const docRef = await addDoc(collection(db, "mail"), {
       to: insiderInfo.email,
       message: {
         subject: "An Update on your Request",
-        html: "You have been declined. You are receiving this email to inform you that (requester name) has declined your help. The request will be removed from your feed. Best, Teamwyrk",
+        html: "personalizedHtmlContent",
       },
     });
   };
@@ -91,12 +106,21 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
             </div>
           </div>
           <div className={styles.actions}>
-            <button className={styles.approve_button}>Approve and Pay ↗</button>
+            <button
+              className={styles.approve_button}
+              onClick={() => {
+                handleAccept();
+                setOpenAcceptModal(false);
+              }}
+            >
+              Approve ↗
+            </button>
+
             <button
               className={styles.decline_button}
               onClick={() => {
-                setOpenAcceptModal(false);
                 handleDecline();
+                setOpenAcceptModal(false);
               }}
             >
               Decline
