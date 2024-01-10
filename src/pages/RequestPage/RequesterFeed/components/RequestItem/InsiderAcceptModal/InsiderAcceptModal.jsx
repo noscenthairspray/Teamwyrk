@@ -37,13 +37,15 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
 
   const handleAccept = async () => {
     const userName = insiderInfo.name || 'User';
-    //const personalizedHtmlContent = getDeclineHTMLEmail.replace('${userName}', userName);
+    // The jsx file needs to comply to getAccepted you need to create one per the
+    // design sample
+    const personalizedHtmlContent = getDeclineHTMLEmail(userName);
     try {
       const docRef = await addDoc(collection(db, "mail"), {
         to: insiderInfo.email,
         message: {
           subject: "Your Assistance Request Accepted",
-          html: "Testing",
+          html: personalizedHtmlContent,
         },
       });
     } catch (error) {
@@ -54,13 +56,12 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
 
   const handleDecline = async () => {
     const userName = insiderInfo.name || 'User';
-    // Currently the email doesn't show the appropriate name
-    // const personalizedHtmlContent = getDeclineHTMLEmail('${userName}', userName);
+    const personalizedHtmlContent = getDeclineHTMLEmail(userName);
     const docRef = await addDoc(collection(db, "mail"), {
       to: insiderInfo.email,
       message: {
         subject: "An Update on your Request",
-        html: "personalizedHtmlContent",
+        html: personalizedHtmlContent,
       },
     });
   };
