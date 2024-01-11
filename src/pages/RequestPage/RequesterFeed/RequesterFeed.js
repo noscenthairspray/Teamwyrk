@@ -81,17 +81,22 @@ const RequesterFeed = () => {
 
       <FeedLayout>
         {requests.map((request) => (
-          <RequestItem
-            key={request.id}
-            requestData={request}
-            deleteRequest={deleteRequest}
-            setOpenAcceptModal={setOpenAcceptModal}
-          />
+          <>
+              <RequestItem
+                key={request.id}
+                requestData={request}
+                deleteRequest={deleteRequest}
+                setOpenAcceptModal={setOpenAcceptModal}
+              />
+              {openAcceptModal && (
+                <InsiderAcceptModal
+                  setOpenAcceptModal={setOpenAcceptModal}
+                  insiderID={request.insider}
+                />
+              )}
+          </>
         ))}
       </FeedLayout>
-      {openAcceptModal && (
-        <InsiderAcceptModal setOpenAcceptModal={setOpenAcceptModal} />
-      )}
     </>
   );
 };
