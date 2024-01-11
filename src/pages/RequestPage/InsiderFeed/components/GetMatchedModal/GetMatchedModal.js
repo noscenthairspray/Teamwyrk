@@ -3,7 +3,20 @@ import StyledButton from "../../../../../components/StyledButton";
 import styles from "./GetMatchedModal.module.css";
 import { useEffect, useState } from "react";
 import { auth, db } from "../../../../../firebase";
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc, collection, addDoc } from "firebase/firestore";
+import EmailTemplate from './ContinueEmailTemplate' // Create as many templates as you want and switch them out
+import { Subject } from "@mui/icons-material";
+
+/**
+ * GetMatchedModal is a React component that displays a modal dialog,
+ * allowing users to proceed with matching an insider to their request.
+ * 
+ * Props:
+ * - open: Boolean controlling the visibility of the modal
+ * - setOpenModal: Function to update the 'open' state
+ * - userContacts: Object containing the name and id of the user to contact
+ * - handleSnackbarToggle: Function to toggle a snackbar/notification
+ */
 
 const GetMatchedModal = ({
   open,
@@ -11,16 +24,18 @@ const GetMatchedModal = ({
   userContacts,
   handleSnackbarToggle,
 }) => {
+  // Destructuring to extract the name and id from userContacts prop
   const { name } = userContacts;
   const id = userContacts["id"];
 
+  // State to hold the user's ID (UID)
   const [userID, setUserID] = useState("");
 
-  // Gets current Insider ID
+  // Effect hook to get the current insider's ID after authentication
   useEffect(() => {
     const user = auth.currentUser;
     if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
+      // Using the authenticated user's details
       const displayName = user.displayName;
       const email = user.email;
       const photoURL = user.photoURL;
@@ -34,20 +49,43 @@ const GetMatchedModal = ({
     }
   }, []);
 
-  // This gets the request data using the request ID
-  // when the 'Get Matched' button is clicked
+  /**
+   * handleContinue is called when the 'Continue' button is clicked.
+   * It fetches the request data and sends an email to the user using Firestore.
+   */
   const handleContinue = async () => {
+    console.log("request id:", id);
     const docRef = doc(db, "request", id);
     const docSnap = await getDoc(docRef);
+    const user = auth.currentUser;
 
+    // If the target user exists then email them when 
+    // Continue gets clicked
     if (docSnap.exists()) {
+      // Sender, Target
+      const emailTemplate = EmailTemplate(user.displayName, docSnap.data().name);
+      try {
+        const docRef = await addDoc(collection(db, "mail"), {
+          to: docSnap.data().email,
+          message: {
+            subject: "Your Assistance Request Accepted",
+            html: emailTemplate,
+          },
+        });
+      } catch (error) {
+        // Error sending mail
+      }
       updateRequest(docRef);
+    } else {
+      // docSnap.data() will be undefined in this case
     }
   };
 
-  // Updates the request data by including the user data
-  // attaches the insider to this specific request
-  // also changed the status to "matched"
+  /**
+   * updateRequest updates the Firestore document to reflect the matched status.
+   * 
+   * @param {firebase.firestore.DocumentReference} docRef - Reference to the Firestore document to update.
+   */
   const updateRequest = async (docRef) => {
     await updateDoc(docRef, {
       insider: userID,
@@ -58,6 +96,7 @@ const GetMatchedModal = ({
   // Need to create a function that changes the button from 'Get Matched' to something else
   //
 
+  // Component render
   return (
     <>
       <Dialog

@@ -12,11 +12,13 @@
 }
 
 .matched {
-  background-color: green;
-  color: white;
+  background-color: rgb(107, 227, 162);
+  color: rgb(0, 0, 0);
 }
 
 .accept {
-  background-color: lightblue;
-  color: white;
+  background-color: rgb(239, 242, 252);
+  color: rgb(89, 67, 228);
+  font-weight: bold;
+  text-decoration: underline;
 }
