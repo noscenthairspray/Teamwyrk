@@ -7,6 +7,7 @@ const GetMatchedModal = ({
   setOpenModal,
   userContacts,
   handleSnackbarToggle,
+                           setPendingRequest,
 }) => {
   const { name } = userContacts;
   console.log(userContacts);
@@ -40,9 +41,10 @@ const GetMatchedModal = ({
           </StyledButton>
           <StyledButton
             color="primary"
-            onClick={() => {
+            onClick={async () => {
               handleSnackbarToggle();
               setOpenModal(false);
+              await setPendingRequest(userContacts.requestId);
             }}
           >
             Continue

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, updateDoc, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
@@ -24,12 +24,21 @@ const InsiderFeed = () => {
     setOpenModal(true);
   };
 
+
   const handleSnackbarToggle = () => {
     setShowSnackbar(true);
     setTimeout(() => {
       setShowSnackbar(false);
     }, 10000);
   };
+
+  const setPendingRequest = async (requestId) => {
+    // Updating method to get data based on request ID
+    const docRef = doc(db, "request", requestId);
+
+    // set pending status true for this document
+    await updateDoc(docRef, { status: "pending" });
+  }
 
   useEffect(() => {
     //TODO: when insider switches tab to "in-progress", filter FirebaseDB to only fetch the insider's request items
@@ -83,6 +92,7 @@ const InsiderFeed = () => {
             setOpenModal={setOpenModal}
             userContacts={selectedRequest}
             handleSnackbarToggle={handleSnackbarToggle}
+            setPendingRequest={setPendingRequest}
           />
         )}
       </InsiderFeedLayout>
