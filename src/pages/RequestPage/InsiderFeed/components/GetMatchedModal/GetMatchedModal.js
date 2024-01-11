@@ -62,8 +62,6 @@ const GetMatchedModal = ({
     // If the target user exists then email them when 
     // Continue gets clicked
     if (docSnap.exists()) {
-      // For debugging
-      console.log("Document data:", docSnap.data());
       // Sender, Target
       const emailTemplate = EmailTemplate(user.displayName, docSnap.data().name);
       try {
@@ -75,13 +73,11 @@ const GetMatchedModal = ({
           },
         });
       } catch (error) {
-        console.log("Error sending email", error);
+        // Error sending mail
       }
       updateRequest(docRef);
-      console.log("Successful email")
     } else {
       // docSnap.data() will be undefined in this case
-      console.log("No such document!");
     }
   };
 
