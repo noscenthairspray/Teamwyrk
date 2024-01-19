@@ -80,20 +80,21 @@ const RequesterFeed = () => {
       {/* ADD TOAST COMPONENT HERE FOR DECLINE BUTTON  */}
 
       <FeedLayout>
-        {requests.map((request) => (
+        {requests.map((request, id) => (
           <>
-              <RequestItem
-                key={request.id}
-                requestData={request}
-                deleteRequest={deleteRequest}
+            <RequestItem
+              key={request.id}
+              requestData={request}
+              deleteRequest={deleteRequest}
+              setOpenAcceptModal={setOpenAcceptModal}
+            />
+            {openAcceptModal && (
+              <InsiderAcceptModal
                 setOpenAcceptModal={setOpenAcceptModal}
+                insiderID={request.insider}
+                requestInfo={request}
               />
-              {openAcceptModal && (
-                <InsiderAcceptModal
-                  setOpenAcceptModal={setOpenAcceptModal}
-                  insiderID={request.insider}
-                />
-              )}
+            )}
           </>
         ))}
       </FeedLayout>
