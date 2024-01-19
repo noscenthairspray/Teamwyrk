@@ -40,10 +40,10 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
         setInsiderInfo(docSnap.data());
       }
     };
-    try {
+
+    // Catches if no Insider is matched to the request
+    if (insiderID !== null) {
       fetchInsiderInfo();
-    } catch (error) {
-      // Error finding the Insider info
     }
   }, []);
 
@@ -65,6 +65,7 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
           html: emailTemplate,
         },
       });
+
       // Get the request info from Firebase using the request ID
       const requestDocRef = doc(db, "request", requestInfo.id);
 
