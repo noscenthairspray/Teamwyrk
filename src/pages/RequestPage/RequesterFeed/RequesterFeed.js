@@ -22,12 +22,22 @@ import InsiderAcceptModal from "./components/RequestItem/InsiderAcceptModal";
 //TODO: UPDATE BACKGROUND STYLE WITH CSS WHEN MODAL IS OPEN
 //TODO: UPDATE BACKGROUND STYLE WITH CSS WHEN MODAL IS OPEN
 
+/** RequesterFeed is a React component that allows Requesters
+ * to see and delete their current requests,
+ * shows whether or not they are matched to an Insider,
+ * and opens the InsiderAcceptModaL
+ */
 const RequesterFeed = () => {
+  // State to authenticate user
   const { isAuthenticated, user } = useAuthState();
+
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openAcceptModal, setOpenAcceptModal] = useState(false);
 
+  /** Effect hook to grab the data based on the user's ID
+   * and set requests state
+   */
   useEffect(() => {
     const fetchRequests = async () => {
       const q = query(
@@ -49,6 +59,7 @@ const RequesterFeed = () => {
     fetchRequests();
   }, []);
 
+  /** Function to delete the request when clicked on 'Delete' button */
   const deleteRequest = async (requestId) => {
     try {
       await deleteDoc(doc(db, "request", requestId));
@@ -66,10 +77,12 @@ const RequesterFeed = () => {
     }
   };
 
+  // Checks for authentication. Redirects to homepage if not
   if (!isAuthenticated) {
     return <Navigate replace to="/" />;
   }
 
+  // Return EmptyFeed component if loading is true and requests is empty
   if (!loading && !requests.length) {
     return <EmptyFeed />;
   }
