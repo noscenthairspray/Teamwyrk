@@ -23,6 +23,7 @@ const GetMatchedModal = ({
   setOpenModal,
   userContacts,
   handleSnackbarToggle,
+                           setPendingRequest,
 }) => {
   // Destructuring to extract the name and id from userContacts prop
   const { name } = userContacts;
@@ -127,10 +128,17 @@ const GetMatchedModal = ({
           </StyledButton>
           <StyledButton
             color="primary"
-            onClick={() => {
+            onClick={async () => {
               handleSnackbarToggle();
               setOpenModal(false);
+
+
+
+
+              await setPendingRequest(userContacts.requestId);
               handleContinue();
+
+
             }}
           >
             Continue
