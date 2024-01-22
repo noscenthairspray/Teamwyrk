@@ -13,10 +13,7 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
     payment,
     createdAt,
     profile_image,
-
-    status,
   } = requestData;
-
 
   return (
     <>
@@ -57,16 +54,11 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
           <div className={styles.buttonWrapper}>
             <div className={styles.price}>{`${payment}`}</div>
             <StyledButton
-
-
-
-              color={status === "pending" ? "secondary" : "primary"}
-              onClick={() => handleClickGetMatched({ name, requestId:id })}
-
+              color="primary"
+              onClick={() => handleClickGetMatched({ name, id })}
               hover
             >
-
-              {status === "pending" ? "Pending Acceptance" : "Get Matched"}
+              Get Matched
             </StyledButton>
           </div>
         </div>
