@@ -60,14 +60,14 @@ const emailTemplate = (sender, target, month, day) => {
   <div class="email-content">
     <p>Hi ${target},</p>
     <p>${sender} is interested in helping you with your <b>resume review</b> request. 
-      Please <a class="container-link" href="">navigate back to Teamwyrk</a> to accept your Insider's
+      Please <a class="container-link" href="https://www.teamwyrk.org/">navigate back to Teamwyrk</a> to accept your Insider's
        help by <b>${month}, ${day}.</b></p>
     <p>Best,</p>
     <p>Teamwyrk</p>
     <a href="https://www.teamwyrk.org/" class="button">Accept your Insider</a>
   </div>
   <div class="footer">
-    Have a question? <a href="https://www.teamwyrk.org/support">Contact our support team.</a>
+    Have a question? <a href="https://www.teamwyrk.org/">Contact our support team.</a>
   </div>
 </div>
 </body>
