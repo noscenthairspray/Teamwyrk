@@ -53,7 +53,8 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
     // Target: Insider
     const emailTemplate = DeclinedEmailTemplate(
       requestInfo.name,
-      insiderInfo.name
+      insiderInfo.name,
+      requestInfo.services
     );
 
     try {

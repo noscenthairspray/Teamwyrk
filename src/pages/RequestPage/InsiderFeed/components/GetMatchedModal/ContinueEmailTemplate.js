@@ -1,5 +1,6 @@
 const emailTemplate = (sender, target) => {
   return `
+  
     <div style="font-family: Arial, sans-serif; color: #333;">
       <div style="text-align: center; margin-bottom: 30px; color: #333;">
         <h2>TeamWyrk</h2>
