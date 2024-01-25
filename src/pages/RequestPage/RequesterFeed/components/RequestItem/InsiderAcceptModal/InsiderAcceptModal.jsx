@@ -76,6 +76,7 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
       });
     } catch (error) {
       // Error sending mail
+      console.log(error);
     }
   };
 
