@@ -61,7 +61,7 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
       const mailDocRef = await addDoc(collection(db, "mail"), {
         to: insiderInfo.email,
         message: {
-          subject: "An Update on your Request",
+          subject: "Service request no longer needed",
           html: emailTemplate,
         },
       });
@@ -76,7 +76,6 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
       });
     } catch (error) {
       // Error sending mail
-      console.log(error);
     }
   };
 
