@@ -5,11 +5,19 @@ import DeactivateEmailTemplate from "./DeactiviateEmailTemplate";
 import { db } from "../../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 
-//Deactivate + Delete Account te
+/** Deactivate is a React component that displays two buttons.
+ * One button is for account deactivation and the other is for delection.
+ *
+ * Props:
+ * - user: Object that holds the user's account information
+ */
 const Deactivate = ({ user }) => {
+  // State to hold Delete Modal
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
+  /** Function to send out deactivation email when 'Deactivate' is clicked */
   const handleDeactivate = async () => {
+    // userName: user.displayName
     const emailTemplate = DeactivateEmailTemplate(user.displayName);
 
     try {
