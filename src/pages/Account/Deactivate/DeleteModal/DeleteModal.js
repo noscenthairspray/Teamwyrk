@@ -33,9 +33,11 @@ const Modal = ({ closeModal, user }) => {
 
   /** Function to send a delete email when 'Continue' is clicked */
   const handleDeleteEmail = async () => {
+    // userName: user's name
     const emailTemplate = DeleteEmailTemplate(userAccountInfo.displayName);
 
     try {
+      // Adds new email document
       const docRef = await addDoc(collection(db, "mail"), {
         to: userAccountInfo.email,
         message: {
@@ -43,11 +45,8 @@ const Modal = ({ closeModal, user }) => {
           html: emailTemplate,
         },
       });
-
-      console.log("hey did this work");
     } catch (error) {
       // Error sending email
-      console.log(error);
     }
   };
 
