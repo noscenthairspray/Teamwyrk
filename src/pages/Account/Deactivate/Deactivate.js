@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styles from "./Deactivate.module.css";
-import Modal from "./DeleteModal" ;
+import Modal from "./DeleteModal";
 
 //Deactivate + Delete Account te
-const Deactivate = () => {
-
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+const Deactivate = ({ user }) => {
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   return (
     <>
       <div className={styles.container}>
@@ -16,10 +15,17 @@ const Deactivate = () => {
             your account, you may do so by selecting the link above.
           </p>
         </div>
-        <button className={styles.deleteBtn} onClick={()=> {setIsDeleteModalOpen(true)}}>
-        Delete Account
+        <button
+          className={styles.deleteBtn}
+          onClick={() => {
+            setIsDeleteModalOpen(true);
+          }}
+        >
+          Delete Account
         </button>
-        {isDeleteModalOpen && (<Modal closeModal = {setIsDeleteModalOpen}/>)  }
+        {isDeleteModalOpen && (
+          <Modal closeModal={setIsDeleteModalOpen} user={user} />
+        )}
         <p className={styles.text}>
           We're sorry to see you go. If there's anything we can do to improve
           your experience, please let us know.

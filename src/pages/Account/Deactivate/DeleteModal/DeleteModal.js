@@ -1,27 +1,55 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./DeleteModal.module.css";
 import StyledButton from "../../../../components/StyledButton/StyledButton";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { db } from "../../../../firebase";
+import { addDoc, collection } from "firebase/firestore";
+import DeleteEmailTemplate from "./DeleteEmailTemplate";
 
-const Modal = ({ closeModal }) => {
-  const navigate = useNavigate()
+/** Modal is a React component that displays a modal dialog
+ * allows users to confirm or cancel deletion on their account
+ *
+ * Props:
+ * - closeModal: State if state to false, modal closes
+ * - user: Object that holds the user's account information
+ */
+const Modal = ({ closeModal, user }) => {
+  const navigate = useNavigate();
   const [deactivate, setDeactivate] = useState(false);
- 
- 
+
+  const userAccountInfo = user;
 
   useEffect(() => {
     const handleDeactivate = async (title) => {
-       // TODO
-       // await somedeactivatefunctionforFB();
+      // TODO
+      // await somedeactivatefunctionforFB();
     };
 
     if (deactivate) {
       navigate("/signin");
       handleDeactivate().catch(console.error);
     }
-    
   }, [deactivate, navigate]);
- 
+
+  /** Function to send a delete email when 'Continue' is clicked */
+  const handleDeleteEmail = async () => {
+    const emailTemplate = DeleteEmailTemplate(userAccountInfo.displayName);
+
+    try {
+      const docRef = await addDoc(collection(db, "mail"), {
+        to: userAccountInfo.email,
+        message: {
+          subject: "Your Account has been deleted",
+          html: emailTemplate,
+        },
+      });
+
+      console.log("hey did this work");
+    } catch (error) {
+      // Error sending email
+      console.log(error);
+    }
+  };
 
   return (
     <div className={styles.modelWrapper}>
@@ -56,7 +84,14 @@ const Modal = ({ closeModal }) => {
           </div>
           <div className={styles.footer}>
             <div className={styles.buttons}>
-              <StyledButton className={styles.continueBtn} color="primary" onClick={() => setDeactivate(true)} >
+              <StyledButton
+                className={styles.continueBtn}
+                color="primary"
+                onClick={() => {
+                  setDeactivate(true);
+                  handleDeleteEmail();
+                }}
+              >
                 {" "}
                 Continue{" "}
               </StyledButton>

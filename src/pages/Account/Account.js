@@ -28,7 +28,7 @@ const Account = () => {
         {/* Divider is from material-ui library */}
         <Divider sx={{ my: "40px" }} />
         <NotificationCheckBox />
-        <Deactivate />
+        <Deactivate user={user}/>
       </div>
     </div>
   );
