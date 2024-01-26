@@ -1,6 +1,6 @@
 const DeclinedEmailTemplate = (sender, target, services) => {
   return `
-  <div style="background: #F6F7FB; padding-bottom: 132px">
+  <div style="background: #F6F7FB; padding-bottom: 132px; max-width: 100%;">
       <div style="
       text-align: left;
         padding-top: 40px;
