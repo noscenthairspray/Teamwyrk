@@ -4,7 +4,8 @@ import { ReactComponent as LinkedInLogo } from "./LinkedInLogo.svg";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../../../../firebase";
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, update, ref } from "firebase/firestore";
+import DeclinedEmailTemplate from "./DeclinedEmailTemplate";
 
 // import { Block } from "@mui/icons-material";
 
@@ -12,16 +13,25 @@ import { doc, getDoc } from "firebase/firestore";
 //TODO: FINISH UP STYLING FOR MODAL
 
 //TODO: ADD IN FUNCTIONALITY TO SHOW ALERT TOAST WHEN DECLINE BUTTON IS CLICKED
-//TODO: NAVIGATE TO STRIPE PAYMENT PAGE WHEN APPROVE AND PAY IS CLICKED
 
-// TODO: Fix the stylings of the email
-// Should the email be in a template?
-
-// TODO: Get requester name
 // TODO: Change the pill state after declined/accept
 
-const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
+/**
+ * InsiderAcceptModel is a React component that display a modal dialog
+ * allows users to see the Insider that matched with their request
+ * and decided whether to accept or declined the Insider's help.
+ *
+ * Props:
+ * - setOpenModal: Function to update the 'open' state
+ * - insiderID: A string of the Insider's ID
+ * - requestInfo: Object that holds the request information
+ */
+
+const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
+  // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
+
+  /** Effect hook to get the Insider's info from Firebase using the Insider's ID prop */
   useEffect(() => {
     const fetchInsiderInfo = async () => {
       const docRef = doc(db, "user", insiderID);
@@ -30,22 +40,47 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID }) => {
         setInsiderInfo(docSnap.data());
       }
     };
-    fetchInsiderInfo();
+
+    // Catches if no Insider is matched to the request
+    if (insiderID !== null) {
+      fetchInsiderInfo();
+    }
   }, []);
 
-  /* Sends an email everytime the decline button is clicked */
+  /** Function to send an email everytime the decline button is clicked */
   const handleDecline = async () => {
-    /** add a new mail document */
+    // Sender: Requester
+    // Target: Insider
+    const emailTemplate = DeclinedEmailTemplate(
+      requestInfo.name,
+      insiderInfo.name,
+      requestInfo.services
+    );
 
-    const docRef = await addDoc(collection(db, "mail"), {
-      to: insiderInfo.email,
-      message: {
-        subject: "An Update on your Request",
-        html: "You have been declined. You are receiving this email to inform you that (requester name) has declined your help. The request will be removed from your feed. Best, Teamwyrk",
-      },
-    });
+    try {
+      // Adds a new mail document
+      const mailDocRef = await addDoc(collection(db, "mail"), {
+        to: insiderInfo.email,
+        message: {
+          subject: "Service request no longer needed",
+          html: emailTemplate,
+        },
+      });
+
+      // Get the request info from Firebase using the request ID
+      const requestDocRef = doc(db, "request", requestInfo.id);
+
+      // Update the Insider ID from the request data and change status to "matching"
+      const removeInsider = await updateDoc(requestDocRef, {
+        insider: null,
+        status: "matching",
+      });
+    } catch (error) {
+      // Error sending mail
+    }
   };
 
+  // Component render
   return (
     <>
       <div className={styles.modal__container}>

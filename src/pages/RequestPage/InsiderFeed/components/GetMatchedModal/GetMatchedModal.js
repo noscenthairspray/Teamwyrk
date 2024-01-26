@@ -85,7 +85,6 @@ const GetMatchedModal = ({
    * It fetches the request data and sends an email to the user using Firestore.
    */
   const handleContinue = async () => {
-    console.log("request id:", id);
     const docRef = doc(db, "request", id);
     const docSnap = await getDoc(docRef);
     const user = auth.currentUser;
