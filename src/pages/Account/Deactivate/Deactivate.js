@@ -7,6 +7,7 @@ import { addDoc, collection } from "firebase/firestore";
 
 /** Deactivate is a React component that displays two buttons.
  * One button is for account deactivation and the other is for delection.
+ * Deletion button opens up a DeleteModal.
  *
  * Props:
  * - user: Object that holds the user's account information
