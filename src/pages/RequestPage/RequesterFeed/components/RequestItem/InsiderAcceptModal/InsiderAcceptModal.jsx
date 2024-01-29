@@ -1,7 +1,7 @@
 import styles from "./InsiderAcceptModal.module.css";
 import { ReactComponent as Avatar } from "./Avatar.svg";
 import { ReactComponent as LinkedInLogo } from "./LinkedInLogo.svg";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../../../../../firebase";
 import { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc, update, ref } from "firebase/firestore";
@@ -24,10 +24,15 @@ import DeclinedEmailTemplate from "./DeclinedEmailTemplate";
  * Props:
  * - setOpenModal: Function to update the 'open' state
  * - insiderID: A string of the Insider's ID
- * - requestInfo: Object that holds the request information
+ * - requestData: Object that holds the request information
  */
 
-const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
+const InsiderAcceptModal = ({
+  setOpenAcceptModal,
+  insiderID,
+  requestData,
+  setRequestStatus,
+}) => {
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
 
@@ -47,14 +52,30 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
     }
   }, []);
 
+  useEffect(()=>{
+    const unsub = onSnapshot(doc(db, "request", requestData.status),(doc)=>{
+      setRequestStatus(doc.data().status);
+    })
+    unsub();
+  },[requestData.status, setRequestStatus])
+
+  const updateRequestInsiderStatus = async () => {
+    await updateDoc(doc(db, "request", requestData.id), {
+      status: "matched",
+    })
+      .then(setRequestStatus("matched"))
+      .then(setOpenAcceptModal(false));
+      console.log("This is the updated status: matched");
+  };
+
   /** Function to send an email everytime the decline button is clicked */
   const handleDecline = async () => {
     // Sender: Requester
     // Target: Insider
     const emailTemplate = DeclinedEmailTemplate(
-      requestInfo.name,
+      requestData.name,
       insiderInfo.name,
-      requestInfo.services
+      requestData.services
     );
 
     try {
@@ -66,15 +87,17 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
           html: emailTemplate,
         },
       });
+      // console.log(insiderInfo);
 
       // Get the request info from Firebase using the request ID
-      const requestDocRef = doc(db, "request", requestInfo.id);
+      const requestDocRef = doc(db, "request", requestData.id);
 
       // Update the Insider ID from the request data and change status to "matching"
       const removeInsider = await updateDoc(requestDocRef, {
         insider: null,
         status: "matching",
       });
+      setRequestStatus("matching");
     } catch (error) {
       // Error sending mail
     }
@@ -122,7 +145,12 @@ const InsiderAcceptModal = ({ setOpenAcceptModal, insiderID, requestInfo }) => {
             </div>
           </div>
           <div className={styles.actions}>
-            <button className={styles.approve_button}>Approve and Pay ↗</button>
+            <button
+              className={styles.approve_button}
+              onClick={updateRequestInsiderStatus}
+            >
+              Approve and Pay ↗
+            </button>
             <button
               className={styles.decline_button}
               onClick={() => {

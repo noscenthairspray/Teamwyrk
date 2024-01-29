@@ -14,7 +14,6 @@ import { db } from "../../../firebase";
 import { FeedLayout, RequestItem, EmptyFeed } from "./components";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
-import InsiderAcceptModal from "./components/RequestItem/InsiderAcceptModal";
 
 //TODO: Set up logic to bring all request items with status="accept" to top
 //TODO: Set up logic to bring all request items with status="accept" to top
@@ -33,7 +32,7 @@ const RequesterFeed = () => {
 
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [openAcceptModal, setOpenAcceptModal] = useState(false);
+  const [requestStatus, setRequestStatus] = useState("");
 
   /** Effect hook to grab the data based on the user's ID
    * and set requests state
@@ -57,7 +56,7 @@ const RequesterFeed = () => {
     };
 
     fetchRequests();
-  }, []);
+  }, [user.id]);
 
   /** Function to delete the request when clicked on 'Delete' button */
   const deleteRequest = async (requestId) => {
@@ -94,21 +93,13 @@ const RequesterFeed = () => {
 
       <FeedLayout>
         {requests.map((request, id) => (
-          <>
-            <RequestItem
-              key={request.id}
-              requestData={request}
-              deleteRequest={deleteRequest}
-              setOpenAcceptModal={setOpenAcceptModal}
-            />
-            {openAcceptModal && (
-              <InsiderAcceptModal
-                setOpenAcceptModal={setOpenAcceptModal}
-                insiderID={request.insider}
-                requestInfo={request}
-              />
-            )}
-          </>
+          <RequestItem
+            key={request.id}
+            requestData={request}
+            deleteRequest={deleteRequest}
+            setRequestStatus={setRequestStatus}
+            requestStatus={requestStatus}
+          />
         ))}
       </FeedLayout>
     </>

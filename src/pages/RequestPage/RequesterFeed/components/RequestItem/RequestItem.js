@@ -1,7 +1,15 @@
 import PillStates from "./PillStates";
 import styles from "./RequestItem.module.css";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../../../firebase";
+import { useEffect } from "react";
 
-const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
+const RequestItem = ({
+  deleteRequest,
+  setOpenAcceptModal,
+  requestData,
+  setRequestStatus,
+}) => {
   const {
     services,
     job_listing_url,
@@ -12,6 +20,15 @@ const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
     status,
     payment,
   } = requestData;
+
+  useEffect(()=>{
+    const unsub = onSnapshot(doc(db, "request", requestData.status), (doc) => {
+      setRequestStatus(doc.data().status);
+      console.log("status from doc: ", doc.data());
+    });
+    unsub();
+    console.log("status from request data: ", status);
+  },[requestData.status, setRequestStatus])
 
   const handleDelete = () => {
     deleteRequest(requestData.id);
@@ -55,16 +72,30 @@ const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
             </button>
           </div>
           <div className={styles.pillState}>
+            {status !== "accept" ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: 0,
+                  margin: 0,
+                }}
+                className={styles.apply}
+              >
+                Status
+              </div>
+            ) : null}
             <PillStates
               status={status}
               setOpenAcceptModal={setOpenAcceptModal}
+              requestData={requestData}
+              setRequestStatus={setRequestStatus}
             />
-            {/* THIS SECOND ONE IS FOR TESTING ACCEPT BUTTON TO OPEN INSIDER ACCEPT MODAL */}
-            {/* THIS SECOND ONE IS FOR TESTING ACCEPT BUTTON TO OPEN INSIDER ACCEPT MODAL */}
-            <PillStates
-              status="accept"
-              setOpenAcceptModal={setOpenAcceptModal}
-            />
+            {status !== "accept" && status !== "matching" ? (
+              <div className={styles.apply}>
+                *service still needs to be <br /> completed offline.
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
