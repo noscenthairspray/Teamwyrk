@@ -30,6 +30,8 @@ const PillStates = ({ requestData, setRequestStatus, requestStatus }) => {
             ? () => setOpenAcceptModal(true)
             : undefined
         }
+        disabled={requestStatus!=="accept"?true:false}
+        id="PillState"
       >
         {requestStatus === "matching" && "Matching..."}
         {requestStatus === "matched" && "Matched"}
