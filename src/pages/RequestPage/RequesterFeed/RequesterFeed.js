@@ -32,7 +32,7 @@ const RequesterFeed = () => {
 
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [requestStatus, setRequestStatus] = useState("");
+
 
   /** Effect hook to grab the data based on the user's ID
    * and set requests state
@@ -97,8 +97,6 @@ const RequesterFeed = () => {
             key={request.id}
             requestData={request}
             deleteRequest={deleteRequest}
-            setRequestStatus={setRequestStatus}
-            requestStatus={requestStatus}
           />
         ))}
       </FeedLayout>

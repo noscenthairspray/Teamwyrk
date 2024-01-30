@@ -32,6 +32,7 @@ const InsiderAcceptModal = ({
   insiderID,
   requestData,
   setRequestStatus,
+  requestStatus
 }) => {
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
@@ -57,7 +58,7 @@ const InsiderAcceptModal = ({
       setRequestStatus(doc.data().status);
     })
     unsub();
-  },[requestData.status, setRequestStatus])
+  },[requestData.status, requestStatus])
 
   const updateRequestInsiderStatus = async () => {
     await updateDoc(doc(db, "request", requestData.id), {

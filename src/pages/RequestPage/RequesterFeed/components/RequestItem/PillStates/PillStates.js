@@ -5,11 +5,11 @@ import styles from "./PillStates.module.css";
 //TODO: UPDATE STYLES AS PER FIGMA
 //TODO: UPDATE STYLES AS PER FIGMA
 
-const PillStates = ({ status, requestData, setRequestStatus }) => {
+const PillStates = ({ status, requestData, setRequestStatus,requestStatus }) => {
   const [openAcceptModal, setOpenAcceptModal] = useState(false);
 
   const getStatusStyle = () => {
-    switch (status) {
+    switch (requestStatus) {
       case "matching":
         return styles.matching;
       case "matched":
@@ -26,12 +26,12 @@ const PillStates = ({ status, requestData, setRequestStatus }) => {
       <button
         className={`${styles.pillButton} ${getStatusStyle()}`}
         onClick={
-          status === "accept" ? () => setOpenAcceptModal(true) : undefined
+          requestStatus === "accept" ? () => setOpenAcceptModal(true) : undefined
         }
       >
-        {status === "matching" && "Matching..."}
-        {status === "matched" && "Matched"}
-        {status === "accept" && "Accept Your Insider ↗"}
+        {requestStatus === "matching" && "Matching..."}
+        {requestStatus === "matched" && "Matched"}
+        {requestStatus === "accept" && "Accept Your Insider ↗"}
       </button>
       {openAcceptModal && (
         <InsiderAcceptModal
@@ -39,6 +39,7 @@ const PillStates = ({ status, requestData, setRequestStatus }) => {
           insiderID={requestData.insider}
           requestData={requestData}
           setRequestStatus={setRequestStatus}
+          requestStatus={requestStatus}
         />
       )}
     </>

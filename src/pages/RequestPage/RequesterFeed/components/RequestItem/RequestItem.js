@@ -2,13 +2,12 @@ import PillStates from "./PillStates";
 import styles from "./RequestItem.module.css";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../../../firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const RequestItem = ({
   deleteRequest,
   setOpenAcceptModal,
   requestData,
-  setRequestStatus,
 }) => {
   const {
     services,
@@ -20,6 +19,7 @@ const RequestItem = ({
     status,
     payment,
   } = requestData;
+  const [requestStatus, setRequestStatus]=useState(status)
 
   useEffect(()=>{
     const unsub = onSnapshot(doc(db, "request", requestData.status), (doc) => {
@@ -86,10 +86,11 @@ const RequestItem = ({
               </div>
             ) : null}
             <PillStates
-              status={status}
+              status={requestStatus}
               setOpenAcceptModal={setOpenAcceptModal}
               requestData={requestData}
               setRequestStatus={setRequestStatus}
+              requestStatus={requestStatus}
             />
             {status !== "accept" && status !== "matching" ? (
               <div className={styles.apply}>
