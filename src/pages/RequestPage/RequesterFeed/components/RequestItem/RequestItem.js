@@ -1,5 +1,8 @@
 import PillStates from "./PillStates";
 import styles from "./RequestItem.module.css";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../../../firebase";
+import { useEffect, useState } from "react";
 
 const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
   const {
@@ -13,6 +16,20 @@ const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
     payment,
   } = requestData;
 
+  // state to pass status through props to PillStates
+  const [requestStatus, setRequestStatus] = useState(status);
+
+  // Adds a listener to the request document and sets the requestStatus state to pass as prop
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, "request", requestData.status), (doc) => {
+      setRequestStatus(doc.data().status);
+      // console.log("status from doc: ", doc.data());
+    });
+    unsub();
+    // console.log("status from request data: ", status);
+  }, [requestData.status, setRequestStatus]);
+
+  //deletes the request from the list and firestore
   const handleDelete = () => {
     deleteRequest(requestData.id);
   };
@@ -55,16 +72,30 @@ const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
             </button>
           </div>
           <div className={styles.pillState}>
+            {requestStatus !== "accept" ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: 0,
+                  margin: 0,
+                }}
+                className={styles.apply}
+              >
+                Status
+              </div>
+            ) : null}
             <PillStates
-              status={status}
               setOpenAcceptModal={setOpenAcceptModal}
+              requestData={requestData}
+              setRequestStatus={setRequestStatus}
+              requestStatus={requestStatus}
             />
-            {/* THIS SECOND ONE IS FOR TESTING ACCEPT BUTTON TO OPEN INSIDER ACCEPT MODAL */}
-            {/* THIS SECOND ONE IS FOR TESTING ACCEPT BUTTON TO OPEN INSIDER ACCEPT MODAL */}
-            <PillStates
-              status="accept"
-              setOpenAcceptModal={setOpenAcceptModal}
-            />
+            {requestStatus !== "accept" && requestStatus !== "matching" ? (
+              <div className={styles.apply}>
+                *service still needs to be <br /> completed offline.
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Onboarding = () => {
 
   const selectRole = async () => {
     await updateDoc(doc(db, "user", userId), {
-      role: role === "requester" ? "requester" : "insider",
+      role: role,
     });
 
     role === "requester" ? navigate("/request") : navigate("/request-insider");

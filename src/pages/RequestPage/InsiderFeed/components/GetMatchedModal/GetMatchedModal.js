@@ -120,7 +120,7 @@ const GetMatchedModal = ({
   const updateRequest = async (docRef) => {
     await updateDoc(docRef, {
       insider: userID,
-      status: "matched",
+      status: "accept",
     });
   };
 
