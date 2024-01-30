@@ -4,11 +4,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../../../firebase";
 import { useEffect, useState } from "react";
 
-const RequestItem = ({
-  deleteRequest,
-  setOpenAcceptModal,
-  requestData,
-}) => {
+const RequestItem = ({ deleteRequest, setOpenAcceptModal, requestData }) => {
   const {
     services,
     job_listing_url,
@@ -19,17 +15,21 @@ const RequestItem = ({
     status,
     payment,
   } = requestData;
-  const [requestStatus, setRequestStatus]=useState(status)
 
-  useEffect(()=>{
+  // state to pass status through props to PillStates
+  const [requestStatus, setRequestStatus] = useState(status);
+
+  // Adds a listener to the request document and sets the requestStatus state to pass as prop
+  useEffect(() => {
     const unsub = onSnapshot(doc(db, "request", requestData.status), (doc) => {
       setRequestStatus(doc.data().status);
-      console.log("status from doc: ", doc.data());
+      // console.log("status from doc: ", doc.data());
     });
     unsub();
-    console.log("status from request data: ", status);
-  },[requestData.status, setRequestStatus])
+    // console.log("status from request data: ", status);
+  }, [requestData.status, setRequestStatus]);
 
+  //deletes the request from the list and firestore
   const handleDelete = () => {
     deleteRequest(requestData.id);
   };
@@ -72,7 +72,7 @@ const RequestItem = ({
             </button>
           </div>
           <div className={styles.pillState}>
-            {status !== "accept" ? (
+            {requestStatus !== "accept" ? (
               <div
                 style={{
                   display: "flex",
@@ -86,13 +86,12 @@ const RequestItem = ({
               </div>
             ) : null}
             <PillStates
-              status={requestStatus}
               setOpenAcceptModal={setOpenAcceptModal}
               requestData={requestData}
               setRequestStatus={setRequestStatus}
               requestStatus={requestStatus}
             />
-            {status !== "accept" && status !== "matching" ? (
+            {requestStatus !== "accept" && requestStatus !== "matching" ? (
               <div className={styles.apply}>
                 *service still needs to be <br /> completed offline.
               </div>

@@ -33,7 +33,6 @@ const RequesterFeed = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   /** Effect hook to grab the data based on the user's ID
    * and set requests state
    */
@@ -72,7 +71,7 @@ const RequesterFeed = () => {
       // Remove the deleted request from the local state
       setRequests(requests.filter((request) => request.id !== requestId));
     } catch (error) {
-      console.error("Error deleting the request:", error);
+      // console.error("Error deleting the request:", error);
     }
   };
 

@@ -32,7 +32,6 @@ const InsiderAcceptModal = ({
   insiderID,
   requestData,
   setRequestStatus,
-  requestStatus
 }) => {
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
@@ -53,20 +52,14 @@ const InsiderAcceptModal = ({
     }
   }, []);
 
-  useEffect(()=>{
-    const unsub = onSnapshot(doc(db, "request", requestData.status),(doc)=>{
-      setRequestStatus(doc.data().status);
-    })
-    unsub();
-  },[requestData.status, requestStatus])
-
+  // Function updates the status on the request document in firestore
   const updateRequestInsiderStatus = async () => {
     await updateDoc(doc(db, "request", requestData.id), {
       status: "matched",
     })
       .then(setRequestStatus("matched"))
       .then(setOpenAcceptModal(false));
-      console.log("This is the updated status: matched");
+    // console.log("This is the updated status: matched");
   };
 
   /** Function to send an email everytime the decline button is clicked */

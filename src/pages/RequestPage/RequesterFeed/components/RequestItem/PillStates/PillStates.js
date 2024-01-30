@@ -5,7 +5,7 @@ import styles from "./PillStates.module.css";
 //TODO: UPDATE STYLES AS PER FIGMA
 //TODO: UPDATE STYLES AS PER FIGMA
 
-const PillStates = ({ status, requestData, setRequestStatus,requestStatus }) => {
+const PillStates = ({ requestData, setRequestStatus, requestStatus }) => {
   const [openAcceptModal, setOpenAcceptModal] = useState(false);
 
   const getStatusStyle = () => {
@@ -26,7 +26,9 @@ const PillStates = ({ status, requestData, setRequestStatus,requestStatus }) => 
       <button
         className={`${styles.pillButton} ${getStatusStyle()}`}
         onClick={
-          requestStatus === "accept" ? () => setOpenAcceptModal(true) : undefined
+          requestStatus === "accept"
+            ? () => setOpenAcceptModal(true)
+            : undefined
         }
       >
         {requestStatus === "matching" && "Matching..."}
