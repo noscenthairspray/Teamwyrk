@@ -5,6 +5,7 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
   const {
     name,
     id,
+    status,
     resume,
     services,
     job_listing_url,
@@ -54,11 +55,11 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
           <div className={styles.buttonWrapper}>
             <div className={styles.price}>{`${payment}`}</div>
             <StyledButton
-              color="primary"
+              color={status === "pending" ? "secondary" : "primary"}
               onClick={() => handleClickGetMatched({ name, id })}
               hover
             >
-              Get Matched
+              {status === "pending" ? "Pending Acceptance" : "Get Matched"}
             </StyledButton>
           </div>
         </div>

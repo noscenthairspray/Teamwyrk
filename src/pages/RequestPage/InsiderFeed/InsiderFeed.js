@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { collection, query, orderBy, getDocs, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
@@ -18,6 +18,21 @@ const InsiderFeed = () => {
   const [open, setOpenModal] = React.useState(false);
   const [selectedRequest, setSelectedRequest] = useState(null);
   const [showSnackbar, setShowSnackbar] = useState(false);
+
+  const setPendingRequest = async (requestId) => {
+    // Updating method to get data based on request ID
+    const docRef = doc(db, "request", requestId);
+
+    // set pending status true for this document
+    await updateDoc(docRef, { status: "pending" });
+
+    // Optimistically update local state to reflect the change
+    setRequests(prevRequests =>
+      prevRequests.map(request =>
+        request.id === requestId ? { ...request, status: "pending" } : request
+      )
+    );
+  }
 
   const handleClickGetMatched = (contacts) => {
     setSelectedRequest(contacts);
@@ -84,6 +99,7 @@ const InsiderFeed = () => {
             userContacts={selectedRequest}
             handleSnackbarToggle={handleSnackbarToggle}
             handleClickGetMatched={handleClickGetMatched}
+            setPendingRequest={setPendingRequest}
           />
         )}
       </InsiderFeedLayout>

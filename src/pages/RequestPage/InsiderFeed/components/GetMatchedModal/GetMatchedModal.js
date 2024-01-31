@@ -10,7 +10,7 @@ import { Subject } from "@mui/icons-material";
 /**
  * GetMatchedModal is a React component that displays a modal dialog,
  * allowing users to proceed with matching an insider to their request.
- * 
+ *
  * Props:
  * - open: Boolean controlling the visibility of the modal
  * - setOpenModal: Function to update the 'open' state
@@ -54,6 +54,7 @@ const GetMatchedModal = ({
   setOpenModal,
   userContacts,
   handleSnackbarToggle,
+  setPendingRequest,
 }) => {
   // Destructuring to extract the name and id from userContacts prop
   const { name } = userContacts;
@@ -90,7 +91,7 @@ const GetMatchedModal = ({
     const user = auth.currentUser;
     const { formattedMonth, formattedDay } = getDateSevenDaysFromNow();
 
-    // If the target user exists then email them when 
+    // If the target user exists then email them when
     // Continue gets clicked
     if (docSnap.exists()) {
       // Sender, Target
@@ -114,7 +115,7 @@ const GetMatchedModal = ({
 
   /**
    * updateRequest updates the Firestore document to reflect the matched status.
-   * 
+   *
    * @param {firebase.firestore.DocumentReference} docRef - Reference to the Firestore document to update.
    */
   const updateRequest = async (docRef) => {
@@ -158,10 +159,11 @@ const GetMatchedModal = ({
           </StyledButton>
           <StyledButton
             color="primary"
-            onClick={() => {
+            onClick={async() => {
               handleSnackbarToggle();
               setOpenModal(false);
               handleContinue();
+              await setPendingRequest(id);
             }}
           >
             Continue
