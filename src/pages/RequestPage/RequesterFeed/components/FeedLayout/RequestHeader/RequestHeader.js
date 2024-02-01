@@ -7,7 +7,7 @@ const RequestHeader = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <Header color="darkBlue">All Requests</Header>
+        <Header color="darkBlue">My Requests</Header>
       </div>
       <Link to="/request/form">
         <StyledButton className={styles.styledButton} color="yellow" hover>

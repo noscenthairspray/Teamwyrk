@@ -59,7 +59,7 @@ const Header = () => {
                         isActive ? activeStyle : undefined
                       }
                     >
-                      Insides
+                      Requests
                     </NavLink>
                   </li>
                 )}
