@@ -47,7 +47,9 @@ const Onboarding = () => {
             </div>
 
             <div>
-              <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+              {role === "requester" && (
+                <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+              )}
             </div>
           </div>
         </button>
@@ -67,7 +69,9 @@ const Onboarding = () => {
             </div>
 
             <div>
-              <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+              {role === "insider" && (
+                <img src="/images/onboarding/checkmark_onboarding.svg"></img>
+              )}
             </div>
           </div>
         </button>
