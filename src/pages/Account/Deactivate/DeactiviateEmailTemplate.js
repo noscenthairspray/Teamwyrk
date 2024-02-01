@@ -1,5 +1,5 @@
 const DeactivateEmailTemplate = (userName) => {
-    return `<div style="background: #F6F7FB; padding-bottom: 132px">
+  return `<div style="background: #F6F7FB; padding-bottom: 132px">
     <div style="
     text-align: left;
       padding-top: 40px;
@@ -58,7 +58,7 @@ const DeactivateEmailTemplate = (userName) => {
           padding: 0;
         "
       >
-        You just deactivated your account
+      Account deactivated
       </h1>
       <div
         style="
@@ -73,7 +73,7 @@ const DeactivateEmailTemplate = (userName) => {
       >
         <p>Hi ${userName},</p>
         <p>
-        You just deleted your TeamWyrk account.
+        This email is to confirm that <b>your account with us has been deactivated per your request.</b> Reactivate your account at any time by logging in with your previous credentials. For questions or concerns, please reach out to us by clicking the link below.
         </p>
         <p style="color: #000; margin: 0; padding: 0">
           Best,<br /><br />TeamWyrk
@@ -106,7 +106,6 @@ const DeactivateEmailTemplate = (userName) => {
     </table>
   </div>
   `;
-  };
-  
-  export default DeactivateEmailTemplate;
-  
+};
+
+export default DeactivateEmailTemplate;

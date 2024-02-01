@@ -58,7 +58,7 @@ const DeleteEmailTemplate = (userName) => {
         padding: 0;
       "
     >
-      You just deleted your account
+    We’re sad to see you go!
     </h1>
     <div
       style="
@@ -73,7 +73,7 @@ const DeleteEmailTemplate = (userName) => {
     >
       <p>Hi ${userName},</p>
       <p>
-      You just deleted your TeamWyrk account.
+      This email is to confirm that <b>your account with us has been deleted per your request.</b> All associated data and information related to your account have been permanently removed from our system. For questions or concerns, please reach out to us by clicking the link below.
       </p>
       <p style="color: #000; margin: 0; padding: 0">
         Best,<br /><br />TeamWyrk

@@ -26,7 +26,7 @@ const Deactivate = ({ user }) => {
       const docRef = await addDoc(collection(db, "mail"), {
         to: user.email,
         message: {
-          subject: "Your Account has been deactivated",
+          subject: "Account Deactivation Confirmation",
           html: emailTemplate,
         },
       });

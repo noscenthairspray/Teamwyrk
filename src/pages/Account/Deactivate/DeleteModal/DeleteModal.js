@@ -41,10 +41,10 @@ const Modal = ({ closeModal, user }) => {
       const docRef = await addDoc(collection(db, "mail"), {
         to: userAccountInfo.email,
         message: {
-          subject: "Your Account has been deleted",
+          subject: "Account Deletion Confirmation ",
           html: emailTemplate,
         },
-      });
+      }); 
     } catch (error) {
       // Error sending email
     }
