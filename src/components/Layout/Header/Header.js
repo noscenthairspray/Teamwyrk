@@ -21,7 +21,7 @@ const Header = () => {
   //grab doc from user collection in firebase and return object as user1
   useEffect(() => {
     if (user) {
-      const docRef = doc(db, "user", user.uid);
+      const docRef = doc(db, "user", user?.uid);
       const unsub = onSnapshot(docRef, (doc) => setUserObj(doc.data()));
       return () => unsub();
     }
