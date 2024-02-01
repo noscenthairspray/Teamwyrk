@@ -55,7 +55,7 @@ const RequesterFeed = () => {
     };
 
     fetchRequests();
-  }, [user.id]);
+  }, []);
 
   /** Function to delete the request when clicked on 'Delete' button */
   const deleteRequest = async (requestId) => {
