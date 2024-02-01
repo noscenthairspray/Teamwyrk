@@ -21,7 +21,7 @@ const Header = () => {
   //grab doc from user collection in firebase and return object as user1
   useEffect(() => {
     if (user) {
-      const docRef = doc(db, "user", user?.uid);
+      const docRef = doc(db, "user", user.uid);
       const unsub = onSnapshot(docRef, (doc) => setUserObj(doc.data()));
       return () => unsub();
     }
@@ -40,28 +40,28 @@ const Header = () => {
           <ul className={styles.navLinks}>
             {isAuthenticated && (
               <>
-                {userObj.role==="requester"?(
-                <li>
-                  <NavLink
-                    to="/request"
-                    style={({ isActive }) =>
-                      isActive ? activeStyle : undefined
-                    }
-                  >
-                    Requests
-                  </NavLink>
-                </li>
-                ): (
-                <li>
-                  <NavLink
-                    to="/request-insider"
-                    style={({ isActive }) =>
-                      isActive ? activeStyle : undefined
-                    }
-                  >
-                    Insides
-                  </NavLink>
-                </li>
+                {userObj.role === "requester" ? (
+                  <li>
+                    <NavLink
+                      to="/request"
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                    >
+                      Requests
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li>
+                    <NavLink
+                      to="/request-insider"
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                      }
+                    >
+                      Requests
+                    </NavLink>
+                  </li>
                 )}
               </>
             )}

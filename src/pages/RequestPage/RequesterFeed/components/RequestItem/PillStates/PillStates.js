@@ -35,7 +35,7 @@ const PillStates = ({ requestData, setRequestStatus, requestStatus }) => {
       >
         {requestStatus === "matching" && "Matching..."}
         {requestStatus === "matched" && "Matched"}
-        {requestStatus === "accept" && "Accept Your Insider ↗"}
+        {requestStatus === "accept" && <div style={{display:"flex",gap:"4px"}}> <div>Accept Your Insider</div><img src="icons/Vector.svg" alt="vector"/></div>}
       </button>
       {openAcceptModal && (
         <InsiderAcceptModal
@@ -50,3 +50,5 @@ const PillStates = ({ requestData, setRequestStatus, requestStatus }) => {
   );
 };
 export default PillStates;
+
+
