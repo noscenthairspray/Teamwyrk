@@ -60,6 +60,7 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
               hover
             >
               {status === "pending" ? "Pending Acceptance" : "Get Matched"}
+              {/* TODO: add `accept`, `declined` state if the request is accepted/declined by requester */}
             </StyledButton>
           </div>
         </div>

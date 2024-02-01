@@ -68,8 +68,8 @@ const InsiderFeed = () => {
       // fetch all requests that are waiting to be matched
       q = query(allRequests, where("status", "==", "matching"));
     } else {
-      // fetch all requests that are pending and belong to the current insider
-      q = query(allRequests, where("status", "==", "pending"));
+      // fetch all requests that belong to the current insider
+      q = query(allRequests, where("status", "!=", "matching"));
     }
 
     // get the query snapshot
