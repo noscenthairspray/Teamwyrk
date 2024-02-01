@@ -79,7 +79,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  min-width: 168px;
+  min-width: 160px;
 }
 
 .buttonWrapper button {
