@@ -4,6 +4,7 @@ import styles from "./RequestFeedItem.module.css";
 const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
   const {
     name,
+    id,
     resume,
     services,
     job_listing_url,
@@ -54,7 +55,7 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
             <div className={styles.price}>{`${payment}`}</div>
             <StyledButton
               color="primary"
-              onClick={() => handleClickGetMatched({ name })}
+              onClick={() => handleClickGetMatched({ name, id })}
               hover
             >
               Get Matched

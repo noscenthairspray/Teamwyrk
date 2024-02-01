@@ -83,6 +83,7 @@ const InsiderFeed = () => {
             setOpenModal={setOpenModal}
             userContacts={selectedRequest}
             handleSnackbarToggle={handleSnackbarToggle}
+            handleClickGetMatched={handleClickGetMatched}
           />
         )}
       </InsiderFeedLayout>
