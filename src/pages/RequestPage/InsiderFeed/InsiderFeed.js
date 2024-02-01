@@ -69,9 +69,7 @@ const InsiderFeed = () => {
       q = query(allRequests, where("status", "==", "matching"));
     } else {
       // fetch all requests that are pending and belong to the current insider
-      const user = auth.currentUser;
-      const uid = user.uid;
-      q = query(allRequests, where("status", "==", "pending"), where("insider", "==", uid));
+      q = query(allRequests, where("status", "==", "pending"));
     }
 
     // get the query snapshot
@@ -85,6 +83,8 @@ const InsiderFeed = () => {
 
     if (tab !== "feed") {
       // filter and sort the requests based on the tab
+      const user = auth.currentUser;
+      const uid = user.uid;
       filteredAndSortedRequests = requestsData
         .filter((request) => request.insider === uid)
         .sort((a, b) => b.createdAt - a.createdAt);
