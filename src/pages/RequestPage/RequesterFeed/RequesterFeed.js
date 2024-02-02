@@ -33,6 +33,8 @@ const RequesterFeed = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+
   /** Effect hook to grab the data based on the user's ID
    * and set requests state
    */
@@ -48,7 +50,13 @@ const RequesterFeed = () => {
         id: doc.id,
         ...doc.data(),
       }));
-      setRequests(requestsData);
+      
+      /* sort the requestData array by status in alphabetical order.
+      The hierarchy is accept, matched, matching
+      */
+      setRequests(requestsData.sort((a,b)=>{
+        return a.status > b.status ? 1 : a.status < b.status ? -1 :0;
+      }));
       if (requestsData) {
         setLoading(false);
       }
