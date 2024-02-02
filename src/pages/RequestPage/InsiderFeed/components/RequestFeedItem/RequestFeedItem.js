@@ -55,7 +55,7 @@ const RequestFeedItem = ({ handleClickGetMatched, requestData }) => {
           <div className={styles.buttonWrapper}>
             <div className={styles.price}>{`${payment}`}</div>
             <StyledButton
-              color={status === "accept" ? "secondary" : "primary"}
+              color={status === "accept" ? "pending" : "primary"}
               onClick={() => handleClickGetMatched({ name, id })}
               hover
             >
