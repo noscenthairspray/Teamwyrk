@@ -8,6 +8,7 @@ const StyledButton = (props) => {
       primary: { color: "#ffffff", backgroundColor: "#37447e" },
       secondary: { color: "#37447e", backgroundColor: "#BAC3E5" },
       yellow: { color: "#222f65", backgroundColor: "#ffc93c" },
+      pending: { color: "#000000", backgroundColor: "#D9D9D9"},
     };
     return colorMap[color] || {};
   };
