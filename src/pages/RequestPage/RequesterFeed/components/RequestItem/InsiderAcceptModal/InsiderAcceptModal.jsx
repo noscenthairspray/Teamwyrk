@@ -6,6 +6,7 @@ import { db } from "../../../../../../firebase";
 import { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc, update, ref } from "firebase/firestore";
 import DeclinedEmailTemplate from "./DeclinedEmailTemplate";
+import AcceptanceEmailTemplate from "./AcceptanceEmailTemplate";
 
 // import { Block } from "@mui/icons-material";
 
@@ -36,6 +37,8 @@ const InsiderAcceptModal = ({
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
 
+  // console.log(requestData);
+
   /** Effect hook to get the Insider's info from Firebase using the Insider's ID prop */
   useEffect(() => {
     const fetchInsiderInfo = async () => {
@@ -54,9 +57,23 @@ const InsiderAcceptModal = ({
 
   // Function updates the status on the request document in firestore
   const updateRequestInsiderStatus = async () => {
+    const emailTemplate = AcceptanceEmailTemplate(
+      requestData,
+      insiderInfo.name
+    );
     await updateDoc(doc(db, "request", requestData.id), {
       status: "matched",
     })
+      .then(
+        // Adds a new mail document
+        await addDoc(collection(db, "mail"), {
+          to: insiderInfo.email,
+          message: {
+            subject: "Reminder!",
+            html: emailTemplate,
+          },
+        })
+      )
       .then(setRequestStatus("matched"))
       .then(setOpenAcceptModal(false));
     // console.log("This is the updated status: matched");
