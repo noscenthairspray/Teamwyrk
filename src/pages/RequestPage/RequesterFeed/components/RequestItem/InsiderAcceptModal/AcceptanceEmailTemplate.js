@@ -81,7 +81,7 @@ const AcceptanceEmailTemplate = (requestData, target, service) => {
             position: relative;
             /* width:386px; */
             ">
-    <div style="display: flex; width: fit-content;">
+    <div style="display: flex; width: fit-content; align-items: center;">
       <div style="background-image: url(${requestData.profile_image});
                 background-color: #222F65;
                 background-position: center;
@@ -92,7 +92,7 @@ const AcceptanceEmailTemplate = (requestData, target, service) => {
             height:50px;
             
             width:50px;"></div>
-      <span style="margin-left:1.5rem; font-size: 14px; white-space: nowrap; ">
+      <span style="margin-left:2rem; font-size: .75rem;  ">
         Name: ${requestData.name}
         <br />
         Service Requested: ${service}
