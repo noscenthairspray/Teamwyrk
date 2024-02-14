@@ -38,6 +38,23 @@ const InsiderAcceptModal = ({
   const [insiderInfo, setInsiderInfo] = useState([]);
 
   // console.log(requestData);
+  let service = ''
+  switch(requestData.services){
+    case "career-coaching": {
+      service = "Career Coaching";
+      break;
+    }
+    case "resume-review":{
+      service = "Resume Review";
+      break;
+    }
+    case "referral":{
+      service = "Referral";
+      break;
+    }
+    default:
+      break;
+    }
 
   /** Effect hook to get the Insider's info from Firebase using the Insider's ID prop */
   useEffect(() => {
@@ -59,7 +76,8 @@ const InsiderAcceptModal = ({
   const updateRequestInsiderStatus = async () => {
     const emailTemplate = AcceptanceEmailTemplate(
       requestData,
-      insiderInfo.name
+      insiderInfo.name,
+      service
     );
     await updateDoc(doc(db, "request", requestData.id), {
       status: "matched",
@@ -69,7 +87,7 @@ const InsiderAcceptModal = ({
         await addDoc(collection(db, "mail"), {
           to: insiderInfo.email,
           message: {
-            subject: "Reminder!",
+            subject: `New ${requestData.services} Request`,
             html: emailTemplate,
           },
         })
