@@ -88,7 +88,7 @@ const InsiderAcceptModal = ({
         await addDoc(collection(db, "mail"), {
           to: insiderInfo.email,
           message: {
-            subject: `New ${requestData.services} Request`,
+            subject: `New ${service} Request`,
             html: emailTemplate,
           },
         })
