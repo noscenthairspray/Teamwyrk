@@ -92,7 +92,7 @@ const AcceptanceEmailTemplate = (requestData, target, service) => {
             height:50px;
             
             width:50px;"></div>
-      <span style="margin-left:2rem; font-size: 14px; white-space: nowrap; ">
+      <span style="margin-left:1.5rem; font-size: 14px; white-space: nowrap; ">
         Name: ${requestData.name}
         <br />
         Service Requested: ${service}
