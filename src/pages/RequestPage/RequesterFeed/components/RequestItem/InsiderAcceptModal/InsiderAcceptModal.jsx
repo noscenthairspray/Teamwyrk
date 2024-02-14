@@ -37,7 +37,7 @@ const InsiderAcceptModal = ({
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
 
-  // console.log(requestData);
+  // apply capitalization to service from backend for viewing correctly on the frontend
   let service = ''
   switch(requestData.services){
     case "career-coaching": {
@@ -73,6 +73,7 @@ const InsiderAcceptModal = ({
   }, []);
 
   // Function updates the status on the request document in firestore
+  // Also, sends email to the matched insider to complete service
   const updateRequestInsiderStatus = async () => {
     const emailTemplate = AcceptanceEmailTemplate(
       requestData,
