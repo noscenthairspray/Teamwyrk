@@ -6,6 +6,7 @@ import { db } from "../../../../../../firebase";
 import { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc, update, ref } from "firebase/firestore";
 import DeclinedEmailTemplate from "./DeclinedEmailTemplate";
+import AcceptanceEmailTemplate from "./AcceptanceEmailTemplate";
 
 // import { Block } from "@mui/icons-material";
 
@@ -36,6 +37,25 @@ const InsiderAcceptModal = ({
   // State to hold the Insider's info (includes email, name, profile image, role)
   const [insiderInfo, setInsiderInfo] = useState([]);
 
+  // apply capitalization to service from backend for viewing correctly on the frontend
+  let service = ''
+  switch(requestData.services){
+    case "career-coaching": {
+      service = "Career Coaching";
+      break;
+    }
+    case "resume-review":{
+      service = "Resume Review";
+      break;
+    }
+    case "referral":{
+      service = "Referral";
+      break;
+    }
+    default:
+      break;
+    }
+
   /** Effect hook to get the Insider's info from Firebase using the Insider's ID prop */
   useEffect(() => {
     const fetchInsiderInfo = async () => {
@@ -53,10 +73,26 @@ const InsiderAcceptModal = ({
   }, []);
 
   // Function updates the status on the request document in firestore
+  // Also, sends email to the matched insider to complete service
   const updateRequestInsiderStatus = async () => {
+    const emailTemplate = AcceptanceEmailTemplate(
+      requestData,
+      insiderInfo.name,
+      service
+    );
     await updateDoc(doc(db, "request", requestData.id), {
       status: "matched",
     })
+      .then(
+        // Adds a new mail document
+        await addDoc(collection(db, "mail"), {
+          to: insiderInfo.email,
+          message: {
+            subject: `New ${service} Request`,
+            html: emailTemplate,
+          },
+        })
+      )
       .then(setRequestStatus("matched"))
       .then(setOpenAcceptModal(false));
     // console.log("This is the updated status: matched");
