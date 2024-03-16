@@ -1,8 +1,9 @@
 .container {
   max-width: 1270px;
   margin: 0 auto;
-  padding-top: 60px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eff2fc;
 }
 
 .containerText {
@@ -13,6 +14,7 @@
 .title {
   margin-bottom: 20px;
 }
+
 .containerBulletPoints {
   max-width: 1110px;
   margin: 0 auto;
@@ -22,6 +24,7 @@
   .container {
     padding-bottom: 20px;
   }
+
   .containerText h2 {
     font-size: 38px;
     margin-bottom: 20px;
@@ -30,6 +33,7 @@
   .containerText {
     padding: 0px 20px;
   }
+
   .containerBulletPoints {
     grid-template-columns: 1fr;
     padding: 0px 20px;
