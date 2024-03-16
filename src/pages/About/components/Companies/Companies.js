@@ -9,7 +9,7 @@ const Companies = () => {
           <Header color="primary">Get connected to top companies</Header>
         </div>
         <BodyTwo color="primary">
-          Below are some of the tech companies you can get resume reviewed for
+          Below are some of the tech companies you can get resumes reviewed for
         </BodyTwo>
       </div>
       <div className={styles.companies}>

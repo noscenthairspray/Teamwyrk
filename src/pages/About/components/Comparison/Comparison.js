@@ -8,17 +8,17 @@ const Comparison = () => {
     <div className={styles.container}>
       <div className={styles.containerText}>
         <div className={styles.title}>
-          <Header color="primary">How do we compare?</Header>
+          <Header color="darkBlue">How do we compare?</Header>
         </div>
-        <BodyTwo color="primary">
-          Take a look at how we compare to other companies
+        <BodyTwo color="darkBlue">
+          Look at how we stack up against the others
         </BodyTwo>
       </div>
       <div className={styles.containerBulletPoints}>
         <BulletPoints comparisonData={comparison.teamwork} title="TeamWyrk" />
         <BulletPoints
           comparisonData={comparison.competitors}
-          title="Competitors"
+          title="Our Competitors"
         />
       </div>
     </div>
