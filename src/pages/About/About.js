@@ -10,10 +10,10 @@ const About = () => {
         <Header color="darkBlue">We are TeamWyrk</Header>
       </div>
       <Showcase />
-      <Companies />
       <Experience />
+      <Companies />
       <Comparison />
-      <CTA buttonText="Get Started" />
+      <CTA buttonText="Join the waitlist" />
     </div>
   );
 };

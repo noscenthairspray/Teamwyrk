@@ -1,6 +1,6 @@
 .container {
-  padding: 60px 0px;
-  background-color: #37447e;
+  padding: 80px 0px;
+  background-color: #EFF2FC;
 }
 
 .wrapper {
@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .containerText {
   margin-bottom: 40px;
 }
@@ -42,10 +43,12 @@
     font-size: 18px;
     line-height: 30px;
   }
+
   .containerImage img {
     width: 320px;
     height: auto;
   }
+
   .containerImage {
     flex-direction: column;
     margin-left: 0px;

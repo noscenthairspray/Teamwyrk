@@ -1,14 +1,14 @@
 export const comparison = {
   teamwork: [
     "Resume reviews to help land an interview",
-    "Expert coaching from top companies",
+    "Expert coaching from verified employees",
     "A Nonprofit helping others for social good",
     "Access to a credible network of tech professionals",
     "Peer mock interviews to help you land your next role",
     "Vetted Insiders to provide you with the best service",
   ],
   competitors: [
-    "Nonessential website features",
+    "Confusing website features",
     "Limited content on free tiers",
     "Poor feedback from tech professionals",
     "Upsells with no benefit to users",

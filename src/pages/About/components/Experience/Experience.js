@@ -7,11 +7,11 @@ const Experience = () => {
       <div className={styles.wrapper}>
         <div className={styles.containerText}>
           <div className={styles.title}>
-            <SubHeader color="contrast">
-              Our insiders have over 10+ years of experience
+            <SubHeader color="primary">
+              Our Insiders have over 10+ years of experience
             </SubHeader>
           </div>
-          <BodyTwo color="contrast">
+          <BodyTwo color="primary">
             From skilled employees to industry veterans, we are bringing you the
             best in the business. Whether it’s Product Management, Design, or
             Engineering, our Insiders will guide you in the right direction.
