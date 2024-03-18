@@ -21,6 +21,17 @@ const RequesterForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false); // This state is for the confirmation(upsell) screen after the request is submitted successfully
   const navigate = useNavigate();
 
+  //adding state to track if required fields are set for coloring the submit button
+  const [areReqFieldsSet, setAreReqFieldsSet] = useState({
+    service_chosen: false,
+    full_name: false,
+    email: false,
+    desired_company: false,
+    desired_role: false,
+    resume: false,
+    payment: false,
+  });
+
   const {
     register,
     watch,
@@ -29,11 +40,18 @@ const RequesterForm = () => {
     formState: { errors },
   } = useForm();
 
+  //custom onResumeChange function to track if resume field is set
+  const onResumeChange = (e) => {
+    setAreReqFieldsSet((prev) => ({ ...prev, resume: e.target.files?.length > 0 }));
+  };
+
   const onPaymentChange = (e) => {
     //Required when using handlePaymentKeyPress
     setError("payment", false);
     const newValue = e.target.value;
     setPaymentValue(newValue);
+    //update state to track if payment is set
+    setAreReqFieldsSet((prev) => ({ ...prev, payment: newValue.trim() !== "" }));
   };
 
   const handlePaymentKeyPress = (e) => {
@@ -93,7 +111,13 @@ const RequesterForm = () => {
               className={styles.select}
               id="services"
               required
-              {...register("services", { required: true })}
+              {...register("services", { 
+                required: true,
+                //added custom onChange to track if service is set
+                onChange: (e) => {
+                  setAreReqFieldsSet({...areReqFieldsSet, service_chosen: e.target.value !== ""})
+                } 
+               })}
             >
               <option value="" hidden>
                 Select one
@@ -117,6 +141,10 @@ const RequesterForm = () => {
               placeholder="E.g. Jane Doe"
               {...register("name", {
                 required: true,
+                //added custom onChange to track if name is set
+                onChange: (e) => {
+                  setAreReqFieldsSet({...areReqFieldsSet, full_name: e.target.value !== ""})
+                },
               })}
             />
             {errors.name && <InputError text="Please enter your full name." />}
@@ -133,6 +161,10 @@ const RequesterForm = () => {
               {...register("email", {
                 required: true,
                 pattern: /^\S+@\S+$/i,
+                //added custom onChange to track if email is set
+                onChange: (e) => {
+                  setAreReqFieldsSet({...areReqFieldsSet, email: e.target.value !== ""})
+                }
               })}
             />
             {errors.email && (
@@ -151,6 +183,10 @@ const RequesterForm = () => {
               placeholder="E.g. Microsoft"
               {...register("desired_company", {
                 required: true,
+                //added custom onChange to track if desired company is set
+                onChange: (e) => {
+                  setAreReqFieldsSet({...areReqFieldsSet, desired_company: e.target.value !== ""})
+                }
               })}
             />
             {errors["desired_company"] && (
@@ -168,6 +204,10 @@ const RequesterForm = () => {
               placeholder="E.g. Product Manager"
               {...register("desired_role", {
                 required: true,
+                //added custom onChange to track if desired role is set
+                onChange: (e) => {
+                  setAreReqFieldsSet({...areReqFieldsSet, desired_role: e.target.value !== ""})
+                }
               })}
             />
             {errors["desired_role"] && (
@@ -201,6 +241,7 @@ const RequesterForm = () => {
               errors={errors}
               setError={setError}
               watch={watch}
+              onResumeChange={onResumeChange}
             />
           </fieldset>
 
@@ -254,9 +295,12 @@ const RequesterForm = () => {
 
           <fieldset>
             <StyledButton
-              color="yellow"
+              //checking if all required fields are set in order to make submit button active (i.e. yellow color)
+              color={Object.values(areReqFieldsSet).every(Boolean)
+                ? "yellow" : "disabled"}
               type="submit"
-              disabled={isSubmitting ? true : false}
+              //disabled if any of the required fields are not set or if form is submitting
+              disabled={isSubmitting || !Object.values(areReqFieldsSet).every(Boolean) ? true : false}
               hover
             >
               {isSubmitting ? (

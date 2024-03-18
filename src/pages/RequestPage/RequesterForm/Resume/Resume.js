@@ -1,7 +1,7 @@
 import styles from "./Resume.module.css";
 import { InputError } from "../../../../components/Alerts/Error";
 
-const Resume = ({ register, errors, watch }) => {
+const Resume = ({ register, errors, watch, onResumeChange }) => {
   const inputFile = watch("resume");
 
   return (
@@ -17,6 +17,7 @@ const Resume = ({ register, errors, watch }) => {
           hidden
           {...register("resume", {
             required: true,
+            onChange: (e) => {onResumeChange(e)},
             validate: {
               isFileValid: (value) => {
                 const validTypes = [
