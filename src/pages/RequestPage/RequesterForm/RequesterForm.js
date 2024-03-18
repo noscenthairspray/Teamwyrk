@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styles from "./RequesterForm.module.css";
 import FormHeader from "./FormHeader";
@@ -19,7 +19,6 @@ const RequesterForm = () => {
   const [paymentValue, setPaymentValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false); // This state is for the confirmation(upsell) screen after the request is submitted successfully
-  const navigate = useNavigate();
 
   //adding state to track if required fields are set for coloring the submit button
   const [areReqFieldsSet, setAreReqFieldsSet] = useState({
