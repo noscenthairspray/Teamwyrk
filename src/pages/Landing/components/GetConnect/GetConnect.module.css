@@ -1,6 +1,8 @@
 .container {
   padding: 80px 0px;
-  background: #bac3e5;
+  background: #EFF2FC;
+  max-width: 1270px;
+  margin: 0 auto;
 }
 
 .wrapper {

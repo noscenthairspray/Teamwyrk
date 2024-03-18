@@ -2,6 +2,7 @@
   max-width: 1270px;
   margin: 0 auto;
   padding: 40px 0px;
+  background: #EFF2FC;
 }
 
 .title {
@@ -23,6 +24,7 @@
   border-radius: 20px;
   border: 1px solid #bac3e5;
   overflow: hidden;
+  background: #FFFFFF;
 }
 
 .individualCard img {
