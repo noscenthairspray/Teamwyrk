@@ -1,0 +1,22 @@
+.pillButton {
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  border: none;
+  cursor: auto;
+  font-size: 1em;
+}
+
+.matching {
+  background-color: #d9d9d9;
+  color: black;
+}
+
+.matched {
+  background-color: rgb(107, 227, 162);
+  color: rgb(0, 0, 0);
+}
+
+.accept {
+  background-color: rgb(239, 242, 252);
+  color: rgb(0, 0, 0);
+}
