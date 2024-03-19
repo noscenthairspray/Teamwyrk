@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { collection, query, orderBy, getDocs, doc, updateDoc, where } from "firebase/firestore";
+import { collection, query, getDocs, doc, updateDoc, where } from "firebase/firestore";
 import { db, auth } from "../../../firebase";
-import { Navigate } from "react-router-dom";
 import { useAuthState } from "../../../hooks/useAuthState";
 import {
   InsiderFeedLayout,
+  InsiderRequestFeedItem,
   RequestFeedItem,
   GetMatchedModal,
 } from "./components";
@@ -102,7 +102,6 @@ const InsiderFeed = () => {
   }, [tab]);
 
   return (
-    <>
       <InsiderFeedLayout tab={tab} setTab={setTab}>
         {showSnackbar && (
           <Snackbar
@@ -111,8 +110,17 @@ const InsiderFeed = () => {
           />
         )}
         <div className="itemsContainer">
-          {requests.map((request) => (
+          {/* map over requests for feed tab */}
+          {tab === "feed" && requests.map((request) => (
             <RequestFeedItem
+              key={request.id}
+              requestData={request}
+              handleClickGetMatched={handleClickGetMatched}
+            />
+          ))}
+          {/* render in-progress requests for the in progress tab */}
+          {tab !== "feed" && requests.map((request) => (
+            <InsiderRequestFeedItem
               key={request.id}
               requestData={request}
               handleClickGetMatched={handleClickGetMatched}
@@ -130,7 +138,6 @@ const InsiderFeed = () => {
           />
         )}
       </InsiderFeedLayout>
-    </>
   );
 };
 
