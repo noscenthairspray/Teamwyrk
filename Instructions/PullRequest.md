@@ -47,6 +47,8 @@
 
     ![Submitting request](images/submitting-request.png)
 
-11. Now you're done! Wait for devs to review your request. Any future commits you add to your ticket branch will be automatically updated in the pull request. You do not need to create a pull request everytime you commit.
+11. @ the PM in the swe-and-tpgm slack channel that your ticket is done and ready to be reviewed. This will let the other devs know to start reviewing your pull request.
+
+12. Now you're done! Wait for devs to review your request. Any future commits you add to your ticket branch will be automatically updated in the pull request. You do not need to create a pull request everytime you commit.
 
     ![Commits example](images/commit-example.png)
