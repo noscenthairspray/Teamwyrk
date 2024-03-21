@@ -66,6 +66,9 @@
 
        ![Merge pull](images/merge-pull.png)
 
+       6. If you've accidentally merged the branch, don't worry! Reverting the production branch back to previous is easy to do. Just follow these instructions:
+          [Git Revert](https://codedamn.com/news/programming/git-revert-last-commit)
+
     2. If it doesn't start up correctly, then there are issues that need to be resolved. Make sure you can start up the current production branch without any issues. This eliminates a longer debugging process, since the production branch should start up with no problems.
 
     If you know the problem is not on your end, then you should screenshot the error and comment the issue on the request.
