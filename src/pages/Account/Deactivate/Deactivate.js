@@ -1,9 +1,7 @@
 import { useState } from "react";
 import styles from "./Deactivate.module.css";
 import Modal from "./DeleteModal";
-import DeactivateEmailTemplate from "./DeactiviateEmailTemplate";
-import { db } from "../../../firebase";
-import { addDoc, collection } from "firebase/firestore";
+import DeactivateModal from "./DeactivateModal/DeactivateModal";
 
 /** Deactivate is a React component that displays two buttons.
  * One button is for account deactivation and the other is for delection.
@@ -13,27 +11,10 @@ import { addDoc, collection } from "firebase/firestore";
  * - user: Object that holds the user's account information
  */
 const Deactivate = ({ user }) => {
-  // State to hold Delete Modal
+  // State to hold Delete Modal and Deactivate Modal
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeactivateModalOpen, setIsDeactivateModalOpen] = useState(false);
 
-  /** Function to send out deactivation email when 'Deactivate' is clicked */
-  const handleDeactivate = async () => {
-    // userName: user.displayName
-    const emailTemplate = DeactivateEmailTemplate(user.displayName);
-
-    try {
-      // Adds new email document
-      const docRef = await addDoc(collection(db, "mail"), {
-        to: user.email,
-        message: {
-          subject: "Account Deactivation Confirmation",
-          html: emailTemplate,
-        },
-      });
-    } catch (error) {
-      // Error sending email
-    }
-  };
   return (
     <>
       <div className={styles.container}>
@@ -41,11 +22,17 @@ const Deactivate = ({ user }) => {
           <button
             className={styles.title}
             onClick={() => {
-              handleDeactivate();
+              setIsDeactivateModalOpen(true);
             }}
           >
             Deactivate Account
           </button>
+          {isDeactivateModalOpen && (
+            <DeactivateModal
+              closeModal={setIsDeactivateModalOpen}
+              user={user}
+            />
+          )}
           <p className={styles.text}>
             Need a break? We understand. If you are sure you want to deactivate
             your account, you may do so by selecting the link above.
