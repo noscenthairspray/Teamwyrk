@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../DeleteModal/DeleteModal.module.css";
 import StyledButton from "../../../../components/StyledButton/StyledButton";
-import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../../firebase";
 import {
   addDoc,
@@ -25,8 +24,6 @@ import { signOut } from "firebase/auth";
  * - user: Object that holds the user's account information
  */
 const DeactivateModal = ({ closeModal, user }) => {
-  const navigate = useNavigate();
-
   /** Function to deactivate account 'Continue' is clicked */
   const handleDeactivate = async () => {
     // grab the user doc from the firestore
@@ -43,13 +40,15 @@ const DeactivateModal = ({ closeModal, user }) => {
           where("uid", "==", user.uid) // Filter by logged-in user's uid
         );
         const querySnapshot = await getDocs(q);
-        const requestsData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        requestsData.forEach((req) => {
-          deleteDoc(doc(db, "request", req.id));
-        });
+        if (querySnapshot.docs.length) {
+          const requestsData = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          requestsData.forEach((req) => {
+            deleteDoc(doc(db, "request", req.id));
+          });
+        }
       }
       // if user's role is an insider, set all the request they are matched on back to matching status.
       else {
@@ -58,31 +57,23 @@ const DeactivateModal = ({ closeModal, user }) => {
           where("insider", "==", user.uid) // Filter by logged-in user's uid
         );
         const querySnapshot = await getDocs(q);
-        console.log(querySnapshot);
-        const requestsData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        requestsData.forEach((req) => {
-          updateDoc(doc(db, "request", req.id), {
-            insider: null,
-            status: "matching",
+        if (querySnapshot.docs.length) {
+          const requestsData = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          requestsData.forEach((req) => {
+            updateDoc(doc(db, "request", req.id), {
+              insider: null,
+              status: "matching",
+            });
           });
-        });
+        }
       }
 
-      navigate("/signin");
-      signOut(auth);
-    } catch (error) {}
-  };
-
-  /** Function to send a deactivate email when 'Continue' is clicked */
-  const handleDeactivateEmail = async () => {
-    // userName: user's name
-    const emailTemplate = DeactivateEmailTemplate(user.displayName);
-
-    try {
       // Adds new email document
+      const emailTemplate = DeactivateEmailTemplate(user.displayName);
+
       await addDoc(collection(db, "mail"), {
         to: user.email,
         message: {
@@ -90,9 +81,10 @@ const DeactivateModal = ({ closeModal, user }) => {
           html: emailTemplate,
         },
       });
-    } catch (error) {
-      // Error sending email
-    }
+
+      //sign out the user and navigate back to home page
+      signOut(auth);
+    } catch (error) {}
   };
 
   return (
@@ -135,7 +127,6 @@ const DeactivateModal = ({ closeModal, user }) => {
                 color="primary"
                 onClick={() => {
                   handleDeactivate();
-                  handleDeactivateEmail();
                 }}
               >
                 {" "}
