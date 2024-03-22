@@ -35,9 +35,9 @@
   box-sizing: border-box;
   width: 56px;
   height: 56px;
-  border: 1px solid #37447e;
   border-radius: 50%;
   justify-content: center;
+  background: #37447E;
 }
 
 .number {
@@ -48,6 +48,7 @@
   top: 12px;
   font-weight: 400;
   font-size: 23px;
+  color: #FFFFFF;
 }
 
 .rightContainer li {
